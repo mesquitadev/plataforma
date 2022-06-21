@@ -1,0 +1,81 @@
+$bootstrap-sass-asset-helper: false !default;
+
+// Variables
+// Colors
+
+$title-color: #0f1932;
+// $theme-color: #1893f0;
+$theme-color: #1e90ff;
+$theme-one: #17264d;
+$theme-two: #1f3366;
+$theme-three: #1f3366;
+$theme-four: #1e90ff;
+$theme-five: #381087;
+$body-color :#555555;
+$primary-color: #1893f0;
+$border-color: #e5e5e5;
+$before-bg: #300173;
+$before-bg-2: #9c7003;
+$ash-color:aliceblue;
+$white-color: #ffffff;
+$lallu-color : #e883ae;
+$dark-color: #0f1932;
+$fafa: #fafafa;
+$section-bg : #ffffff;
+$body-bg : aliceblue;
+$theme-bg : -webkit-linear-gradient(-90deg, rgb(146, 67, 243) 0%, rgb(112, 35, 217) 45%, rgb(78, 2, 190) 100%);
+
+// social-media icons color
+$whatsapp: #25d366;
+$facebook: #3b5998;
+$twitter: #55acee;
+$linkedin: #007bb5;
+$pinterest: #007bb5;
+$skype: #2fb7df;
+$youtube: #cd201f;
+$google: #dd4b39;
+$camera: #e4405f;
+$instagram: #e4405f;
+$tumblr: #34465d;
+$behance: #1769ff;
+$star: #e9ba17;
+$green: #0be881;
+$green-h: #0fbcf9;
+$red: #f53b57;
+$yellow: #dec32b;
+$nell: #212fb4;
+$navy: #d8e0f3;
+$placeholder: #a1a1a2;
+$name-dec: #3f485d;
+$futbol : #db3776;
+$vimeo : #1ab7ea;
+//== Typography
+
+// font-family
+$Body: 'Roboto', sans-serif;
+$body: 'Roboto', sans-serif;
+$Heading: 'Poppins', sans-serif;
+$heading: 'Poppins', sans-serif;
+
+// font-size
+$fs-base: 16px;
+$fs-large: 18px; 
+$fs-small: 14px;
+$fs-h1: 48px;
+$fs-h2: 30px;
+$fs-h3: 28px;
+$fs-h4: 24px;
+$fs-h5: 20px;
+$fs-h6: 18px;
+
+$fs-sm-h1: 80px;
+$fs-sm-h2: 40px;
+$fs-sm-h3: 36px;
+$fs-sm-h4: 30px;
+$fs-sm-h5: 24px;
+$fs-sm-h6: 22px;
+
+ //Description line height
+ $lh-p: 28px; //28px; 
+ //  transition
+$transition: all ease 0.3s;

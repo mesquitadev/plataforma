@@ -1,0 +1,47 @@
+/*Footer Section Starts Here*/
+footer {
+    background: $title-color;
+}
+.footer-top {
+    padding: 60px 0 40px;
+    @include breakpoint(lg) {
+        padding: 90px 0 50px;
+    }
+    p {
+        color: $white-color;
+        max-width: 700px;
+        text-align: center;
+        margin: 0 auto 25px;
+        @include breakpoint(sm) {
+            margin-bottom: 35px;
+        }
+    }
+    .logo {
+        width: 150px;
+        margin: 0 auto 20px;
+        @include breakpoint(sm) {
+            margin-bottom: 25px;
+        }
+        a {
+            display: block;
+        }
+        img {
+            width: 100%;
+        }
+    }
+    .social-icons {
+        justify-content: center;
+    }
+}
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba($color:$white-color, $alpha:.3);
+    padding: 15px;
+    p {
+        margin: 0 !important;
+        color: $white-color;
+        a {
+            color: $white-color;
+        }
+    }
+}
