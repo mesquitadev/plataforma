@@ -11,15 +11,15 @@ class WithdrawMethodController extends Controller
 {
     public function methods()
     {
-        $page_title = 'Withdraw Methods';
-        $empty_message = 'Withdraw Methods not found.';
+        $page_title = 'Métodos de Saque';
+        $empty_message = 'Sem dados encontrados.';
         $methods = WithdrawMethod::orderByDesc('status')->orderBy('id')->get();
         return view('admin.withdraw.index', compact('page_title', 'empty_message', 'methods'));
     }
 
     public function create()
     {
-        $page_title = 'New Withdraw Method';
+        $page_title = 'Novo Método de Saque';
         return view('admin.withdraw.create', compact('page_title'));
     }
 
@@ -86,7 +86,7 @@ class WithdrawMethodController extends Controller
 
     public function edit($id)
     {
-        $page_title = 'Update Withdraw Method';
+        $page_title = 'Atualizar Método de Saque';
         $method = WithdrawMethod::findOrFail($id);
         return view('admin.withdraw.edit', compact('page_title', 'method'));
     }

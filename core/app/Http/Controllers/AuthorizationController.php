@@ -42,7 +42,7 @@ class AuthorizationController extends Controller
                         'code' => $user->ver_code
                     ]);
                 }
-                $page_title = 'Email verification form';
+                $page_title = 'Formulário de Verificação de Email';
                 return view($this->activeTemplate.'user.auth.authorization.email', compact('user', 'page_title'));
             }elseif (!$user->sv) {
                 if (!$this->checkValidCode($user, $user->ver_code)) {
@@ -53,7 +53,7 @@ class AuthorizationController extends Controller
                         'code' => $user->ver_code
                     ]);
                 }
-                $page_title = 'SMS verification form';
+                $page_title = 'Formulário de Verificação de SMS';
                 return view($this->activeTemplate.'user.auth.authorization.sms', compact('user', 'page_title'));
             }elseif (!$user->tv) {
                 $page_title = 'Google Authenticator';
@@ -94,13 +94,13 @@ class AuthorizationController extends Controller
                 'code' => $user->ver_code
             ]);
 
-            $notify[] = ['success', 'Email verification code sent successfully'];
+            $notify[] = ['success', 'Código de verificação de e-mail enviado com sucesso'];
             return back()->withNotify($notify);
         } elseif ($request->type === 'phone') {
             sendSms($user, 'SVER_CODE', [
                 'code' => $user->ver_code
             ]);
-            $notify[] = ['success', 'SMS verification code sent successfully'];
+            $notify[] = ['success', 'Código de verificação SMS enviado com sucesso'];
             return back()->withNotify($notify);
         } else {
             throw ValidationException::withMessages(['resend' => 'Sending Failed']);
@@ -177,7 +177,7 @@ class AuthorizationController extends Controller
             $user->save();
             return redirect()->route('user.home');
         } else {
-            $notify[] = ['error', 'Wrong Verification Code'];
+            $notify[] = ['error', 'Código de verificação incorreto'];
             return back()->withNotify($notify);
         }
     }

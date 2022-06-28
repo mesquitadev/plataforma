@@ -155,13 +155,13 @@ class SiteController extends Controller
                     $attachment->save();
 
                 } catch (\Exception $exp) {
-                    $notify[] = ['error', 'Could not upload your ' . $image];
+                    $notify[] = ['error', 'Não foi possível fazer o upload do seu ' . $image];
                     return back()->withNotify($notify)->withInput();
                 }
 
             }
         }
-        $notify[] = ['success', 'ticket created successfully!'];
+        $notify[] = ['success', 'ticket criado com sucesso!'];
 
         return redirect()->route('ticket.view', [$ticket->ticket])->withNotify($notify);
     }
@@ -235,14 +235,14 @@ class SiteController extends Controller
         ]);
 
         Subscriber::create($request->only('email', 'name'));
-        $notify[] = ['success', 'Subscribed Successfully!'];
+        $notify[] = ['success', 'Subscrito com sucesso!'];
         return back()->withNotify($notify);
 
     }
 
     public function terms()
     {
-        $data['page_title'] = "Terms & Conditions";
+        $data['page_title'] = "Termos e Condições";
         $data['terms'] = Frontend::where('data_keys', 'terms_conditions.content')->first();
         return view(activeTemplate() . 'terms', $data);
     }

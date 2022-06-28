@@ -25,7 +25,7 @@ class PaymentController extends Controller
         $gatewayCurrency = GatewayCurrency::whereHas('method', function ($gate) {
             $gate->where('status', 1);
         })->with('method')->orderby('method_code')->get();
-        $page_title = 'Deposit Methods';
+        $page_title = 'Métodos de Depósito';
         return view($this->activeTemplate . 'user.payment.deposit', compact('gatewayCurrency', 'page_title'));
     }
 
@@ -88,7 +88,7 @@ class PaymentController extends Controller
             $notify[] = ['error', 'Invalid Deposit Request'];
             return redirect()->route(gatewayRedirectUrl())->withNotify($notify);
         }
-        $page_title = 'Payment Preview';
+        $page_title = 'Preview do Pagamento';
         return view($this->activeTemplate . 'user.payment.preview', compact('data', 'page_title'));
     }
 
@@ -134,7 +134,7 @@ class PaymentController extends Controller
             $deposit->save();
         }
 
-        $page_title = 'Payment Confirm';
+        $page_title = 'Confirmar Pagamento';
         return view($this->activeTemplate . $data->view, compact('data', 'page_title', 'deposit'));
     }
 
@@ -196,7 +196,7 @@ class PaymentController extends Controller
         }
         if ($data->method_code > 999) {
 
-            $page_title = 'Deposit Confirm';
+            $page_title = 'Confirmar Depósito';
             $method = $data->gateway_currency();
             return view($this->activeTemplate . 'user.manual_payment.manual_confirm', compact('data', 'page_title', 'method'));
         }

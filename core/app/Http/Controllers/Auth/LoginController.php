@@ -56,7 +56,7 @@ class LoginController extends Controller
     public function showLoginForm()
     {
 
-        $page_title = "Sign In";
+        $page_title = "Entrar";
         $content = Frontend::where('data_keys', 'sign_in.content')->first();
         return view(activeTemplate() . 'user.auth.login', compact('page_title', 'content'));
     }

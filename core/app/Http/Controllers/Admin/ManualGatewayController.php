@@ -12,15 +12,15 @@ class ManualGatewayController extends Controller
 {
     public function index()
     {
-        $page_title = 'Manual Deposit Methods';
+        $page_title = 'Métodos Manuais de Depósito';
         $gateways = Gateway::manual()->latest()->get();
-        $empty_message = 'No deposit methods available.';
+        $empty_message = 'Sem dados encontrados.';
         return view('admin.gateway_manual.list', compact('page_title', 'gateways','empty_message'));
     }
 
     public function create()
     {
-        $page_title = 'New Manual Deposit Method';
+        $page_title = 'Novo método de depósito manual';
         return view('admin.gateway_manual.create', compact('page_title'));
     }
 
@@ -104,7 +104,7 @@ class ManualGatewayController extends Controller
 
     public function edit($alias)
     {
-        $page_title = 'New Manual Deposit Method';
+        $page_title = 'Novo método de depósito manual';
         $method = Gateway::manual()->with('single_currency')->where('alias', $alias)->firstOrFail();
         return view('admin.gateway_manual.edit', compact('page_title', 'method'));
     }

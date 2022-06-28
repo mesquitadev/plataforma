@@ -14,32 +14,32 @@ class SupportTicketController extends Controller
 {
     public function tickets()
     {
-        $page_title = 'Support Tickets';
-        $empty_message = 'No Data found.';
+        $page_title = 'Tickets de Suporte';
+        $empty_message = 'Sem dados encontrados.';
         $items = SupportTicket::latest()->with('user')->paginate(getPaginate());
         return view('admin.support.tickets', compact('items', 'page_title','empty_message'));
     }
 
     public function pendingTicket()
     {
-        $page_title = 'Pending Tickets';
-        $empty_message = 'No Data found.';
+        $page_title = 'Tickets Pendentes';
+        $empty_message = 'Sem dados encontrados.';
         $items = SupportTicket::whereIn('status', [0,2])->latest()->with('user')->paginate(getPaginate());
         return view('admin.support.tickets', compact('items', 'page_title','empty_message'));
     }
 
     public function closedTicket()
     {
-        $empty_message = 'No Data found.';
-        $page_title = 'Closed Tickets';
+        $empty_message = 'Sem dados encontrados.';
+        $page_title = 'Tickets Encerrados';
         $items = SupportTicket::whereIn('status', [3])->latest()->with('user')->paginate(getPaginate());
         return view('admin.support.tickets', compact('items', 'page_title','empty_message'));
     }
 
     public function answeredTicket()
     {
-        $page_title = 'Answered Tickets';
-        $empty_message = 'No Data found.';
+        $page_title = 'Tickets Respondidos';
+        $empty_message = 'Sem dados encontrados.';
         $items = SupportTicket::latest()->with('user')->whereIN('status', [1])->paginate(getPaginate());
         return view('admin.support.tickets', compact('items', 'page_title','empty_message'));
     }
@@ -48,7 +48,7 @@ class SupportTicketController extends Controller
     public function ticketReply($id)
     {
         $ticket = SupportTicket::with('user')->where('id', $id)->firstOrFail();
-        $page_title = 'Support Tickets';
+        $page_title = 'Tickets de Suporte';
         $messages = SupportMessage::with('ticket')->where('supportticket_id', $ticket->id)->latest()->get();
         return view('admin.support.reply', compact('ticket', 'messages', 'page_title'));
     }

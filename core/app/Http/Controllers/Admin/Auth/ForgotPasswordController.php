@@ -41,7 +41,7 @@ class ForgotPasswordController extends Controller
      */
     public function showLinkRequestForm()
     {
-        $page_title = 'Account Recovery';
+        $page_title = 'Recuperar Conta';
         return view('admin.auth.passwords.email', compact('page_title'));
     }
 
@@ -86,8 +86,8 @@ class ForgotPasswordController extends Controller
             'time' => $userIpInfo['time']
         ]);
 
-        $page_title = 'Account Recovery';
-        $notify[] = ['success', 'Password reset email sent successfully'];
+        $page_title = 'Recuperar Conta';
+        $notify[] = ['success', 'Email com o reset de senha enviado com sucesso!'];
         return view('admin.auth.passwords.code_verify', compact('page_title', 'notify'));
     }
 

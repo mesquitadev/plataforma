@@ -89,14 +89,14 @@ class RegisterController extends Controller
 
             $joining = "<span class='help-block2'><strong class='custom-green' >Your are joining under $join_under->username at $get_position  </strong></span>";
 
-            $page_title = "Sign Up";
+            $page_title = "Criar Conta";
             return view($this->activeTemplate . 'user.auth.register', compact('page_title', 'ref_user', 'joining', 'content',  'position', 'country_code'));
 
         }
 
         $ref_user = null;
         $joining = null;
-        $page_title = "Sign Up";
+        $page_title = "Criar Conta";
         return view($this->activeTemplate . 'user.auth.register', compact('page_title', 'ref_user', 'content', 'country_code'));
 
     }

@@ -72,14 +72,14 @@ class ReportController extends Controller
         if ($request->userID)
         {
             $user = User::findOrFail($request->userID);
-            $page_title = $user->username . ' - Referral Commission Logs';
+            $page_title = $user->username . ' - Comissão por Indicação';
             $transactions = Transaction::where('user_id', $user->id)->where('remark', 'referral_commission')->with('user')->latest()->paginate(getPaginate());
         }else {
-            $page_title = 'Referral Commission Logs';
+            $page_title = 'Logs de Comissão por Indicação';
             $transactions = Transaction::where('remark', 'referral_commission')->with('user')->latest()->paginate(getPaginate());
         }
 
-        $empty_message = 'No transactions.';
+        $empty_message = 'Sem dados encontrados.';
         return view('admin.reports.transactions', compact('page_title', 'transactions', 'empty_message'));
     }
 
@@ -88,14 +88,14 @@ class ReportController extends Controller
         if ($request->userID)
         {
             $user = User::findOrFail($request->userID);
-            $page_title = $user->username . ' - Binary Commission Logs';
+            $page_title = $user->username . ' - Logs de Comissão Binária';
             $transactions = Transaction::where('user_id', $user->id)->where('remark', 'binary_commission')->with('user')->latest()->paginate(getPaginate());
         }else {
-            $page_title = 'Referral Commission Logs';
+            $page_title = 'Logs de Comissão por Indicação';
             $transactions = Transaction::where('remark', 'binary_commission')->with('user')->latest()->paginate(getPaginate());
         }
 
-        $empty_message = 'No transactions.';
+        $empty_message = 'Sem dados encontrados.';
         return view('admin.reports.transactions', compact('page_title', 'transactions', 'empty_message'));
     }
     public function invest(Request $request)
@@ -103,21 +103,21 @@ class ReportController extends Controller
         if ($request->userID)
         {
             $user = User::findOrFail($request->userID);
-            $page_title = $user->username . ' - Invest Logs';
+            $page_title = $user->username . ' - Logs de Investimento';
             $transactions = Transaction::where('user_id', $user->id)->where('remark', 'purchased_plan')->with('user')->latest()->paginate(getPaginate());
         }else {
-            $page_title = 'Invest Logs';
+            $page_title = 'Log de Investimento';
             $transactions = Transaction::where('remark', 'purchased_plan')->with('user')->latest()->paginate(getPaginate());
         }
 
-        $empty_message = 'No transactions.';
+        $empty_message = 'Sem dados encontrados.';
         return view('admin.reports.transactions', compact('page_title', 'transactions', 'empty_message'));
     }
     public function transaction()
     {
-        $page_title = 'Transaction Logs';
+        $page_title = 'Logs de Transação';
         $transactions = Transaction::with('user')->orderBy('id','desc')->paginate(getPaginate());
-        $empty_message = 'No transactions.';
+        $empty_message = 'Sem dados encontrados.';
         return view('admin.reports.transactions', compact('page_title', 'transactions', 'empty_message'));
     }
 
@@ -125,8 +125,8 @@ class ReportController extends Controller
     {
         $request->validate(['search' => 'required']);
         $search = $request->search;
-        $page_title = 'Transactions Search - ' . $search;
-        $empty_message = 'No transactions.';
+        $page_title = 'Buscar Transações - ' . $search;
+        $empty_message = 'Sem dados encontrados.';
 
         $transactions = Transaction::with('user')->whereHas('user', function ($user) use ($search) {
             $user->where('username', 'like',"%$search%");
@@ -139,24 +139,24 @@ class ReportController extends Controller
     {
         if ($request->search) {
             $search = $request->search;
-            $page_title = 'User Login History Search - ' . $search;
-            $empty_message = 'No search result found.';
+            $page_title = 'Busca de Histórico de Login - ' . $search;
+            $empty_message = 'Sem dados encontrados.';
             $login_logs = UserLogin::whereHas('user', function ($query) use ($search) {
                 $query->where('username', $search);
             })->orderBy('id','desc')->paginate(getPaginate());
             return view('admin.reports.logins', compact('page_title', 'empty_message', 'search', 'login_logs'));
         }
-        $page_title = 'User Login History';
-        $empty_message = 'No users login found.';
+        $page_title = 'Histórico de Login do Usuário';
+        $empty_message = 'Sem dados encontrados.';
         $login_logs = UserLogin::orderBy('id','desc')->paginate(getPaginate());
         return view('admin.reports.logins', compact('page_title', 'empty_message', 'login_logs'));
     }
 
     public function loginIpHistory($ip)
     {
-        $page_title = 'Login By - ' . $ip;
+        $page_title = 'Login Por - ' . $ip;
         $login_logs = UserLogin::where('user_ip',$ip)->orderBy('id','desc')->paginate(getPaginate());
-        $empty_message = 'No users login found.';
+        $empty_message = 'Sem dados encontrados.';
         return view('admin.reports.logins', compact('page_title', 'empty_message', 'login_logs'));
 
     }

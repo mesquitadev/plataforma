@@ -39,7 +39,7 @@ class UserController extends Controller
     }
     public function profile()
     {
-        $data['page_title'] = "Profile Setting";
+        $data['page_title'] = "Perfil";
         $data['user'] = Auth::user();
         return view($this->activeTemplate. 'user.profile-setting', $data);
     }
@@ -55,8 +55,8 @@ class UserController extends Controller
             'city' => 'sometimes|required|max:50',
             'image' => 'mimes:png,jpg,jpeg'
         ],[
-            'firstname.required'=>'First Name Field is required',
-            'lastname.required'=>'Last Name Field is required'
+            'firstname.required'=>'O Campo nome é obrigatório!',
+            'lastname.required'=>'O Campo sobrenome é obrigatório!'
         ]);
 
 
@@ -91,13 +91,13 @@ class UserController extends Controller
             $image->save($location);
         }
         $user->fill($in)->save();
-        $notify[] = ['success', 'Profile Updated successfully.'];
+        $notify[] = ['success', 'Perfil atualizado.'];
         return back()->withNotify($notify);
     }
 
     public function changePassword()
     {
-        $data['page_title'] = "CHANGE PASSWORD";
+        $data['page_title'] = "Alterar Senha";
         return view($this->activeTemplate . 'user.password', $data);
     }
 
@@ -114,10 +114,10 @@ class UserController extends Controller
                 $password = Hash::make($request->password);
                 $user->password = $password;
                 $user->save();
-                $notify[] = ['success', 'Password Changes successfully.'];
+                $notify[] = ['success', 'Senha alterada.'];
                 return back()->withNotify($notify);
             } else {
-                $notify[] = ['error', 'Current password not match.'];
+                $notify[] = ['error', 'A senha digitada é diferente da atual.'];
                 return back()->withNotify($notify);
             }
         } catch (\PDOException $e) {
@@ -131,8 +131,8 @@ class UserController extends Controller
      */
     public function depositHistory()
     {
-        $page_title = 'Deposit History';
-        $empty_message = 'No history found.';
+        $page_title = 'Extrato de Depósitos';
+        $empty_message = 'Sem dados encontrados.';
         $logs = auth()->user()->deposits()->with(['gateway'])->latest()->paginate(getPaginate());
         return view($this->activeTemplate . 'user.deposit_history', compact('page_title', 'empty_message', 'logs'));
     }
@@ -327,7 +327,7 @@ class UserController extends Controller
         $qrCodeUrl = $ga->getQRCodeGoogleUrl($user->username . '@' . $gnl->sitename, $secret);
         $prevcode = $user->tsc;
         $prevqr = $ga->getQRCodeGoogleUrl($user->username . '@' . $gnl->sitename, $prevcode);
-        $page_title = 'Two Factor';
+        $page_title = 'Dois Fatores';
         return view($this->activeTemplate.'user.twofactor', compact('page_title', 'secret', 'qrCodeUrl', 'prevcode', 'prevqr'));
     }
 
@@ -411,7 +411,7 @@ class UserController extends Controller
 
     function indexTransfer()
     {
-        $page_title = 'Balance Transfer';
+        $page_title = 'Transferência de Saldo';
         return view($this->activeTemplate . '.user.balanceTransfer', compact('page_title'));
     }
 
@@ -511,8 +511,8 @@ class UserController extends Controller
 
     public function userLoginHistory()
     {
-        $page_title = 'User Login History';
-        $empty_message = 'No users login found.';
+        $page_title = 'Histórico de Login';
+        $empty_message = 'Sem dados encontrados.';
         $login_logs = auth()->user()->login_logs()->latest()->paginate(getPaginate());
         return view($this->activeTemplate.'user.logins', compact('page_title', 'empty_message', 'login_logs'));
     }

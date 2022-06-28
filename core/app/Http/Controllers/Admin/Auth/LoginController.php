@@ -111,7 +111,7 @@ class LoginController extends Controller
 
     public function resetPassword()
     {
-        $page_title = 'Account Recovery';
+        $page_title = 'Recuperar Conta';
         return view('admin.reset', compact('page_title'));
     }
 }

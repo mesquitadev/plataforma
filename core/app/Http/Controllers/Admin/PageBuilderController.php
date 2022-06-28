@@ -26,8 +26,8 @@ class PageBuilderController extends Controller
         }
 
         $pdata = Page::where('tempname',$this->activeTemplate)->get();
-        $page_title = 'Manage Section';
-        $empty_message = 'No Page Created Yet';
+        $page_title = 'Gerenciar Seção';
+        $empty_message = 'Sem dados encontrados.';
 
         return view('admin.frontend.builder.pages', compact('page_title','pdata','empty_message'));
     }
@@ -92,7 +92,7 @@ class PageBuilderController extends Controller
     public function manageSection($id)
     {
         $pdata = Page::findOrFail($id);
-        $page_title = 'Manage Section of '.$pdata->name;
+        $page_title = 'Gerenciar Seção de '.$pdata->name;
         $sections =  getPageSections(true);
         ksort($sections);
         return view('admin.frontend.builder.index', compact('page_title','pdata','sections'));

@@ -55,7 +55,7 @@ class ResetPasswordController extends Controller
      */
     public function showResetForm(Request $request, $token)
     {
-        $page_title = "Account Recovery";
+        $page_title = "Recuperar Conta";
         $tk = AdminPasswordReset::where('token', $token)->where('status', 0)->first();
 
         if (empty($tk)) {

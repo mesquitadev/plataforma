@@ -14,7 +14,7 @@ class GeneralSettingController extends Controller
     public function index()
     {
         $general = GeneralSetting::first();
-        $page_title = 'General Settings';
+        $page_title = 'Configuração Geral';
         return view('admin.setting.general_setting', compact('page_title', 'general'));
     }
 
@@ -45,7 +45,7 @@ class GeneralSettingController extends Controller
 
     public function logoIcon()
     {
-        $page_title = 'Logo & Icon';
+        $page_title = 'Logo & Ícone';
         return view('admin.setting.logo_icon', compact('page_title'));
     }
 
@@ -88,7 +88,7 @@ class GeneralSettingController extends Controller
     public function noticeIndex()
     {
 
-        $page_title = 'Notice Settings';
+        $page_title = 'Configurações de aviso';
         return view('admin.notice', compact('page_title'));
 
     }

@@ -16,8 +16,8 @@ class LanguageController extends Controller
 
     public function langManage($lang = false)
     {
-        $page_title = 'Language Manager';
-        $empty_message = 'No language has been added.';
+        $page_title = 'Gerenciador de Idiomas';
+        $empty_message = 'Sem dados encontrados.';
         $languages = Language::orderByDesc('is_default')->get();
         $path = imagePath()['language']['path'];
         $size = imagePath()['language']['size'];
@@ -66,7 +66,7 @@ class LanguageController extends Controller
         $la = new Language();
         $la = Language::findOrFail($id);
 
-       
+
 
         if ($request->is_default) {
             $lang = $la->where('is_default', 1)->first();
@@ -98,13 +98,13 @@ class LanguageController extends Controller
     public function langEdit($id)
     {
         $la = Language::find($id);
-        $page_title = "Update " . $la->name . " Keywords";
+        $page_title = "Atualizar " . $la->name . " palavras-chave";
         $json = file_get_contents(resource_path('lang/') . $la->code . '.json');
         $list_lang = Language::all();
 
 
         if (empty($json)) {
-            $notify[] = ['error', 'File Not Found.'];
+            $notify[] = ['error', 'Arquivo não encontrado.'];
             return back()->with($notify);
         }
         $json = json_decode($json);

@@ -32,7 +32,7 @@ class ForgotPasswordController extends Controller
 
     public function showLinkRequestForm()
     {
-        $page_title = "Forgot Password";
+        $page_title = "Esqueci a Senha";
         $content    = Frontend::where('data_keys', 'sign_in.content')->first();
         return view(activeTemplate() . 'user.auth.passwords.email', compact('page_title', 'content'));
     }
@@ -84,7 +84,7 @@ class ForgotPasswordController extends Controller
             'time' => @$userIpInfo['time']
         ]);
 
-        $page_title = 'Account Recovery';
+        $page_title = 'Recuperar Conta';
         $email = $user->email;
         session()->put('pass_res_mail',$email);
         $notify[] = ['success', 'Password reset email sent successfully'];
@@ -92,7 +92,7 @@ class ForgotPasswordController extends Controller
     }
 
     public function codeVerify(){
-        $page_title = 'Account Recovery';
+        $page_title = 'Recuperar Conta';
         $email = session()->get('pass_res_mail');
         if (!$email) {
             $notify[] = ['error','Opps! session expired'];

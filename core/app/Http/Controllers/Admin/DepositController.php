@@ -16,8 +16,8 @@ class DepositController extends Controller
 
     public function pending()
     {
-        $page_title = 'Pending Deposits';
-        $empty_message = 'No pending deposits.';
+        $page_title = 'Depósitos Pendentes';
+        $empty_message = 'Sem dados encontrados.';
         $type = 'pending';
         $deposits = Deposit::where('method_code', '>=', 1000)->where('status', 2)->with(['user', 'gateway'])->latest()->paginate(getPaginate());
         return view('admin.deposit.log', compact('page_title', 'empty_message', 'deposits','type'));
@@ -26,8 +26,8 @@ class DepositController extends Controller
 
     public function approved()
     {
-        $page_title = 'Approved Deposits';
-        $empty_message = 'No approved deposits.';
+        $page_title = 'Depósitos Aprovados';
+        $empty_message = 'Sem dados encontrados.';
         $deposits = Deposit::where('method_code','>=',1000)->where('status', 1)->with(['user', 'gateway'])->latest()->paginate(getPaginate());
         $type = 'approved';
         return view('admin.deposit.log', compact('page_title', 'empty_message', 'deposits','type'));
@@ -35,8 +35,8 @@ class DepositController extends Controller
 
     public function successful()
     {
-        $page_title = 'Successful Deposits';
-        $empty_message = 'No successful deposits.';
+        $page_title = 'Depósitos com Sucesso';
+        $empty_message = 'Sem dados encontrados.';
         $deposits = Deposit::where('status', 1)->with(['user', 'gateway'])->latest()->paginate(getPaginate());
         $type = 'successful';
         return view('admin.deposit.log', compact('page_title', 'empty_message', 'deposits','type'));
@@ -44,8 +44,8 @@ class DepositController extends Controller
 
     public function rejected()
     {
-        $page_title = 'Rejected Deposits';
-        $empty_message = 'No rejected deposits.';
+        $page_title = 'Depósitos Negados';
+        $empty_message = 'Sem dados encontrados.';
         $type = 'rejected';
         $deposits = Deposit::where('method_code', '>=', 1000)->where('status', 3)->with(['user', 'gateway'])->latest()->paginate(getPaginate());
         return view('admin.deposit.log', compact('page_title', 'empty_message', 'deposits','type'));
@@ -53,8 +53,8 @@ class DepositController extends Controller
 
     public function deposit()
     {
-        $page_title = 'Deposit History';
-        $empty_message = 'No deposit history available.';
+        $page_title = 'Histórico de Depósitos';
+        $empty_message = 'Sem dados encontrados.';
         $deposits = Deposit::with(['user', 'gateway'])->where('status','!=',0)->latest()->paginate(getPaginate());
         return view('admin.deposit.log', compact('page_title', 'empty_message', 'deposits'));
     }
@@ -63,24 +63,24 @@ class DepositController extends Controller
         $method = Gateway::where('alias',$method)->firstOrFail();
 
         if ($type == 'approved') {
-            $page_title = 'Approved Payment Via '.$method->name;
+            $page_title = 'Pagamento Aprovado Via '.$method->name;
             $deposits = Deposit::where('method_code','>=',1000)->where('method_code',$method->code)->where('status', 1)->latest()->with(['user', 'gateway'])->paginate(getPaginate());
         }elseif($type == 'rejected'){
-            $page_title = 'Rejected Payment Via '.$method->name;
+            $page_title = 'Pagamento Negado Via '.$method->name;
             $deposits = Deposit::where('method_code','>=',1000)->where('method_code',$method->code)->where('status', 3)->latest()->with(['user', 'gateway'])->paginate(getPaginate());
 
         }elseif($type == 'successful'){
-            $page_title = 'Successful Payment Via '.$method->name;
+            $page_title = 'Pagamento com Sucesso Via '.$method->name;
             $deposits = Deposit::where('status', 1)->where('method_code',$method->code)->latest()->with(['user', 'gateway'])->paginate(getPaginate());
         }elseif($type == 'pending'){
-            $page_title = 'Pending Payment Via '.$method->name;
+            $page_title = 'Pagamento Pendente Via '.$method->name;
             $deposits = Deposit::where('method_code','>=',1000)->where('method_code',$method->code)->where('status', 2)->latest()->with(['user', 'gateway'])->paginate(getPaginate());
         }else{
-            $page_title = 'Payment Via '.$method->name;
+            $page_title = 'Pagamento Via '.$method->name;
             $deposits = Deposit::where('status','!=',0)->where('method_code',$method->code)->latest()->with(['user', 'gateway'])->paginate(getPaginate());
         }
         $methodAlias = $method->alias;
-        $empty_message = 'Deposit Log';
+        $empty_message = 'Log de Depósitos';
         return view('admin.deposit.log', compact('page_title', 'empty_message', 'deposits','methodAlias'));
     }
 
@@ -88,7 +88,7 @@ class DepositController extends Controller
     {
         $search = $request->search;
         $page_title = '';
-        $empty_message = 'No search result was found.';
+        $empty_message = 'Sem dados encontrados.';
 
         $deposits = Deposit::with(['user', 'gateway'])->where('status','!=',0)->where(function ($q) use ($search) {
             $q->where('trx', 'like', "%$search%")->orWhereHas('user', function ($user) use ($search) {
@@ -97,19 +97,19 @@ class DepositController extends Controller
         });
         switch ($scope) {
             case 'pending':
-                $page_title .= 'Pending Deposits Search';
+                $page_title .= 'Pesquisa de Depósitos Pendentes';
                 $deposits = $deposits->where('method_code', '>=', 1000)->where('status', 2);
                 break;
             case 'approved':
-                $page_title .= 'Approved Deposits Search';
+                $page_title .= 'Pesquisa de Depósitos Aprovados';
                 $deposits = $deposits->where('method_code', '>=', 1000)->where('status', 1);
                 break;
             case 'rejected':
-                $page_title .= 'Rejected Deposits Search';
+                $page_title .= 'Pesquisa de Depósitos Negados';
                 $deposits = $deposits->where('method_code', '>=', 1000)->where('status', 3);
                 break;
             case 'list':
-                $page_title .= 'Deposits History Search';
+                $page_title .= 'Pesquisa de histórico de depósitos';
                 break;
         }
 
@@ -158,8 +158,8 @@ class DepositController extends Controller
                 break;
         }
         $deposits = $deposits->with(['user', 'gateway'])->latest()->paginate(getPaginate());
-        $page_title = ' Deposits Log';
-        $empty_message = 'Deposit Not Found';
+        $page_title = ' Log de Depósitos';
+        $empty_message = 'Sem dados encontrados.';
         $dateSearch = $search;
         return view('admin.deposit.log', compact('page_title', 'empty_message', 'deposits','dateSearch','scope'));
     }
@@ -168,7 +168,7 @@ class DepositController extends Controller
     {
         $general = GeneralSetting::first();
         $deposit = Deposit::where('id', $id)->where('method_code', '>=', 1000)->with(['user', 'gateway'])->firstOrFail();
-        $page_title = $deposit->user->username.' requested ' . getAmount($deposit->amount) . ' '.$general->cur_text;
+        $page_title = $deposit->user->username.' solicitado ' . getAmount($deposit->amount) . ' '.$general->cur_text;
         $details = ($deposit->detail != null) ? json_encode($deposit->detail) : null;
         return view('admin.deposit.detail', compact('page_title', 'deposit','details'));
     }

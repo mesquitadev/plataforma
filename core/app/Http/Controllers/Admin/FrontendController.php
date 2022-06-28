@@ -41,7 +41,7 @@ class FrontendController extends Controller
 
     public function seoEdit()
     {
-        $page_title = 'SEO Configuration';
+        $page_title = 'Configuração de SEO';
         $seo = Frontend::where('data_keys', 'seo.data')->first();
         if(!$seo){
             $data_values = '{"keywords":["admin","blog"],"description":"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit","social_title":"WEBSITENAME","social_description":"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit","image":null}';
@@ -65,7 +65,7 @@ class FrontendController extends Controller
         $content = Frontend::where('data_keys', $key . '.content')->latest()->first();
         $elements = Frontend::where('data_keys', $key . '.element')->orderBy('id')->latest()->get();
         $page_title = $section->name ;
-        $empty_message = 'No item create yet.';
+        $empty_message = 'Sem dados encontrados.';
         return view('admin.frontend.index', compact('section', 'content', 'elements', 'key', 'page_title', 'empty_message'));
     }
 
@@ -158,7 +158,7 @@ class FrontendController extends Controller
         }
 
         unset($section->element->modal);
-        $page_title = $section->name . ' Items';
+        $page_title = $section->name . ' Itens';
         if ($id) {
             $data = Frontend::findOrFail($id);
             return view('admin.frontend.element', compact('section', 'key', 'page_title', 'data'));

@@ -15,35 +15,35 @@ class WithdrawalController extends Controller
 {
     public function pending()
     {
-        $page_title = 'Pending Withdrawals';
+        $page_title = 'Saques Pendentes';
         $withdrawals = Withdrawal::where('status', 2)->with(['user','method'])->latest()->paginate(getPaginate());
-        $empty_message = 'No withdrawal is pending';
+        $empty_message = 'Sem dados encontrados.';
         $type = 'pending';
         return view('admin.withdraw.withdrawals', compact('page_title', 'withdrawals', 'empty_message','type'));
     }
     public function approved()
     {
-        $page_title = 'Approved Withdrawals';
+        $page_title = 'Saques Aprovados';
         $withdrawals = Withdrawal::where('status', 1)->with(['user','method'])->latest()->paginate(getPaginate());
-        $empty_message = 'No withdrawal is approved';
+        $empty_message = 'Sem dados encontrados.';
         $type = 'approved';
         return view('admin.withdraw.withdrawals', compact('page_title', 'withdrawals', 'empty_message','type'));
     }
 
     public function rejected()
     {
-        $page_title = 'Rejected Withdrawals';
+        $page_title = 'Saques Rejeitados';
         $withdrawals = Withdrawal::where('status', 3)->with(['user','method'])->latest()->paginate(getPaginate());
-        $empty_message = 'No withdrawal is rejected';
+        $empty_message = 'Sem dados encontrados.';
         $type = 'rejected';
         return view('admin.withdraw.withdrawals', compact('page_title', 'withdrawals', 'empty_message','type'));
     }
 
     public function log()
     {
-        $page_title = 'Withdrawals Log';
+        $page_title = 'Log de Saques';
         $withdrawals = Withdrawal::where('status', '!=', 0)->with(['user','method'])->latest()->paginate(getPaginate());
-        $empty_message = 'No withdrawal history';
+        $empty_message = 'Sem dados encontrados.';
         return view('admin.withdraw.withdrawals', compact('page_title', 'withdrawals', 'empty_message'));
     }
 
@@ -51,20 +51,20 @@ class WithdrawalController extends Controller
     public function logViaMethod($method_id,$type = null){
         $method = WithdrawMethod::findOrFail($method_id);
         if ($type == 'approved') {
-            $page_title = 'Approved Withdrawal Via '.$method->name;
+            $page_title = 'Retirada Aprovada Via '.$method->name;
             $withdrawals = Withdrawal::where('status', 1)->with(['user','method'])->latest()->paginate(getPaginate());
         }elseif($type == 'rejected'){
-            $page_title = 'Rejected Withdrawals Via '.$method->name;
+            $page_title = 'Retirada Negada Via '.$method->name;
             $withdrawals = Withdrawal::where('status', 3)->with(['user','method'])->latest()->paginate(getPaginate());
 
         }elseif($type == 'pending'){
-            $page_title = 'Pending Withdrawals Via '.$method->name;
+            $page_title = 'Retirada Pendentes Via '.$method->name;
             $withdrawals = Withdrawal::where('status', 2)->with(['user','method'])->latest()->paginate(getPaginate());
         }else{
-            $page_title = 'Withdrawals Via '.$method->name;
+            $page_title = 'Retirada Via '.$method->name;
             $withdrawals = Withdrawal::where('status', '!=', 0)->with(['user','method'])->latest()->paginate(getPaginate());
         }
-        $empty_message = 'Withdraw Log Not Found';
+        $empty_message = 'Sem dados encontrados.';
         return view('admin.withdraw.withdrawals', compact('page_title', 'withdrawals', 'empty_message','method'));
     }
 
@@ -73,7 +73,7 @@ class WithdrawalController extends Controller
     {
         $search = $request->search;
         $page_title = '';
-        $empty_message = 'No search result found.';
+        $empty_message = 'Sem dados encontrados.';
 
         $withdrawals = Withdrawal::with(['user', 'method'])->where('status','!=',0)->where(function ($q) use ($search) {
             $q->where('trx', 'like',"%$search%")
@@ -84,19 +84,19 @@ class WithdrawalController extends Controller
 
         switch ($scope) {
             case 'pending':
-                $page_title .= 'Pending Withdrawal Search';
+                $page_title .= 'Pesquisa de retirada pendente';
                 $withdrawals = $withdrawals->where('status', 2);
                 break;
             case 'approved':
-                $page_title .= 'Approved Withdrawal Search';
+                $page_title .= 'Pesquisa de retirada Aprovada';
                 $withdrawals = $withdrawals->where('status', 1);
                 break;
             case 'rejected':
-                $page_title .= 'Rejected Withdrawal Search';
+                $page_title .= 'Pesquisa de retirada rejeitada';
                 $withdrawals = $withdrawals->where('status', 3);
                 break;
             case 'log':
-                $page_title .= 'Withdrawal History Search';
+                $page_title .= 'Pesquisa de histórico de saques';
                 break;
         }
 
@@ -144,8 +144,8 @@ class WithdrawalController extends Controller
         }
 
         $withdrawals = $withdrawals->with(['user', 'method'])->paginate(getPaginate());
-        $page_title = 'Withdraw Log';
-        $empty_message = 'No Withdrawals Found';
+        $page_title = 'Log de Retirada';
+        $empty_message = 'Sem dados encontrados.';
         $dateSearch = $search;
         return view('admin.withdraw.withdrawals', compact('page_title', 'empty_message', 'dateSearch', 'withdrawals','scope'));
 
@@ -156,7 +156,7 @@ class WithdrawalController extends Controller
     {
         $general = GeneralSetting::first();
         $withdrawal = Withdrawal::where('id',$id)->where('status', '!=', 0)->with(['user','method'])->firstOrFail();
-        $page_title = $withdrawal->user->username.' Withdraw Requested ' . getAmount($withdrawal->amount) . ' '.$general->cur_text;
+        $page_title = $withdrawal->user->username.' Retirada solicitada ' . getAmount($withdrawal->amount) . ' '.$general->cur_text;
         $details = ($withdrawal->withdraw_information != null) ? json_encode($withdrawal->withdraw_information) : null;
 
 

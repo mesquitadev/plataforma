@@ -29,7 +29,7 @@ class TicketController extends Controller
         if (Auth::id() == null) {
             abort(404);
         }
-        $page_title = "Support Tickets";
+        $page_title = "Tickets de Suporte";
         $supports = SupportTicket::where('user_id', Auth::id())->latest()->paginate(15);
         return view($this->activeTemplate . 'user.support.index', compact('supports', 'page_title'));
     }
@@ -40,7 +40,7 @@ class TicketController extends Controller
         if (!Auth::user()) {
             abort(404);
         }
-        $page_title = "Support Tickets";
+        $page_title = "Tickets de Suporte";
         $user = Auth::user();
         return view($this->activeTemplate . 'user.support.create', compact('page_title', 'user'));
     }
@@ -110,18 +110,18 @@ class TicketController extends Controller
                     $attachment->attachment = uploadFile($file, $path);
                     $attachment->save();
                 } catch (\Exception $exp) {
-                    $notify[] = ['error', 'Could not upload your ' . $file];
+                    $notify[] = ['error', 'Não foi possível fazer o upload do seu ' . $file];
                     return back()->withNotify($notify)->withInput();
                 }
             }
         }
-        $notify[] = ['success', 'ticket created successfully!'];
+        $notify[] = ['success', 'ticket criado com sucesso!'];
         return redirect()->route('ticket')->withNotify($notify);
     }
 
     public function viewTicket($ticket)
     {
-        $page_title = "Support Tickets";
+        $page_title = "Tickets de Suporte";
         $my_ticket = SupportTicket::where('ticket', $ticket)->latest()->first();
         $messages = SupportMessage::where('supportticket_id', $my_ticket->id)->latest()->get();
         $user = auth()->user();
@@ -182,18 +182,18 @@ class TicketController extends Controller
                         $attachment->save();
 
                     } catch (\Exception $exp) {
-                        $notify[] = ['error', 'Could not upload your ' . $file];
+                        $notify[] = ['error', 'Não foi possível fazer o upload do seu ' . $file];
                         return back()->withNotify($notify)->withInput();
                     }
                 }
             }
 
-            $notify[] = ['success', 'Support ticket replied successfully!'];
+            $notify[] = ['success', 'Ticket de suporte respondido com sucesso!'];
         } elseif ($request->replayTicket == 2) {
             $ticket->status = 3;
             $ticket->last_reply = Carbon::now();
             $ticket->save();
-            $notify[] = ['success', 'Support ticket closed successfully!'];
+            $notify[] = ['success', 'Ticket de suporte fechado com sucesso!'];
         }
         return back()->withNotify($notify);
 

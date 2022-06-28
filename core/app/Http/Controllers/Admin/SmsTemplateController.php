@@ -11,8 +11,8 @@ class SmsTemplateController extends Controller
 {
     public function index()
     {
-        $page_title = 'SMS Templates';
-        $empty_message = 'No templates available';
+        $page_title = 'Templates de SMS';
+        $empty_message = 'Sem dados encontrados.';
         $sms_templates = SmsTemplate::get();
         return view('admin.sms_template.index', compact('page_title', 'empty_message', 'sms_templates'));
     }
@@ -21,7 +21,7 @@ class SmsTemplateController extends Controller
     {
         $sms_template = SmsTemplate::findOrFail($id);
         $page_title = $sms_template->name;
-        $empty_message = 'No shortcode available';
+        $empty_message = 'Sem dados encontrados.';
         return view('admin.sms_template.edit', compact('page_title', 'sms_template','empty_message'));
     }
 

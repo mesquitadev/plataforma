@@ -37,7 +37,7 @@ class PlanController extends Controller
         $user = User::find(Auth::id());
 
         if ($user->balance < $plan->price) {
-            $notify[] = ['error', 'Insufficient Balance'];
+            $notify[] = ['error', 'Saldo insuficiente'];
             return back()->withNotify($notify);
         }
 
@@ -76,7 +76,7 @@ class PlanController extends Controller
 
             referralComission($user->id, $details);
 
-            $notify[] = ['success', 'Purchased ' . $plan->name . ' Successfully'];
+            $notify[] = ['success', 'Comprado ' . $plan->name . ' com sucesso'];
             return redirect()->route('user.home')->withNotify($notify);
 
     }
@@ -152,7 +152,7 @@ class PlanController extends Controller
             return view($this->activeTemplate . 'user.myTree', $data);
         }
 
-        $notify[] = ['error', 'Tree Not Found or You do not have Permission to view that!!'];
+        $notify[] = ['error', 'Árvore não encontrada ou você não tem permissão para ver isso!!'];
         return redirect()->route('user.my.tree')->withNotify($notify);
 
     }

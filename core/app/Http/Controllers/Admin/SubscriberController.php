@@ -10,15 +10,15 @@ class SubscriberController extends Controller
 {
     public function index()
     {
-        $page_title = 'Subscriber Manager';
-        $empty_message = 'No subscriber yet.';
+        $page_title = 'Gerenciar Assinantes';
+        $empty_message = 'Sem dados encontrados.';
         $subscribers = Subscriber::latest()->paginate(getPaginate());
         return view('admin.subscriber.index', compact('page_title', 'empty_message', 'subscribers'));
     }
 
     public function sendEmailForm()
     {
-        $page_title = 'Send Email to Subscribers';
+        $page_title = 'Enviar Email para Assinantes';
         return view('admin.subscriber.send_email', compact('page_title'));
     }
 

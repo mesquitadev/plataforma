@@ -21,39 +21,39 @@ class ManageUsersController extends Controller
 {
     public function allUsers()
     {
-        $page_title = 'Manage Users';
-        $empty_message = 'No user found';
+        $page_title = 'Gerenciar Usuários';
+        $empty_message = 'Sem dados encontrados.';
         $users = User::latest()->paginate(getPaginate());
         return view('admin.users.list', compact('page_title', 'empty_message', 'users'));
     }
 
     public function activeUsers()
     {
-        $page_title = 'Manage Active Users';
-        $empty_message = 'No active user found';
+        $page_title = 'Usuários Ativos';
+        $empty_message = 'Sem dados encontrados.';
         $users = User::active()->latest()->paginate(getPaginate());
         return view('admin.users.list', compact('page_title', 'empty_message', 'users'));
     }
 
     public function bannedUsers()
     {
-        $page_title = 'Banned Users';
-        $empty_message = 'No banned user found';
+        $page_title = 'Usuários Banidos';
+        $empty_message = 'Sem dados encontrados.';
         $users = User::banned()->latest()->paginate(getPaginate());
         return view('admin.users.list', compact('page_title', 'empty_message', 'users'));
     }
 
     public function emailUnverifiedUsers()
     {
-        $page_title = 'Email Unverified Users';
-        $empty_message = 'No email unverified user found';
+        $page_title = 'Usuários com Email não Verificado';
+        $empty_message = 'Sem dados encontrados.';
         $users = User::emailUnverified()->latest()->paginate(getPaginate());
         return view('admin.users.list', compact('page_title', 'empty_message', 'users'));
     }
     public function emailVerifiedUsers()
     {
-        $page_title = 'Email Verified Users';
-        $empty_message = 'No email verified user found';
+        $page_title = 'Usuários com Email Verificado';
+        $empty_message = 'Sem dados encontrados.';
         $users = User::emailVerified()->latest()->paginate(getPaginate());
         return view('admin.users.list', compact('page_title', 'empty_message', 'users'));
     }
@@ -61,15 +61,15 @@ class ManageUsersController extends Controller
 
     public function smsUnverifiedUsers()
     {
-        $page_title = 'SMS Unverified Users';
-        $empty_message = 'No sms unverified user found';
+        $page_title = 'Usuários com SMS não Verificado';
+        $empty_message = 'Sem dados encontrados.';
         $users = User::smsUnverified()->latest()->paginate(getPaginate());
         return view('admin.users.list', compact('page_title', 'empty_message', 'users'));
     }
     public function smsVerifiedUsers()
     {
-        $page_title = 'SMS Verified Users';
-        $empty_message = 'No sms verified user found';
+        $page_title = 'Usuários com SMS Verificado';
+        $empty_message = 'Sem dados encontrados.';
         $users = User::smsVerified()->latest()->paginate(getPaginate());
         return view('admin.users.list', compact('page_title', 'empty_message', 'users'));
     }
@@ -89,32 +89,32 @@ class ManageUsersController extends Controller
         $page_title = '';
         switch ($scope) {
             case 'active':
-                $page_title .= 'Active ';
+                $page_title .= 'Ativo ';
                 $users = $users->where('status', 1);
                 break;
             case 'banned':
-                $page_title .= 'Banned';
+                $page_title .= 'Banido';
                 $users = $users->where('status', 0);
                 break;
             case 'emailUnverified':
-                $page_title .= 'Email Unerified ';
+                $page_title .= 'Email Não Verificado ';
                 $users = $users->where('ev', 0);
                 break;
             case 'smsUnverified':
-                $page_title .= 'SMS Unverified ';
+                $page_title .= 'SMS Não Verificado ';
                 $users = $users->where('sv', 0);
                 break;
         }
         $users = $users->paginate(getPaginate());
-        $page_title .= 'User Search - ' . $search;
-        $empty_message = 'No search result found';
+        $page_title .= 'Busca de Usuário - ' . $search;
+        $empty_message = 'Sem dados encontrados.';
         return view('admin.users.list', compact('page_title', 'search', 'scope', 'empty_message', 'users'));
     }
 
 
     public function detail($id)
     {
-        $page_title         = 'User Detail';
+        $page_title         = 'Detalhes do Usuário';
         $user               = User::where('id', $id)->with('userExtra')->first();
         $ref_id             = User::find($user->ref_id);
         $totalDeposit       = Deposit::where('user_id',$user->id)->where('status',1)->sum('amount');
@@ -236,8 +236,8 @@ class ManageUsersController extends Controller
     public function userLoginHistory($id)
     {
         $user = User::findOrFail($id);
-        $page_title = 'User Login History - ' . $user->username;
-        $empty_message = 'No users login found.';
+        $page_title = 'Histórico de Login de Usuário - ' . $user->username;
+        $empty_message = 'Sem dados encontrados.';
         $login_logs = $user->login_logs()->latest()->paginate(getPaginate());
         return view('admin.users.logins', compact('page_title', 'empty_message', 'login_logs'));
     }
@@ -245,9 +245,9 @@ class ManageUsersController extends Controller
     public function userRef($id)
     {
 
-        $empty_message = 'No user found';
+        $empty_message = 'Sem dados encontrados.';
         $user = User::findOrFail($id);
-        $page_title = 'Referred By ' . $user->username;
+        $page_title = 'Indicado por ' . $user->username;
         $users = User::where('ref_id', $id)->latest()->paginate(getPaginate());
         return view('admin.users.list', compact('page_title', 'empty_message', 'users'));
     }
@@ -255,7 +255,7 @@ class ManageUsersController extends Controller
     public function showEmailSingleForm($id)
     {
         $user = User::findOrFail($id);
-        $page_title = 'Send Email To: ' . $user->username;
+        $page_title = 'Enviar email para: ' . $user->username;
         return view('admin.users.email_single', compact('page_title', 'user'));
     }
 
@@ -277,14 +277,14 @@ class ManageUsersController extends Controller
         $user = User::findOrFail($id);
         if ($request->search) {
             $search = $request->search;
-            $page_title = 'Search User Transactions : ' . $user->username;
+            $page_title = 'Buscar Transações de Usuário : ' . $user->username;
             $transactions = $user->transactions()->where('trx', $search)->with('user')->latest()->paginate(getPaginate());
-            $empty_message = 'No transactions';
+            $empty_message = 'Sem dados encontrados.';
             return view('admin.reports.transactions', compact('page_title', 'search', 'user', 'transactions', 'empty_message'));
         }
-        $page_title = 'User Transactions : ' . $user->username;
+        $page_title = 'Transações de Usuário : ' . $user->username;
         $transactions = $user->transactions()->with('user')->latest()->paginate(getPaginate());
-        $empty_message = 'No transactions';
+        $empty_message = 'Sem dados encontrados.';
         return view('admin.reports.transactions', compact('page_title', 'user', 'transactions', 'empty_message'));
     }
 
@@ -294,15 +294,15 @@ class ManageUsersController extends Controller
         $userId = $user->id;
         if ($request->search) {
             $search = $request->search;
-            $page_title = 'Search User Deposits : ' . $user->username;
+            $page_title = 'Buscar Depósitos de Usuário : ' . $user->username;
             $deposits = $user->deposits()->where('trx', $search)->latest()->paginate(getPaginate());
-            $empty_message = 'No deposits';
+            $empty_message = 'Sem dados encontrados.';
             return view('admin.deposit.log', compact('page_title', 'search', 'user', 'deposits', 'empty_message','userId'));
         }
 
-        $page_title = 'User Deposit : ' . $user->username;
+        $page_title = 'Depósitos de Usuário : ' . $user->username;
         $deposits = $user->deposits()->latest()->paginate(getPaginate());
-        $empty_message = 'No deposits';
+        $empty_message = 'Sem dados encontrados.';
         $scope = 'all';
         return view('admin.deposit.log', compact('page_title', 'user', 'deposits', 'empty_message','userId','scope'));
     }
@@ -312,24 +312,24 @@ class ManageUsersController extends Controller
         $method = Gateway::where('alias',$method)->firstOrFail();
         $user = User::findOrFail($userId);
         if ($type == 'approved') {
-            $page_title = 'Approved Payment Via '.$method->name;
+            $page_title = 'Pagamento aprovado via '.$method->name;
             $deposits = Deposit::where('method_code','>=',1000)->where('user_id',$user->id)->where('method_code',$method->code)->where('status', 1)->latest()->with(['user', 'gateway'])->paginate(getPaginate());
         }elseif($type == 'rejected'){
-            $page_title = 'Rejected Payment Via '.$method->name;
+            $page_title = 'Pagamento Rejeitado Via '.$method->name;
             $deposits = Deposit::where('method_code','>=',1000)->where('user_id',$user->id)->where('method_code',$method->code)->where('status', 3)->latest()->with(['user', 'gateway'])->paginate(getPaginate());
         }elseif($type == 'successful'){
-            $page_title = 'Successful Payment Via '.$method->name;
+            $page_title = 'Pagamento bem sucedido por '.$method->name;
             $deposits = Deposit::where('status', 1)->where('user_id',$user->id)->where('method_code',$method->code)->latest()->with(['user', 'gateway'])->paginate(getPaginate());
         }elseif($type == 'pending'){
-            $page_title = 'Pending Payment Via '.$method->name;
+            $page_title = 'Pagamento pendente Via '.$method->name;
             $deposits = Deposit::where('method_code','>=',1000)->where('user_id',$user->id)->where('method_code',$method->code)->where('status', 2)->latest()->with(['user', 'gateway'])->paginate(getPaginate());
         }else{
-            $page_title = 'Payment Via '.$method->name;
+            $page_title = 'Pagamento Via '.$method->name;
             $deposits = Deposit::where('status','!=',0)->where('user_id',$user->id)->where('method_code',$method->code)->latest()->with(['user', 'gateway'])->paginate(getPaginate());
         }
-        $page_title = 'Deposit History: '.$user->username.' Via '.$method->name;
+        $page_title = 'Histórico de depósitos: '.$user->username.' Via '.$method->name;
         $methodAlias = $method->alias;
-        $empty_message = 'Deposit Log';
+        $empty_message = 'Log de Depósito';
         return view('admin.deposit.log', compact('page_title', 'empty_message', 'deposits','methodAlias','userId'));
     }
 
@@ -340,14 +340,14 @@ class ManageUsersController extends Controller
         $user = User::findOrFail($id);
         if ($request->search) {
             $search = $request->search;
-            $page_title = 'Search User Withdrawals : ' . $user->username;
+            $page_title = 'Buscar Saques de Usuários : ' . $user->username;
             $withdrawals = $user->withdrawals()->where('trx', 'like',"%$search%")->latest()->paginate(getPaginate());
-            $empty_message = 'No withdrawals';
+            $empty_message = 'Sem dados encontrados.';
             return view('admin.withdraw.withdrawals', compact('page_title', 'user', 'search', 'withdrawals', 'empty_message'));
         }
-        $page_title = 'User Withdrawals : ' . $user->username;
+        $page_title = 'Saques de Usuários: ' . $user->username;
         $withdrawals = $user->withdrawals()->latest()->paginate(getPaginate());
-        $empty_message = 'No withdrawals';
+        $empty_message = 'Sem dados encontrados.';
         $userId = $user->id;
         return view('admin.withdraw.withdrawals', compact('page_title', 'user', 'withdrawals', 'empty_message','userId'));
     }
@@ -356,26 +356,26 @@ class ManageUsersController extends Controller
         $method = WithdrawMethod::findOrFail($method);
         $user = User::findOrFail($userId);
         if ($type == 'approved') {
-            $page_title = 'Approved Withdrawal of '.$user->username.' Via '.$method->name;
+            $page_title = 'Retirada Aprovada de '.$user->username.' Via '.$method->name;
             $withdrawals = Withdrawal::where('status', 1)->where('user_id',$user->id)->with(['user','method'])->latest()->paginate(getPaginate());
         }elseif($type == 'rejected'){
-            $page_title = 'Rejected Withdrawals of '.$user->username.' Via '.$method->name;
+            $page_title = 'Retiradas Rejeitadas de '.$user->username.' Via '.$method->name;
             $withdrawals = Withdrawal::where('status', 3)->where('user_id',$user->id)->with(['user','method'])->latest()->paginate(getPaginate());
 
         }elseif($type == 'pending'){
-            $page_title = 'Pending Withdrawals of '.$user->username.' Via '.$method->name;
+            $page_title = 'Retiradas pendentes de '.$user->username.' Via '.$method->name;
             $withdrawals = Withdrawal::where('status', 2)->where('user_id',$user->id)->with(['user','method'])->latest()->paginate(getPaginate());
         }else{
-            $page_title = 'Withdrawals of '.$user->username.' Via '.$method->name;
+            $page_title = 'Retiradas de '.$user->username.' Via '.$method->name;
             $withdrawals = Withdrawal::where('status', '!=', 0)->where('user_id',$user->id)->with(['user','method'])->latest()->paginate(getPaginate());
         }
-        $empty_message = 'Withdraw Log Not Found';
+        $empty_message = 'Sem dados encontrados.';
         return view('admin.withdraw.withdrawals', compact('page_title', 'withdrawals', 'empty_message','method'));
     }
 
     public function showEmailAllForm()
     {
-        $page_title = 'Send Email To All Users';
+        $page_title = 'Enviar e-mail para todos os usuários';
         return view('admin.users.email_all', compact('page_title'));
     }
 

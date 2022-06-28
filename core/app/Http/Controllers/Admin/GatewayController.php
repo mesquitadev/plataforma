@@ -14,8 +14,8 @@ class GatewayController extends Controller
 {
     public function index()
     {
-        $page_title = 'Payment Gateways';
-        $empty_message = 'No gateway has been installed.';
+        $page_title = 'Gateways de Pagamento';
+        $empty_message = 'Sem dados encontrados.';
         $gateways = Gateway::orderBy('name')->with('currencies')->automatic()->get();
         return view('admin.gateway.list', compact('page_title', 'empty_message', 'gateways'));
     }
@@ -23,7 +23,7 @@ class GatewayController extends Controller
     public function edit($alias)
     {
         $gateway = Gateway::automatic()->with('currencies')->where('alias', $alias)->firstOrFail();
-        $page_title = 'Update Gateway : ' . $gateway->name;
+        $page_title = 'Atualizar Gateway : ' . $gateway->name;
 
         $supportedCurrencies = collect(json_decode($gateway->supported_currencies))->except($gateway->currencies->pluck('currency'));
 

@@ -14,8 +14,8 @@ class EmailTemplateController extends Controller
 {
     public function index()
     {
-        $page_title = 'Email Templates';
-        $empty_message = 'No templates available';
+        $page_title = 'Templates de Email';
+        $empty_message = 'Sem dados encontrados.';
         $email_templates = EmailTemplate::get();
         return view('admin.email_template.index', compact('page_title', 'empty_message', 'email_templates'));
     }
@@ -24,7 +24,7 @@ class EmailTemplateController extends Controller
     {
         $email_template = EmailTemplate::findOrFail($id);
         $page_title = $email_template->name;
-        $empty_message = 'No shortcode available';
+        $empty_message = 'Sem dados encontrados.';
         return view('admin.email_template.edit', compact('page_title', 'email_template','empty_message'));
     }
 
@@ -47,7 +47,7 @@ class EmailTemplateController extends Controller
 
     public function emailSetting()
     {
-        $page_title = 'Email Configuration';
+        $page_title = 'Configuração de Email';
         $general_setting = GeneralSetting::first(['mail_config']);
         return view('admin.email_template.email_setting', compact('page_title', 'general_setting'));
     }
@@ -94,7 +94,7 @@ class EmailTemplateController extends Controller
 
     public function emailTemplate()
     {
-        $page_title = 'Global Email Template';
+        $page_title = 'Modelo de e-mail global';
         $general_setting = GeneralSetting::first(['email_from', 'email_template']);
         return view('admin.email_template.email_template', compact('page_title', 'general_setting'));
     }

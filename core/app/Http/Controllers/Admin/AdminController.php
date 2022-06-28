@@ -123,7 +123,7 @@ class AdminController extends Controller
 
     public function profile()
     {
-        $page_title = 'Profile';
+        $page_title = 'Perfil';
         $admin = Auth::guard('admin')->user();
         return view('admin.profile', compact('page_title', 'admin'));
     }
@@ -158,7 +158,7 @@ class AdminController extends Controller
 
     public function password()
     {
-        $page_title = 'Password Setting';
+        $page_title = 'Configuração de Senha';
         $admin = Auth::guard('admin')->user();
         return view('admin.password', compact('page_title', 'admin'));
     }
@@ -185,7 +185,7 @@ class AdminController extends Controller
 
     public function notifications(){
         $notifications = AdminNotification::orderBy('id','desc')->paginate(getPaginate());
-        $page_title = 'Notifications';
+        $page_title = 'Notificações';
         return view('admin.notifications',compact('page_title','notifications'));
     }
 
