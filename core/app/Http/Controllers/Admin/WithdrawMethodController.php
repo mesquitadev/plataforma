@@ -48,7 +48,7 @@ class WithdrawMethodController extends Controller
             try {
                 $filename = uploadImage($request->image, $path, $size);
             } catch (\Exception $exp) {
-                $notify[] = ['error', 'Image could not be uploaded.'];
+                $notify[] = ['error', 'A Imagem não pode ser enviada.'];
                 return back()->withNotify($notify);
             }
         }
@@ -79,7 +79,7 @@ class WithdrawMethodController extends Controller
         $method->description = $request->instruction;
         $method->user_data = $input_form;
         $method->save();
-        $notify[] = ['success', $method->name . ' has been added.'];
+        $notify[] = ['success', $method->name . ' foi adicionado '];
         return redirect()->route('admin.withdraw.method.index')->withNotify($notify);
     }
 
@@ -120,7 +120,7 @@ class WithdrawMethodController extends Controller
             try {
                 $filename = uploadImage($request->image,$path, $size, $method->image);
             } catch (\Exception $exp) {
-                $notify[] = ['error', 'Image could not be uploaded.'];
+                $notify[] = ['error', 'A Imagem não pode ser enviada.'];
                 return back()->withNotify($notify);
             }
         }
@@ -151,7 +151,7 @@ class WithdrawMethodController extends Controller
         $method->currency       = $request->currency;
         $method->save();
 
-        $notify[] = ['success', $method->name . ' has been updated.'];
+        $notify[] = ['success', $method->name . ' foi atualizado.'];
         return back()->withNotify($notify);
     }
 
@@ -163,7 +163,7 @@ class WithdrawMethodController extends Controller
         $method = WithdrawMethod::findOrFail($request->id);
         $method->status = 1;
         $method->save();
-        $notify[] = ['success', $method->name . ' has been activated.'];
+        $notify[] = ['success', $method->name . ' foi ativado.'];
         return redirect()->route('admin.withdraw.method.index')->withNotify($notify);
     }
 
@@ -173,7 +173,7 @@ class WithdrawMethodController extends Controller
         $method = WithdrawMethod::findOrFail($request->id);
         $method->status = 0;
         $method->save();
-        $notify[] = ['success', $method->name . ' has been deactivated.'];
+        $notify[] = ['success', $method->name . ' foi desativado.'];
         return redirect()->route('admin.withdraw.method.index')->withNotify($notify);
     }
 

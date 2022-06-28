@@ -31,7 +31,7 @@ class ExtensionController extends Controller
 
         $extension->shortcode = $shortcode;
         $extension->save();
-        $notify[] = ['success', $extension->name . ' has been updated'];
+        $notify[] = ['success', $extension->name . ' foi atualizada'];
         return redirect()->route('admin.extensions.index')->withNotify($notify);
     }
 
@@ -41,7 +41,7 @@ class ExtensionController extends Controller
         $extension = Extension::findOrFail($request->id);
         $extension->status = 1;
         $extension->save();
-        $notify[] = ['success', $extension->name . ' has been activated'];
+        $notify[] = ['success', $extension->name . ' foi ativada.'];
         return redirect()->route('admin.extensions.index')->withNotify($notify);
     }
 
@@ -51,7 +51,7 @@ class ExtensionController extends Controller
         $extension = Extension::findOrFail($request->id);
         $extension->status = 0;
         $extension->save();
-        $notify[] = ['success', $extension->name . ' has been disabled'];
+        $notify[] = ['success', $extension->name . ' foi desativada.'];
         return redirect()->route('admin.extensions.index')->withNotify($notify);
     }
 }

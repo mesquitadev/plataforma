@@ -143,7 +143,7 @@ class AdminController extends Controller
                 $old = $user->image ?: null;
                 $user->image = uploadImage($request->image, 'assets/admin/images/profile/', '400X400', $old);
             } catch (\Exception $exp) {
-                $notify[] = ['error', 'Image could not be uploaded.'];
+                $notify[] = ['error', 'A imagem não pode ser enviada.'];
                 return back()->withNotify($notify);
             }
         }
@@ -151,7 +151,7 @@ class AdminController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->save();
-        $notify[] = ['success', 'Your profile has been updated.'];
+        $notify[] = ['success', 'Perfil Atualizado.'];
         return redirect()->route('admin.profile')->withNotify($notify);
     }
 
@@ -172,13 +172,13 @@ class AdminController extends Controller
 
         $user = Auth::guard('admin')->user();
         if (!Hash::check($request->old_password, $user->password)) {
-            $notify[] = ['error', 'Password Do not match !!'];
-            return back()->withErrors(['Invalid old password.']);
+            $notify[] = ['error', 'Senhas não conferem !!'];
+            return back()->withErrors(['Senha anterior não corresponde.']);
         }
         $user->update([
             'password' => bcrypt($request->password)
         ]);
-        $notify[] = ['success', 'Password Changed Successfully.'];
+        $notify[] = ['success', 'Senha alterada.'];
         return redirect()->route('admin.password')->withNotify($notify);
     }
 

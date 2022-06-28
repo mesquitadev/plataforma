@@ -41,7 +41,7 @@ class PageBuilderController extends Controller
 
         $exist = Page::where('tempname', $this->activeTemplate)->where('slug', str_slug($request->slug))->count();
         if($exist != 0){
-            $notify[] = ['error', 'This Page Already Exist on your Current Template. Please Change the Slug.'];
+            $notify[] = ['error', 'Esta página já existe em seu modelo atual. Por favor, mude o Slug.'];
             return back()->withNotify($notify);
         }
         $page = new Page();
@@ -49,7 +49,7 @@ class PageBuilderController extends Controller
         $page->name = $request->name;
         $page->slug = str_slug($request->slug);
         $page->save();
-        $notify[] = ['success', 'Save Successfully'];
+        $notify[] = ['success', 'Salvo com sucesso.'];
         return back()->withNotify($notify);
 
     }
@@ -66,7 +66,7 @@ class PageBuilderController extends Controller
 
         $exist = Page::where('tempname', $this->activeTemplate)->where('slug',$slug)->first();
         if(($exist) && $exist->slug != $page->slug){
-            $notify[] = ['error', 'This Page Already Exist on your Current Template. Please Change the Slug.'];
+            $notify[] = ['error', 'Esta página já existe em seu modelo atual. Por favor, mude o Slug.'];
             return back()->withNotify($notify);
         }
 
@@ -75,7 +75,7 @@ class PageBuilderController extends Controller
         $page->save();
 
 
-        $notify[] = ['success', 'Update Successfully'];
+        $notify[] = ['success', 'Atualizado com sucesso.'];
         return back()->withNotify($notify);
 
     }
@@ -83,7 +83,7 @@ class PageBuilderController extends Controller
     public function managePagesDelete(Request $request){
         $page = Page::where('id',$request->id)->first();
         $page->delete();
-        $notify[] = ['success', 'Delete Successfully'];
+        $notify[] = ['success', 'Deletado com sucesso.'];
         return back()->withNotify($notify);
     }
 
@@ -113,7 +113,7 @@ class PageBuilderController extends Controller
             $page->secs = json_encode($request->secs);
         }
         $page->save();
-        $notify[] = ['success', 'Update Successfully'];
+        $notify[] = ['success', 'Atualizado com sucesso.'];
         return back()->withNotify($notify);
     }
 }

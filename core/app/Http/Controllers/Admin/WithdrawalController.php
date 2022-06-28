@@ -114,7 +114,7 @@ class WithdrawalController extends Controller
         $date = explode('-',$search);
 
         if(!(@strtotime($date[0]) && @strtotime($date[1]))){
-            $notify[]=['error','Please provide valid date'];
+            $notify[]=['error','Favor, insira uma data válida.'];
             return back()->withNotify($notify);
         }
 
@@ -187,7 +187,7 @@ class WithdrawalController extends Controller
             'admin_details' => $request->details
         ]);
 
-        $notify[] = ['success', 'Withdrawal Marked  as Approved.'];
+        $notify[] = ['success', 'Retirada marcada como aprovada.'];
         return redirect()->route('admin.withdraw.pending')->withNotify($notify);
     }
 
@@ -234,7 +234,7 @@ class WithdrawalController extends Controller
             'admin_details' => $request->details
         ]);
 
-        $notify[] = ['success', 'Withdrawal has been rejected.'];
+        $notify[] = ['success', 'A retirada foi rejeitada.'];
         return redirect()->route('admin.withdraw.pending')->withNotify($notify);
     }
 

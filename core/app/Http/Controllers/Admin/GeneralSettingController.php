@@ -38,7 +38,7 @@ class GeneralSettingController extends Controller
         $request->merge(['registration' => isset($request->registration) ? 1 : 0]);
 
         $general_setting->update($request->only(['sitename', 'cur_text', 'cur_sym', 'ev', 'en', 'sv', 'sn', 'force_ssl', 'secure_password', 'registration', 'base_color', 'secondary_color']));
-        $notify[] = ['success', 'General Setting has been updated.'];
+        $notify[] = ['success', 'Configuração atualizada.'];
         return back()->withNotify($notify);
     }
 
@@ -63,7 +63,7 @@ class GeneralSettingController extends Controller
                 }
                 Image::make($request->logo)->save($path . '/logo.png');
             } catch (\Exception $exp) {
-                $notify[] = ['error', 'Logo could not be uploaded.'];
+                $notify[] = ['error', 'Imagem nao pode ser enviada.'];
                 return back()->withNotify($notify);
             }
         }
@@ -77,11 +77,11 @@ class GeneralSettingController extends Controller
                 $size = explode('x', imagePath()['favicon']['size']);
                 Image::make($request->favicon)->resize($size[0], $size[1])->save($path . '/favicon.png');
             } catch (\Exception $exp) {
-                $notify[] = ['error', 'Favicon could not be uploaded.'];
+                $notify[] = ['error', 'Imagem nao pode ser enviada.'];
                 return back()->withNotify($notify);
             }
         }
-        $notify[] = ['success', 'Logo Icons has been updated.'];
+        $notify[] = ['success', 'Imagem atualizada.'];
         return back()->withNotify($notify);
     }
 
@@ -101,7 +101,7 @@ class GeneralSettingController extends Controller
         $general_setting->free_user_notice = $request->free_user_notice;
         $general_setting->save();
 
-        $notify[] = ['success', 'Notice has been updated.'];
+        $notify[] = ['success', 'Aviso atualizado.'];
         return back()->withNotify($notify);
 
     }

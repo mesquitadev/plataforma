@@ -59,7 +59,7 @@ class ResetPasswordController extends Controller
         $tk = AdminPasswordReset::where('token', $token)->where('status', 0)->first();
 
         if (empty($tk)) {
-            $notify[] = ['error', 'Token Not Found!'];
+            $notify[] = ['error', 'Token não encontrado.'];
             return redirect()->route('admin.password.reset')->withNotify($notify);
         }
         $email = $tk->email;
@@ -78,7 +78,7 @@ class ResetPasswordController extends Controller
         $reset = AdminPasswordReset::where('token', $request->token)->orderBy('created_at', 'desc')->first();
         $user = Admin::where('email', $reset->email)->first();
         if ($reset->status == 1) {
-            $notify[] = ['error', 'Invalid code'];
+            $notify[] = ['error', 'Código inválido.'];
             return redirect()->route('admin.login')->withNotify($notify);
         }
 
@@ -97,7 +97,7 @@ class ResetPasswordController extends Controller
             'time' => $userIpInfo['time']
         ]);
 
-        $notify[] = ['success', 'Password Changed'];
+        $notify[] = ['success', 'Senha Alterada.'];
         return redirect()->route('admin.login')->withNotify($notify);
     }
 

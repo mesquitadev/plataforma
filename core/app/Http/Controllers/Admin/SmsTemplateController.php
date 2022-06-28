@@ -37,7 +37,7 @@ class SmsTemplateController extends Controller
         $sms_template->sms_status = $request->sms_status ? 1 : 0;
         $sms_template->save();
 
-        $notify[] = ['success', $sms_template->name . ' template has been updated'];
+        $notify[] = ['success', $sms_template->name . ' template atualizado.'];
         return back()->withNotify($notify);
     }
 
@@ -60,7 +60,7 @@ class SmsTemplateController extends Controller
         $general_setting->sms_api = $request->sms_api;
         $general_setting->save();
 
-        $notify[] = ['success', 'SMS Template has been updated'];
+        $notify[] = ['success', 'SMS Template atualizado.'];
         return back()->withNotify($notify);
     }
 
@@ -74,7 +74,7 @@ class SmsTemplateController extends Controller
             $result = @file_get_contents($message);
         }
 
-        $notify[] = ['success', 'You sould receive a test sms at ' . $request->mobile . ' shortly.'];
+        $notify[] = ['success', 'Você deve receber um sms de teste em ' . $request->mobile . ' em breve.'];
         return back()->withNotify($notify);
     }
 }

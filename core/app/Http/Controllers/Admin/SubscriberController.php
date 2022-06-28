@@ -28,7 +28,7 @@ class SubscriberController extends Controller
         $subscriber = Subscriber::findOrFail($request->subscriber);
         $subscriber->delete();
 
-        $notify[] = ['success', 'Subscriber has been removed'];
+        $notify[] = ['success', 'Assinante removido'];
         return back()->withNotify($notify);
     }
 
@@ -44,7 +44,7 @@ class SubscriberController extends Controller
             $receiver_name = explode('@', $subscriber->email)[0];
             sendGeneralEmail($subscriber->email, $request->subject, $request->body, $receiver_name);
         }
-        $notify[] = ['success', 'Email will be sent to all subscribers.'];
+        $notify[] = ['success', 'O e-mail será enviado a todos os assinantes.'];
         return back()->withNotify($notify);
     }
 }

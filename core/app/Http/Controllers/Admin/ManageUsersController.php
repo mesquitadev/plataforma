@@ -137,11 +137,11 @@ class ManageUsersController extends Controller
         ]);
 
         if ($request->email != $user->email && User::whereEmail($request->email)->whereId('!=', $user->id)->count() > 0) {
-            $notify[] = ['error', 'Email already exists.'];
+            $notify[] = ['error', 'Email já cadastrado.'];
             return back()->withNotify($notify);
         }
         if ($request->mobile != $user->mobile && User::where('mobile', $request->mobile)->whereId('!=', $user->id)->count() > 0) {
-            $notify[] = ['error', 'Phone number already exists.'];
+            $notify[] = ['error', 'Telefone já cadastrado.'];
             return back()->withNotify($notify);
         }
 
@@ -164,7 +164,7 @@ class ManageUsersController extends Controller
         $user->tv = $request->tv ? 1 : 0;
         $user->save();
 
-        $notify[] = ['success', 'User detail has been updated'];
+        $notify[] = ['success', 'Atualizado com sucesso.'];
         return redirect()->back()->withNotify($notify);
     }
 
@@ -180,7 +180,7 @@ class ManageUsersController extends Controller
         if ($request->act) {
             $user->balance += $amount;
             $user->save();
-            $notify[] = ['success', $general->cur_sym . $amount . ' has been added to ' . $user->username . ' balance'];
+            $notify[] = ['success', $general->cur_sym . $amount . ' adicionado ao  ' . $user->username . ' saldo'];
 
 
             $transaction = new Transaction();
@@ -203,7 +203,7 @@ class ManageUsersController extends Controller
 
         } else {
             if ($amount > $user->balance) {
-                $notify[] = ['error', $user->username . ' has insufficient balance.'];
+                $notify[] = ['error', $user->username . ' tem saldo insuficiente.'];
                 return back()->withNotify($notify);
             }
             $user->balance -= $amount;
@@ -228,7 +228,7 @@ class ManageUsersController extends Controller
                 'currency' => $general->cur_text,
                 'post_balance' => getAmount($user->balance)
             ]);
-            $notify[] = ['success', $general->cur_sym . $amount . ' has been subtracted from ' . $user->username . ' balance'];
+            $notify[] = ['success', $general->cur_sym . $amount . ' foi subtraido do ' . $user->username . ' saldo'];
         }
         return back()->withNotify($notify);
     }
@@ -268,7 +268,7 @@ class ManageUsersController extends Controller
 
         $user = User::findOrFail($id);
         sendGeneralEmail($user->email, $request->subject, $request->message, $user->username);
-        $notify[] = ['success', $user->username . ' will receive an email shortly.'];
+        $notify[] = ['success', $user->username . ' vai receber um email.'];
         return back()->withNotify($notify);
     }
 
@@ -390,7 +390,7 @@ class ManageUsersController extends Controller
             sendGeneralEmail($user->email, $request->subject, $request->message, $user->username);
         }
 
-        $notify[] = ['success', 'All users will receive an email shortly.'];
+        $notify[] = ['success', 'Todos os usuários receberão um e-mail em breve.'];
         return back()->withNotify($notify);
     }
 
@@ -404,7 +404,7 @@ class ManageUsersController extends Controller
             return view( 'admin.users.tree', $data);
         }
 
-        $notify[] = ['error', 'Tree Not Found!!'];
+        $notify[] = ['error', 'Rede não encontrada!!'];
         return redirect()->route('admin.dashboard')->withNotify($notify);
 
     }
@@ -418,11 +418,11 @@ class ManageUsersController extends Controller
         }
         if ($user) {
             $data['tree'] = showTreePage($user->id);
-            $data['page_title'] = "Tree of " . $user->fullname;
+            $data['page_title'] = "Rede do " . $user->fullname;
             return view( 'admin.users.tree', $data);
         }
 
-        $notify[] = ['error', 'Tree Not Found!!'];
+        $notify[] = ['error', 'Rede não encontrada!!'];
         return redirect()->route('admin.dashboard')->withNotify($notify);
 
     }

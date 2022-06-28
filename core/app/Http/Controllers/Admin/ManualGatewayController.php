@@ -54,7 +54,7 @@ class ManualGatewayController extends Controller
             try {
                 $filename = uploadImage($request->image, $path, $size);
             } catch (\Exception $exp) {
-                $notify[] = ['error', 'Image could not be uploaded.'];
+                $notify[] = ['error', 'A imagem não pode ser enviada.'];
                 return back()->withNotify($notify);
             }
         }
@@ -98,7 +98,7 @@ class ManualGatewayController extends Controller
             'gateway_parameter' => json_encode($input_form),
         ]));
 
-        $notify[] = ['success', $method->name . ' Manual Gateway has been added.'];
+        $notify[] = ['success', $method->name . ' O Gateway Manual foi adicionado.'];
         return back()->withNotify($notify);
     }
 
@@ -138,7 +138,7 @@ class ManualGatewayController extends Controller
             try {
                 $filename = uploadImage($request->image, $path, $size);
             } catch (\Exception $exp) {
-                $notify[] = ['error', 'Image could not be uploaded.'];
+                $notify[] = ['error', 'A imagem não pode ser enviada.'];
                 return back()->withNotify($notify);
             }
         }
@@ -181,7 +181,7 @@ class ManualGatewayController extends Controller
         $single_currency->gateway_parameter = json_encode($input_form);
         $single_currency->save();
 
-        $notify[] = ['success', $method->name . ' Manual Gateway has been updated.'];
+        $notify[] = ['success', $method->name . ' O Gateway Manual foi atualizado.'];
         return redirect()->route('admin.gateway.manual.edit',[$method->alias])->withNotify($notify);
     }
 
@@ -191,7 +191,7 @@ class ManualGatewayController extends Controller
         $method = Gateway::where('code', $request->code)->first();
         $method->status = 1;
         $method->save();
-        $notify[] = ['success', $method->name . ' has been activated.'];
+        $notify[] = ['success', $method->name . ' foi ativado.'];
         return back()->withNotify($notify);
     }
 
@@ -201,7 +201,7 @@ class ManualGatewayController extends Controller
         $method = Gateway::where('code', $request->code)->first();
         $method->status = 0;
         $method->save();
-        $notify[] = ['success', $method->name . ' has been deactivated.'];
+        $notify[] = ['success', $method->name . ' foi desativado.'];
         return back()->withNotify($notify);
     }
 }

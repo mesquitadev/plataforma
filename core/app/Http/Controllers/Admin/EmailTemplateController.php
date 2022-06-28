@@ -40,7 +40,7 @@ class EmailTemplateController extends Controller
         $email_template->email_status = $request->email_status ? 1 : 0;
         $email_template->save();
 
-        $notify[] = ['success', $email_template->name . ' template has been updated.'];
+        $notify[] = ['success', $email_template->name . ' template atualizado.'];
         return back()->withNotify($notify);
     }
 
@@ -87,7 +87,7 @@ class EmailTemplateController extends Controller
         }
         $general_setting = GeneralSetting::first();
         $general_setting->update(['mail_config' => $data]);
-        $notify[] = ['success', 'Email configuration has been updated.'];
+        $notify[] = ['success', 'Configuração atualizada.'];
         return back()->withNotify($notify);
     }
 
@@ -110,7 +110,7 @@ class EmailTemplateController extends Controller
         $general_setting->email_template = $request->email_template;
         $general_setting->save();
 
-        $notify[] = ['success', 'Global Email Template has been updated.'];
+        $notify[] = ['success', 'Template atualizado.'];
         return back()->withNotify($notify);
     }
 
@@ -129,7 +129,7 @@ class EmailTemplateController extends Controller
         try {
             sendGeneralEmail($request->email, $subject, $message, $receiver_name);
         } catch (\Exception $exp) {
-            $notify[] = ['error', 'Invalid Credential'];
+            $notify[] = ['error', 'Credenciais inválidas.'];
             return back()->withNotify($notify);
         }
 

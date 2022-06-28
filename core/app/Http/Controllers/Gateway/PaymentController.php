@@ -42,12 +42,12 @@ class PaymentController extends Controller
         $user = auth()->user();
         $gate = GatewayCurrency::where('method_code', $request->method_code)->where('currency', $request->currency)->first();
         if (!$gate) {
-            $notify[] = ['error', 'Invalid Gateway'];
+            $notify[] = ['error', 'Gateway inválido'];
             return back()->withNotify($notify);
         }
 
         if ($gate->min_amount > $request->amount || $gate->max_amount < $request->amount) {
-            $notify[] = ['error', 'Please Follow Deposit Limit'];
+            $notify[] = ['error', 'Por favor, siga o limite de depósito'];
             return back()->withNotify($notify);
         }
 
@@ -81,11 +81,11 @@ class PaymentController extends Controller
         $data = Deposit::where('trx', $track)->orderBy('id', 'DESC')->firstOrFail();
 
         if (is_null($data)) {
-            $notify[] = ['error', 'Invalid Deposit Request'];
+            $notify[] = ['error', 'Solicitação de depósito inválida'];
             return redirect()->route(gatewayRedirectUrl())->withNotify($notify);
         }
         if ($data->status != 0) {
-            $notify[] = ['error', 'Invalid Deposit Request'];
+            $notify[] = ['error', 'Solicitação de depósito inválida'];
             return redirect()->route(gatewayRedirectUrl())->withNotify($notify);
         }
         $page_title = 'Preview do Pagamento';
@@ -98,17 +98,17 @@ class PaymentController extends Controller
         $track = Session::get('Track');
         $deposit = Deposit::where('trx', $track)->orderBy('id', 'DESC')->with('gateway')->first();
         if (is_null($deposit)) {
-            $notify[] = ['error', 'Invalid Deposit Request'];
+            $notify[] = ['error', 'Solicitação de depósito inválida'];
             return redirect()->route(gatewayRedirectUrl())->withNotify($notify);
         }
         if ($deposit->status != 0) {
-            $notify[] = ['error', 'Invalid Deposit Request'];
+            $notify[] = ['error', 'Solicitação de depósito inválida'];
             return redirect()->route(gatewayRedirectUrl())->withNotify($notify);
         }
 
         if ($deposit->method_code >= 1000) {
             $this->userDataUpdate($deposit);
-            $notify[] = ['success', 'Your deposit request is queued for approval.'];
+            $notify[] = ['success', 'Sua solicitação de depósito está na fila para aprovação.'];
             return back()->withNotify($notify);
         }
 
@@ -262,7 +262,7 @@ class PaymentController extends Controller
                                         'type' => $inVal->type,
                                     ];
                                 } catch (\Exception $exp) {
-                                    $notify[] = ['error', 'Could not upload your ' . $inKey];
+                                    $notify[] = ['error', 'Não pode enviar o arquivo ' . $inKey];
                                     return back()->withNotify($notify)->withInput();
                                 }
                             }
@@ -305,7 +305,7 @@ class PaymentController extends Controller
             'trx' => $data->trx
         ]);
 
-        $notify[] = ['success', 'You have deposit request has been taken.'];
+        $notify[] = ['success', 'Você tem pedido de depósito foi tomado.'];
         return redirect()->route('user.deposit.history')->withNotify($notify);
     }
 

@@ -128,7 +128,7 @@ class DepositController extends Controller
 
 
         if(!(@strtotime($date[0]) && @strtotime($date[1]))){
-            $notify[]=['error','Please provide valid date'];
+            $notify[]=['error','Favor, insira uma data válida'];
             return back()->withNotify($notify);
         }
 
@@ -208,7 +208,7 @@ class DepositController extends Controller
             'trx' => $deposit->trx,
             'post_balance' => $user->balance
         ]);
-        $notify[] = ['success', 'Deposit has been approved.'];
+        $notify[] = ['success', 'Deposito aprovado.'];
 
         return redirect()->route('admin.deposit.pending')->withNotify($notify);
     }
@@ -239,7 +239,7 @@ class DepositController extends Controller
             'rejection_message' => $request->message
         ]);
 
-        $notify[] = ['success', 'Deposit has been rejected.'];
+        $notify[] = ['success', 'Deposito negado.'];
         return  redirect()->route('admin.deposit.pending')->withNotify($notify);
 
     }

@@ -17,7 +17,7 @@ class AllowRegistration
     public function handle($request, Closure $next)
     {
         if (GeneralSetting::first()->registration == 0) {
-            $notify[] = ['error', 'Registration is currently disabled.'];
+            $notify[] = ['error', 'Cadastro desativado.'];
             return back()->withNotify($notify);
         }
         return $next($request);

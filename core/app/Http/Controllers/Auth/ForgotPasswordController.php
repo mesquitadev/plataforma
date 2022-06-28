@@ -53,7 +53,7 @@ class ForgotPasswordController extends Controller
             ];
             $validationMessage = ['value.required'=>'Username field is required'];
         }else{
-            $notify[] = ['error','Invalid selection'];
+            $notify[] = ['error','Seleção inválida'];
             return back()->withNotify($notify);
         }
 
@@ -62,7 +62,7 @@ class ForgotPasswordController extends Controller
         $user = User::where($request->type, $request->value)->first();
 
         if (!$user) {
-            $notify[] = ['error', 'User not found.'];
+            $notify[] = ['error', 'Usuário não encontrado.'];
             return back()->withNotify($notify);
         }
 
@@ -87,7 +87,7 @@ class ForgotPasswordController extends Controller
         $page_title = 'Recuperar Conta';
         $email = $user->email;
         session()->put('pass_res_mail',$email);
-        $notify[] = ['success', 'Password reset email sent successfully'];
+        $notify[] = ['success', 'Email de redefinição de senha enviado com sucesso'];
         return redirect()->route('user.password.code_verify')->withNotify($notify);
     }
 
@@ -95,7 +95,7 @@ class ForgotPasswordController extends Controller
         $page_title = 'Recuperar Conta';
         $email = session()->get('pass_res_mail');
         if (!$email) {
-            $notify[] = ['error','Opps! session expired'];
+            $notify[] = ['error','Opps! sessão expirada.'];
             return redirect()->route('user.password.request')->withNotify($notify);
         }
 
@@ -109,10 +109,10 @@ class ForgotPasswordController extends Controller
         $code =  str_replace(',','',implode(',',$request->code));
 
         if (PasswordReset::where('token', $code)->where('email', $request->email)->count() != 1) {
-            $notify[] = ['error', 'Invalid token'];
+            $notify[] = ['error', 'Token inválido.'];
             return redirect()->route('user.password.request')->withNotify($notify);
         }
-        $notify[] = ['success', 'You can change your password.'];
+        $notify[] = ['success', 'Você pode alterar sua senha.'];
         session()->flash('fpass_email', $request->email);
         return redirect()->route('user.password.reset', $code)->withNotify($notify);
     }

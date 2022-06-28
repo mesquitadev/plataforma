@@ -62,7 +62,7 @@ class RegisterController extends Controller
         if ($request->ref && $request->position) {
             $ref_user = User::where('username', $request->ref)->first();
             if ($ref_user == null) {
-                $notify[] = ['error', 'Invalid Referral link.'];
+                $notify[] = ['error', 'Link de indicação inválido'];
                 return redirect()->route('home')->withNotify($notify);
             }
 
@@ -72,7 +72,7 @@ class RegisterController extends Controller
             } elseif ($request->position == 'right') {
                 $position = 2;
             } else {
-                $notify[] = ['error', 'Invalid referral position'];
+                $notify[] = ['error', 'Posição de indicação inválida'];
                 return redirect()->route('home')->withNotify($notify);
             }
 
@@ -142,7 +142,7 @@ class RegisterController extends Controller
 
         $exist = User::where('mobile',$request->country_code.$request->mobile)->first();
         if ($exist) {
-            $notify[] = ['error', 'Mobile number already exist'];
+            $notify[] = ['error', 'Telefone já cadastrado'];
             return back()->withNotify($notify)->withInput();
         }
 
@@ -150,13 +150,13 @@ class RegisterController extends Controller
 
         if (!$userCheck)
         {
-            $notify[] = ['error', 'Referral not found.'];
+            $notify[] = ['error', 'Patrocinador não encontrado.'];
             return back()->withNotify($notify);
         }
 
         if (isset($request->captcha)) {
             if (!captchaVerify($request->captcha, $request->captcha_secret)) {
-                $notify[] = ['error', "Invalid Captcha"];
+                $notify[] = ['error', "Captcha inválido."];
                 return back()->withNotify($notify)->withInput();
             }
         }
@@ -258,17 +258,17 @@ class RegisterController extends Controller
         $capital = preg_match($capital,$password);
         $notify = null;
         if (!$capital) {
-            $notify[] = ['error','Minimum 1 capital word is required'];
+            $notify[] = ['error','Minimo uma letra maiúscula.'];
         }
         $number = '/[123456790]/';
         $number = preg_match($number,$password);
         if (!$number) {
-            $notify[] = ['error','Minimum 1 number is required'];
+            $notify[] = ['error','Minimo de um numero'];
         }
         $special = '/[`!@#$%^&*()_+\-=\[\]{};:"\\|,.<>\/?~\']/';
         $special = preg_match($special,$password);
         if (!$special) {
-            $notify[] = ['error','Minimum 1 special character is required'];
+            $notify[] = ['error','Minimo de um caractere especial.'];
         }
         return $notify;
     }

@@ -94,7 +94,7 @@ class ForgotPasswordController extends Controller
     public function verifyCode(Request $request)
     {
         $request->validate(['code.*' => 'required']);
-        $notify[] = ['success', 'You can change your password.'];
+        $notify[] = ['success', 'Você pode alterar sua senha.'];
 
         $code =  str_replace(',','',implode(',',$request->code));
 

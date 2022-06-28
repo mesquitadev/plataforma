@@ -53,7 +53,7 @@ class LanguageController extends Controller
         $language->is_default = $request->is_default ? 1 : 0;
         $language->save();
 
-        $notify[] = ['success', 'Create Successfully'];
+        $notify[] = ['success', 'Criado com sucesso.'];
         return back()->withNotify($notify);
     }
 
@@ -81,7 +81,7 @@ class LanguageController extends Controller
         $la->is_default = $request->is_default ? 1 : 0;
         $la->save();
 
-        $notify[] = ['success', 'Update Successfully'];
+        $notify[] = ['success', 'Atualizado com sucesso.'];
         return back()->withNotify($notify);
     }
 
@@ -91,7 +91,7 @@ class LanguageController extends Controller
         removeFile(imagePath()['language']['path'] . '/' . $la->icon);
         removeFile(resource_path('lang/') . $la->code . '.json');
         $la->delete();
-        $notify[] = ['success', 'Delete Successfully'];
+        $notify[] = ['success', 'Deletado com sucesso.'];
         return back()->withNotify($notify);
     }
 
@@ -122,7 +122,7 @@ class LanguageController extends Controller
             return back()->withNotify($notify);
         }
         file_put_contents(resource_path('lang/') . $lang->code . '.json', $content);
-        $notify[] = ['success', 'Update Successfully'];
+        $notify[] = ['success', 'Atualizado com sucesso.'];
         return back()->withNotify($notify);
     }
 
@@ -167,14 +167,14 @@ class LanguageController extends Controller
         $reqKey = trim($request->key);
 
         if (array_key_exists($reqKey, json_decode($items, true))) {
-            $notify[] = ['error', "`$reqKey` Already Exist"];
+            $notify[] = ['error', "`$reqKey` Já existe."];
             return back()->withNotify($notify);
         } else {
             $newArr[$reqKey] = trim($request->value);
             $itemsss = json_decode($items, true);
             $result = array_merge($itemsss, $newArr);
             file_put_contents(resource_path('lang/') . $la->code . '.json', json_encode($result));
-            $notify[] = ['success', "`".trim($request->key)."` has been added"];
+            $notify[] = ['success', "`".trim($request->key)."` foi adicionado."];
             return back()->withNotify($notify);
         }
 
@@ -195,7 +195,7 @@ class LanguageController extends Controller
         unset($json_arr[$reqkey]);
 
         file_put_contents(resource_path('lang/'). $lang->code . '.json', json_encode($json_arr));
-        $notify[] = ['success', "`".trim($request->key)."` has been removed"];
+        $notify[] = ['success', "`".trim($request->key)."` foi removido."];
         return back()->withNotify($notify);
     }
     public function updateLanguageJson(Request $request, $id)
@@ -217,7 +217,7 @@ class LanguageController extends Controller
 
         file_put_contents(resource_path('lang/'). $lang->code . '.json', json_encode($json_arr));
 
-        $notify[] = ['success', "Update successfully"];
+        $notify[] = ['success', "Atualizado com sucesso."];
         return back()->withNotify($notify);
     }
 

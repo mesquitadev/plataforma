@@ -63,7 +63,7 @@ class GatewayController extends Controller
             try {
                 $filename = uploadImage($request->image, $path, $size, $filename);
             } catch (\Exception $exp) {
-                $notify[] = ['errors', 'Image could not be uploaded.'];
+                $notify[] = ['errors', 'Imagem nao pode ser enviada.'];
                 return back()->withNotify($notify);
             }
         }
@@ -99,7 +99,7 @@ class GatewayController extends Controller
 
                         $filename = uploadImage($request->file($uploaded_image), $path, $size);
                     } catch (\Exception $exp) {
-                        $notify[] = ['error', $currency_identifier . ' Image could not be uploaded.'];
+                        $notify[] = ['error', $currency_identifier . ' Imagem nao pode ser enviada.'];
                         return back()->withNotify($notify);
                     }
                 }
@@ -127,7 +127,7 @@ class GatewayController extends Controller
 
         $gateway->currencies()->saveMany($gateway_currencies);
 
-        $notify[] = ['success', $gateway->name . ' has been updated.'];
+        $notify[] = ['success', $gateway->name . ' foi atualizado'];
         return redirect()->route('admin.gateway.automatic.edit', $gateway->alias)->withNotify($notify);
     }
 
@@ -139,7 +139,7 @@ class GatewayController extends Controller
         $name = $gateway_currency->name;
         removeFile(imagePath()['gateway']['path'] . '/' . $gateway_currency->image);
         $gateway_currency->delete();
-        $notify[] = ['success', $name . ' has been removed from ' . $gateway->name];
+        $notify[] = ['success', $name . ' foi removido de ' . $gateway->name];
         return back()->withNotify($notify);
     }
 
@@ -149,7 +149,7 @@ class GatewayController extends Controller
         $gateway = Gateway::where('code', $request->code)->firstOrFail();
         $gateway->status = 1;
         $gateway->save();
-        $notify[] = ['success', $gateway->name . ' has been activated.'];
+        $notify[] = ['success', $gateway->name . ' foi ativado'];
         return back()->withNotify($notify);
     }
 
@@ -159,7 +159,7 @@ class GatewayController extends Controller
         $gateway = Gateway::where('code', $request->code)->firstOrFail();
         $gateway->status = 0;
         $gateway->save();
-        $notify[] = ['success', $gateway->name . ' has been disabled.'];
+        $notify[] = ['success', $gateway->name . ' foi desativado'];
         return back()->withNotify($notify);
     }
 

@@ -35,7 +35,7 @@ class FrontendController extends Controller
         $general->active_template = $request->name;
         $general->save();
 
-        $notify[] = ['success', 'Updated Successfully'];
+        $notify[] = ['success', 'Atualizado com sucesso.'];
         return back()->withNotify($notify);
     }
 
@@ -121,7 +121,7 @@ class FrontendController extends Controller
                 try {
                     $inputContentValue['image'] = uploadImage($request->image_input,imagePath()['seo']['path'], imagePath()['seo']['size'], @$content->data_values->image);
                 } catch (\Exception $exp) {
-                    $notify[] = ['error', 'Could not upload the Image.'];
+                    $notify[] = ['error', 'Imagem não pode ser enviada.'];
                     return back()->withNotify($notify);
                 }
             }
@@ -133,7 +133,7 @@ class FrontendController extends Controller
                         try {
                             $inputContentValue[$imgKey] = $this->storeImage($imgJson,$type,$key,$imgData,$imgKey,@$content->data_values->$imgKey);
                         } catch (\Exception $exp) {
-                            $notify[] = ['error', 'Could not upload the Image.'];
+                            $notify[] = ['error', 'Imagem não pode ser enviada.'];
                             return back()->withNotify($notify);
                         }
                     } else if (isset($content->data_values->$imgKey)) {
@@ -144,7 +144,7 @@ class FrontendController extends Controller
         }
         $content->data_values = $inputContentValue;
         $content->save();
-        $notify[] = ['success', 'Content has been updated.'];
+        $notify[] = ['success', 'Conteudo atualizado'];
         return back()->withNotify($notify);
     }
 
@@ -202,7 +202,7 @@ class FrontendController extends Controller
             }
         }
         $frontend->delete();
-        $notify[] = ['success', 'Content has been removed.'];
+        $notify[] = ['success', 'Conteudo removido.'];
         return back()->withNotify($notify);
     }
 

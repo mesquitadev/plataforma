@@ -70,7 +70,7 @@ class LoginController extends Controller
 
         if(isset($request->captcha)){
             if(!captchaVerify($request->captcha, $request->captcha_secret)){
-                $notify[] = ['error',"Invalid Captcha"];
+                $notify[] = ['error',"Captcha inválido."];
                 return back()->withNotify($notify)->withInput();
             }
         }
@@ -133,7 +133,7 @@ class LoginController extends Controller
 
         request()->session()->invalidate();
 
-        $notify[] = ['success', 'You have been logged out.'];
+        $notify[] = ['success', 'Você foi desconectado.'];
         return redirect()->route('user.login')->withNotify($notify);
     }
 

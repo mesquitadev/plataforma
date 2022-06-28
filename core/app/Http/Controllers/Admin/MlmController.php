@@ -38,7 +38,7 @@ class MlmController extends Controller
         $plan->status           = $request->status?1:0;
         $plan->save();
 
-        $notify[] = ['success', 'New Plan created successfully'];
+        $notify[] = ['success', 'Plano criado com sucesso.'];
         return back()->withNotify($notify);
     }
 
@@ -63,7 +63,7 @@ class MlmController extends Controller
         $plan->status           = $request->status?1:0;
         $plan->save();
 
-        $notify[] = ['success', 'Plan Updated Successfully.'];
+        $notify[] = ['success', 'Plano atualizado com sucesso.'];
         return back()->withNotify($notify);
     }
 
@@ -96,7 +96,7 @@ class MlmController extends Controller
         $setting->matching_when = $when;
         $setting->save();
 
-        $notify[] = ['success', 'Matching bonus has been updated.'];
+        $notify[] = ['success', 'Regras de Bonus / Comissão atualizados.'];
         return back()->withNotify($notify);
 
     }

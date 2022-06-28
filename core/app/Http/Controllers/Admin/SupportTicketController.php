@@ -100,7 +100,7 @@ class SupportTicketController extends Controller
                         $attachment->attachment = uploadFile($file, $path);
                         $attachment->save();
                     } catch (\Exception $exp) {
-                        $notify[] = ['error', 'Could not upload your ' . $file];
+                        $notify[] = ['error', 'O Arquivo nao pode ser enviado ' . $file];
                         return back()->withNotify($notify)->withInput();
                     }
                 }
@@ -112,15 +112,15 @@ class SupportTicketController extends Controller
                 'link' => route('ticket.view',$ticket->ticket),
             ]);
 
-            $notify[] = ['success', "Support ticket replied successfully"];
+            $notify[] = ['success', "Ticket de suporte respondido com sucesso"];
 
         }elseif ($request->replayTicket == 2) {
             $ticket->status = 3;
             $ticket->save();
-            $notify[] = ['success', "Support ticket closed successfully"];
+            $notify[] = ['success', "Ticket de suporte fechado com sucesso"];
         }
 
-        $notify[] = ['success', "Something went wrong!"];
+        $notify[] = ['success', "Algo deu errado!"];
 
         return back()->withNotify($notify);
     }
@@ -153,7 +153,7 @@ class SupportTicketController extends Controller
             }
         }
         $message->delete();
-        $notify[] = ['success', "Delete Successfully"];
+        $notify[] = ['success', "Removido com sucesso."];
         return back()->withNotify($notify);
 
     }
