@@ -24,7 +24,7 @@
                 <li class="sidebar-menu-item {{menuActive('admin.plan*')}}">
                     <a href="{{route('admin.plan')}}" class="nav-link ">
                         <i class="menu-icon las la-paper-plane"></i>
-                        <span class="menu-title">@lang('Plans')</span>
+                        <span class="menu-title">@lang('Planos / Cotas')</span>
                     </a>
                 </li>
 
@@ -33,7 +33,7 @@
                 <li class="sidebar-menu-item sidebar-dropdown">
                     <a href="javascript:void(0)" class="{{menuActive('admin.users*',3)}}">
                         <i class="menu-icon las la-users"></i>
-                        <span class="menu-title">@lang('Users')</span>
+                        <span class="menu-title">@lang('Usuários')</span>
 
                         @if($banned_users_count > 0 || $email_unverified_users_count > 0 || $sms_unverified_users_count > 0)
                             <span class="menu-badge pill bg--primary ml-auto">
@@ -46,20 +46,20 @@
                             <li class="sidebar-menu-item {{menuActive('admin.users.all')}} ">
                                 <a href="{{route('admin.users.all')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('All Users')</span>
+                                    <span class="menu-title">@lang('Todos')</span>
                                 </a>
                             </li>
 
                             <li class="sidebar-menu-item {{menuActive('admin.users.active')}} ">
                                 <a href="{{route('admin.users.active')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Active Users')</span>
+                                    <span class="menu-title">@lang('Ativos')</span>
                                 </a>
                             </li>
                             <li class="sidebar-menu-item {{menuActive('admin.users.banned')}} ">
                                 <a href="{{route('admin.users.banned')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Banned Users')</span>
+                                    <span class="menu-title">@lang('Banidos')</span>
                                     @if($banned_users_count)
                                         <span class="menu-badge pill bg--primary ml-auto">{{$banned_users_count}}</span>
                                     @endif
@@ -69,7 +69,7 @@
                             <li class="sidebar-menu-item  {{menuActive('admin.users.emailUnverified')}}">
                                 <a href="{{route('admin.users.emailUnverified')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Email Unverified')</span>
+                                    <span class="menu-title">@lang('Email Não Verificado')</span>
 
                                     @if($email_unverified_users_count)
                                         <span
@@ -81,7 +81,7 @@
                             <li class="sidebar-menu-item {{menuActive('admin.users.smsUnverified')}}">
                                 <a href="{{route('admin.users.smsUnverified')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('SMS Unverified')</span>
+                                    <span class="menu-title">@lang('SMS Não Verificado')</span>
                                     @if($sms_unverified_users_count)
                                         <span
                                             class="menu-badge pill bg--primary ml-auto">{{$sms_unverified_users_count}}</span>
@@ -93,7 +93,7 @@
                             <li class="sidebar-menu-item {{menuActive('admin.users.email.all')}}">
                                 <a href="{{route('admin.users.email.all')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Send Email')</span>
+                                    <span class="menu-title">@lang('Enviar Email')</span>
                                 </a>
                             </li>
 
@@ -106,7 +106,7 @@
                 <li class="sidebar-menu-item sidebar-dropdown">
                     <a href="javascript:void(0)" class="{{menuActive('admin.deposit*',3)}}">
                         <i class="menu-icon las la-credit-card"></i>
-                        <span class="menu-title">@lang('Deposits')</span>
+                        <span class="menu-title">@lang('Depósitos')</span>
                         @if(0 < $pending_deposits_count)
                             <span class="menu-badge pill bg--primary ml-auto">
                                 <i class="fa fa-exclamation"></i>
@@ -119,7 +119,7 @@
                             <li class="sidebar-menu-item {{menuActive('admin.deposit.pending')}} ">
                                 <a href="{{route('admin.deposit.pending')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Pending Deposits')</span>
+                                    <span class="menu-title">@lang('Pendentes')</span>
                                     @if($pending_deposits_count)
                                         <span class="menu-badge pill bg--primary ml-auto">{{$pending_deposits_count}}</span>
                                     @endif
@@ -129,14 +129,14 @@
                             <li class="sidebar-menu-item {{menuActive('admin.deposit.approved')}} ">
                                 <a href="{{route('admin.deposit.approved')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Approved Deposits')</span>
+                                    <span class="menu-title">@lang('Aprovados')</span>
                                 </a>
                             </li>
 
                             <li class="sidebar-menu-item {{menuActive('admin.deposit.successful')}} ">
                                 <a href="{{route('admin.deposit.successful')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Successful Deposits')</span>
+                                    <span class="menu-title">@lang('Concluidos')</span>
                                 </a>
                             </li>
 
@@ -144,14 +144,14 @@
                             <li class="sidebar-menu-item {{menuActive('admin.deposit.rejected')}} ">
                                 <a href="{{route('admin.deposit.rejected')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Rejected Deposits')</span>
+                                    <span class="menu-title">@lang('Rejeitados')</span>
                                 </a>
                             </li>
 
                             <li class="sidebar-menu-item {{menuActive('admin.deposit.list')}} ">
                                 <a href="{{route('admin.deposit.list')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('All Deposits')</span>
+                                    <span class="menu-title">@lang('Todos')</span>
                                 </a>
                             </li>
                         </ul>
@@ -161,7 +161,7 @@
                 <li class="sidebar-menu-item sidebar-dropdown">
                     <a href="javascript:void(0)" class="{{menuActive('admin.withdraw*',3)}}">
                         <i class="menu-icon la la-bank"></i>
-                        <span class="menu-title">@lang('Withdrawals') </span>
+                        <span class="menu-title">@lang('Saques') </span>
                         @if(0 < $pending_withdraw_count)
                             <span class="menu-badge pill bg--primary ml-auto">
                                 <i class="fa fa-exclamation"></i>
@@ -174,14 +174,14 @@
                             <li class="sidebar-menu-item {{menuActive('admin.withdraw.method.index')}}">
                                 <a href="{{route('admin.withdraw.method.index')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Withdraw Methods')</span>
+                                    <span class="menu-title">@lang('Métodos')</span>
                                 </a>
                             </li>
 
                             <li class="sidebar-menu-item {{menuActive('admin.withdraw.pending')}} ">
                                 <a href="{{route('admin.withdraw.pending')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Pending Log')</span>
+                                    <span class="menu-title">@lang('Pendentes')</span>
 
                                     @if($pending_withdraw_count)
                                         <span class="menu-badge pill bg--primary ml-auto">{{$pending_withdraw_count}}</span>
@@ -192,21 +192,21 @@
                             <li class="sidebar-menu-item {{menuActive('admin.withdraw.approved')}} ">
                                 <a href="{{route('admin.withdraw.approved')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Approved Log')</span>
+                                    <span class="menu-title">@lang('Aprovados')</span>
                                 </a>
                             </li>
 
                             <li class="sidebar-menu-item {{menuActive('admin.withdraw.rejected')}} ">
                                 <a href="{{route('admin.withdraw.rejected')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Rejected Log')</span>
+                                    <span class="menu-title">@lang('Negados')</span>
                                 </a>
                             </li>
 
                             <li class="sidebar-menu-item {{menuActive('admin.withdraw.log')}} ">
                                 <a href="{{route('admin.withdraw.log')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Withdrawals Log')</span>
+                                    <span class="menu-title">@lang('Extrato')</span>
                                 </a>
                             </li>
 
@@ -218,7 +218,7 @@
                 <li class="sidebar-menu-item sidebar-dropdown">
                     <a href="javascript:void(0)" class="{{menuActive('admin.ticket*',3)}}">
                         <i class="menu-icon la la-ticket"></i>
-                        <span class="menu-title">@lang('Support Ticket') </span>
+                        <span class="menu-title">@lang('Suporte') </span>
                         @if(0 < $pending_ticket_count)
                             <span class="menu-badge pill bg--primary ml-auto">
                                 <i class="fa fa-exclamation"></i>
@@ -231,13 +231,13 @@
                             <li class="sidebar-menu-item {{menuActive('admin.ticket')}} ">
                                 <a href="{{route('admin.ticket')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('All Ticket')</span>
+                                    <span class="menu-title">@lang('Todos')</span>
                                 </a>
                             </li>
                             <li class="sidebar-menu-item {{menuActive('admin.ticket.pending')}} ">
                                 <a href="{{route('admin.ticket.pending')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Pending Ticket')</span>
+                                    <span class="menu-title">@lang('Pendentes')</span>
                                     @if($pending_ticket_count)
                                         <span
                                             class="menu-badge pill bg--primary ml-auto">{{$pending_ticket_count}}</span>
@@ -247,13 +247,13 @@
                             <li class="sidebar-menu-item {{menuActive('admin.ticket.closed')}} ">
                                 <a href="{{route('admin.ticket.closed')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Closed Ticket')</span>
+                                    <span class="menu-title">@lang('Fechados')</span>
                                 </a>
                             </li>
                             <li class="sidebar-menu-item {{menuActive('admin.ticket.answered')}} ">
                                 <a href="{{route('admin.ticket.answered')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Answered Ticket')</span>
+                                    <span class="menu-title">@lang('Respondidos')</span>
                                 </a>
                             </li>
                         </ul>
@@ -271,32 +271,26 @@
                             <li class="sidebar-menu-item {{menuActive(['admin.report.transaction','admin.report.transaction.search'])}}">
                                 <a href="{{route('admin.report.transaction')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Transaction Log')</span>
+                                    <span class="menu-title">@lang('Transações')</span>
                                 </a>
                             </li>
 
                             <li class="sidebar-menu-item {{menuActive(['admin.report.invest'])}}">
                                 <a href="{{route('admin.report.invest')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Invest Log')</span>
+                                    <span class="menu-title">@lang('Log de Investimentos')</span>
                                 </a>
                             </li>
                             <li class="sidebar-menu-item {{menuActive(['admin.report.bvLog'])}}">
                                 <a href="{{route('admin.report.bvLog')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('BV Log')</span>
+                                    <span class="menu-title">@lang('Log de Comissões')</span>
                                 </a>
                             </li>
                             <li class="sidebar-menu-item {{menuActive(['admin.report.refCom'])}}">
                                 <a href="{{route('admin.report.refCom')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Referral Commission')</span>
-                                </a>
-                            </li>
-                            <li class="sidebar-menu-item {{menuActive(['admin.report.binaryCom'])}}">
-                                <a href="{{route('admin.report.binaryCom')}}" class="nav-link">
-                                    <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Binary Commission')</span>
+                                    <span class="menu-title">@lang('Comissão de Indicação')</span>
                                 </a>
                             </li>
 
@@ -305,7 +299,7 @@
                             <li class="sidebar-menu-item {{menuActive(['admin.report.login.history','admin.report.login.ipHistory'])}}">
                                 <a href="{{route('admin.report.login.history')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Login History')</span>
+                                    <span class="menu-title">@lang('Histórico de Login')</span>
                                 </a>
                             </li>
 
@@ -318,7 +312,7 @@
                     <a href="{{route('admin.subscriber.index')}}" class="nav-link"
                        data-default-url="{{ route('admin.subscriber.index') }}">
                         <i class="menu-icon las la-thumbs-up"></i>
-                        <span class="menu-title">@lang('Subscribers') </span>
+                        <span class="menu-title">@lang('Assinantes') </span>
                     </a>
                 </li>
 
@@ -328,36 +322,36 @@
                 <li class="sidebar-menu-item {{menuActive('admin.setting.index')}}">
                     <a href="{{route('admin.setting.index')}}" class="nav-link">
                         <i class="menu-icon las la-life-ring"></i>
-                        <span class="menu-title">@lang('General Setting')</span>
+                        <span class="menu-title">@lang('Configurações')</span>
                     </a>
                 </li>
 
                 <li class="sidebar-menu-item {{menuActive('admin.setting.logo_icon')}}">
                     <a href="{{route('admin.setting.logo_icon')}}" class="nav-link">
                         <i class="menu-icon las la-images"></i>
-                        <span class="menu-title">@lang('Logo Icon Setting')</span>
+                        <span class="menu-title">@lang('Logo e Ícone')</span>
                     </a>
                 </li>
 
                 <li class="sidebar-menu-item sidebar-dropdown">
                     <a href="javascript:void(0)" class="{{menuActive('admin.gateway*',3)}}">
                         <i class="menu-icon la la-paypal"></i>
-                        <span class="menu-title">@lang('Gateways')</span>
+                        <span class="menu-title">@lang('Gateways de Pagamento')</span>
 
                     </a>
                     <div class="sidebar-submenu {{menuActive('admin.gateway*',2)}} ">
                         <ul>
 
-                            <li class="sidebar-menu-item {{menuActive('admin.gateway.automatic.index')}} ">
-                                <a href="{{route('admin.gateway.automatic.index')}}" class="nav-link">
-                                    <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Automatic Gateways')</span>
-                                </a>
-                            </li>
+{{--                            <li class="sidebar-menu-item {{menuActive('admin.gateway.automatic.index')}} ">--}}
+{{--                                <a href="{{route('admin.gateway.automatic.index')}}" class="nav-link">--}}
+{{--                                    <i class="menu-icon las la-dot-circle"></i>--}}
+{{--                                    <span class="menu-title">@lang('Automatic Gateways')</span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
                             <li class="sidebar-menu-item {{menuActive('admin.gateway.manual.index')}} ">
                                 <a href="{{route('admin.gateway.manual.index')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Manual Gateways')</span>
+                                    <span class="menu-title">@lang('Gateways Manuais')</span>
                                 </a>
                             </li>
                         </ul>
@@ -367,7 +361,7 @@
                 <li class="sidebar-menu-item {{menuActive('admin.extensions.index')}}">
                     <a href="{{route('admin.extensions.index')}}" class="nav-link">
                         <i class="menu-icon las la-cogs"></i>
-                        <span class="menu-title">@lang('Extensions')</span>
+                        <span class="menu-title">@lang('Extensões')</span>
                     </a>
                 </li>
 
@@ -375,21 +369,21 @@
                     <a href="{{route('admin.language.manage')}}" class="nav-link"
                        data-default-url="{{ route('admin.language.manage') }}">
                         <i class="menu-icon las la-language"></i>
-                        <span class="menu-title">@lang('Language') </span>
+                        <span class="menu-title">@lang('Idiomas') </span>
                     </a>
                 </li>
 
                 <li class="sidebar-menu-item {{menuActive('admin.seo')}}">
                     <a href="{{route('admin.seo')}}" class="nav-link">
                         <i class="menu-icon las la-globe"></i>
-                        <span class="menu-title">@lang('SEO Manager')</span>
+                        <span class="menu-title">@lang('Gerenciador SEO')</span>
                     </a>
                 </li>
 
                 <li class="sidebar-menu-item {{menuActive('admin.setting.notice')}}">
                     <a href="{{route('admin.setting.notice')}}" class="nav-link">
                         <i class="menu-icon las la-exclamation-triangle"></i>
-                        <span class="menu-title">@lang('Notice')</span>
+                        <span class="menu-title">@lang('Avisos')</span>
                     </a>
                 </li>
 
@@ -397,7 +391,7 @@
                 <li class="sidebar-menu-item sidebar-dropdown">
                     <a href="javascript:void(0)" class="{{menuActive('admin.email.template*',3)}}">
                         <i class="menu-icon la la-envelope-o"></i>
-                        <span class="menu-title">@lang('Email Manager')</span>
+                        <span class="menu-title">@lang('Gerenciador de Emails')</span>
                     </a>
                     <div class="sidebar-submenu {{menuActive('admin.email.template*',2)}} ">
                         <ul>
@@ -405,74 +399,74 @@
                             <li class="sidebar-menu-item {{menuActive('admin.email.template.global')}} ">
                                 <a href="{{route('admin.email.template.global')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Global Template')</span>
+                                    <span class="menu-title">@lang('Template Global')</span>
                                 </a>
                             </li>
                             <li class="sidebar-menu-item {{menuActive(['admin.email.template.index','admin.email.template.edit'])}} ">
                                 <a href="{{ route('admin.email.template.index') }}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Email Templates')</span>
+                                    <span class="menu-title">@lang('Templates de Email')</span>
                                 </a>
                             </li>
 
                             <li class="sidebar-menu-item {{menuActive('admin.email.template.setting')}} ">
                                 <a href="{{route('admin.email.template.setting')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Email Configure')</span>
+                                    <span class="menu-title">@lang('Configurar Email')</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </li>
 
-                <li class="sidebar-menu-item sidebar-dropdown">
-                    <a href="javascript:void(0)" class="{{menuActive('admin.sms.template*',3)}}">
-                        <i class="menu-icon la la-mobile"></i>
-                        <span class="menu-title">@lang('SMS Manager')</span>
-                    </a>
-                    <div class="sidebar-submenu {{menuActive('admin.sms.template*',2)}} ">
-                        <ul>
-                            <li class="sidebar-menu-item {{menuActive('admin.sms.template.global')}} ">
-                                <a href="{{route('admin.sms.template.global')}}" class="nav-link">
-                                    <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('API Setting')</span>
-                                </a>
-                            </li>
-                            <li class="sidebar-menu-item {{menuActive(['admin.sms.template.index','admin.sms.template.edit'])}} ">
-                                <a href="{{ route('admin.sms.template.index') }}" class="nav-link">
-                                    <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('SMS Templates')</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+{{--                <li class="sidebar-menu-item sidebar-dropdown">--}}
+{{--                    <a href="javascript:void(0)" class="{{menuActive('admin.sms.template*',3)}}">--}}
+{{--                        <i class="menu-icon la la-mobile"></i>--}}
+{{--                        <span class="menu-title">@lang('SMS Manager')</span>--}}
+{{--                    </a>--}}
+{{--                    <div class="sidebar-submenu {{menuActive('admin.sms.template*',2)}} ">--}}
+{{--                        <ul>--}}
+{{--                            <li class="sidebar-menu-item {{menuActive('admin.sms.template.global')}} ">--}}
+{{--                                <a href="{{route('admin.sms.template.global')}}" class="nav-link">--}}
+{{--                                    <i class="menu-icon las la-dot-circle"></i>--}}
+{{--                                    <span class="menu-title">@lang('API Setting')</span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                            <li class="sidebar-menu-item {{menuActive(['admin.sms.template.index','admin.sms.template.edit'])}} ">--}}
+{{--                                <a href="{{ route('admin.sms.template.index') }}" class="nav-link">--}}
+{{--                                    <i class="menu-icon las la-dot-circle"></i>--}}
+{{--                                    <span class="menu-title">@lang('SMS Templates')</span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                </li>--}}
 
 
                 {{-- <li class="sidebar__menu-header">@lang('TEMPLATES')</li> --}}
 
 
 
-                <li class="sidebar__menu-header">@lang('Frontend Manager')</li>
+                <li class="sidebar__menu-header">@lang('Site')</li>
 
                 <li class="sidebar-menu-item {{menuActive('admin.frontend.templates')}}">
                     <a href="{{route('admin.frontend.templates')}}" class="nav-link ">
                         <i class="menu-icon la la-html5"></i>
-                        <span class="menu-title">@lang('Manage Templates')</span>
+                        <span class="menu-title">@lang('Gerenciar Templates')</span>
                     </a>
                 </li>
 
                 <li class="sidebar-menu-item {{menuActive('admin.frontend.manage.pages')}}">
                     <a href="{{route('admin.frontend.manage.pages')}}" class="nav-link ">
                         <i class="menu-icon la la-list"></i>
-                        <span class="menu-title">@lang('Manage Pages')</span>
+                        <span class="menu-title">@lang('Gerenciar')</span>
                     </a>
                 </li>
 
                 <li class="sidebar-menu-item sidebar-dropdown">
                     <a href="javascript:void(0)" class="{{menuActive('admin.frontend.sections*',3)}}">
                         <i class="menu-icon la la-html5"></i>
-                        <span class="menu-title">@lang('Manage Section')</span>
+                        <span class="menu-title">@lang('Gerenciar Seções')</span>
                     </a>
                     <div class="sidebar-submenu {{menuActive('admin.frontend.sections*',2)}} ">
                         <ul>

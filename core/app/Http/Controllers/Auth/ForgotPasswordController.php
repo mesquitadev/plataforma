@@ -51,7 +51,7 @@ class ForgotPasswordController extends Controller
             $validationRule = [
                 'value'=>'required'
             ];
-            $validationMessage = ['value.required'=>'Username field is required'];
+            $validationMessage = ['value.required'=>'Username é obrigatório'];
         }else{
             $notify[] = ['error','Seleção inválida'];
             return back()->withNotify($notify);

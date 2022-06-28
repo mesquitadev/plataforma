@@ -35,7 +35,7 @@ function sidebarVariation(){
 
 function systemDetails()
 {
-    $system['name'] = 'MLMLab';
+    $system['name'] = 'PINV';
     $system['version'] = '1.1';
     return $system;
 }

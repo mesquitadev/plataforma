@@ -65,7 +65,7 @@ class ForgotPasswordController extends Controller
 
         $user = Admin::where('email', $request->email)->first();
         if ($user == null) {
-            return back()->withErrors(['Email Not Available']);
+            return back()->withErrors(['Email não encontrado']);
         }
 
         $code = verificationCode(6);

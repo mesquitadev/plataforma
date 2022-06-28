@@ -21,7 +21,7 @@ class PlanController extends Controller
 
     function planIndex()
     {
-        $data['page_title'] = "Plans";
+        $data['page_title'] = "Planos";
         $data['plans'] = Plan::whereStatus(1)->get();
         return view($this->activeTemplate . '.user.plan', $data);
 
