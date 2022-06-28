@@ -15,7 +15,7 @@
                                 <th scope="col">@lang('Withdraw Limit')</th>
                                 <th scope="col">@lang('Processing Time') </th>
                                 <th scope="col">@lang('Status')</th>
-                                <th scope="col">@lang('Action')</th>
+                                <th scope="col">@lang('Ação')</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -44,7 +44,7 @@
                                             <span class="text--small badge font-weight-normal badge--warning">@lang('Disabled')</span>
                                         @endif
                                     </td>
-                                    <td data-label="@lang('Action')">
+                                    <td data-label="@lang('Ação')">
                                         <a href="{{ route('admin.withdraw.method.edit', $method->id)}}"
                                            class="icon-btn ml-1" data-toggle="tooltip" data-original-title="@lang('Edit')"><i class="las la-pen"></i></a>
                                         @if($method->status == 1)

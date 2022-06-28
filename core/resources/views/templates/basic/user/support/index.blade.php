@@ -14,7 +14,7 @@
                                 <th scope="col">@lang('Subject')</th>
                                 <th scope="col">@lang('Status')</th>
                                 <th scope="col">@lang('Last Reply')</th>
-                                <th scope="col">@lang('Action')</th>
+                                <th scope="col">@lang('Ação')</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -35,7 +35,7 @@
                                     </td>
                                     <td data-label="@lang('Last Reply')">{{ \Carbon\Carbon::parse($support->last_reply)->diffForHumans() }} </td>
 
-                                    <td data-label="@lang('Action')">
+                                    <td data-label="@lang('Ação')">
                                         <a href="{{ route('ticket.view', $support->ticket) }}" class="icon-btn" data-toggle="tooltip" title="" data-original-title="@lang('Details')">
                                             <i class="las la-desktop text--shadow"></i>
                                         </a>

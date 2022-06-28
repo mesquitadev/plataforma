@@ -36,7 +36,7 @@
                                         {{__($la->name)}}
                                     </th>
 
-                                    <th scope="col" class="w-85">@lang('Action')</th>
+                                    <th scope="col" class="w-85">@lang('Ação')</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -47,7 +47,7 @@
                                         <td data-label="@lang('Value')" class="text-left white-space-wrap">{{$lang}}</td>
 
 
-                                        <td data-label="@lang('Action')">
+                                        <td data-label="@lang('Ação')">
                                             <a href="javascript:void(0)"
                                                data-target="#editModal"
                                                data-toggle="modal"

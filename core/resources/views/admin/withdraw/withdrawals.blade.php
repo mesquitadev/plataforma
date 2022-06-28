@@ -48,7 +48,7 @@
                                 <th scope="col">@lang('Rate')</th>
                                 <th scope="col">@lang('Payable')</th>
                                 @if(request()->routeIs('admin.withdraw.pending'))
-                                    <th scope="col">@lang('Action')</th>
+                                    <th scope="col">@lang('Ação')</th>
                                 @elseif(request()->routeIs('admin.withdraw.log') || request()->routeIs('admin.withdraw.search')  || request()->routeIs('admin.users.withdrawals') || request()->routeIs('admin.withdraw.method'))
                                     <th scope="col">@lang('Status')</th>
                                 @endif
@@ -87,7 +87,7 @@
                                     <td data-label="@lang('Payable')" class="budget font-weight-bold">{{ getAmount($withdraw->final_amount) }} {{ __($withdraw->currency) }} </td>
                                     @if(request()->routeIs('admin.withdraw.pending'))
 
-                                        <td data-label="@lang('Action')">
+                                        <td data-label="@lang('Ação')">
                                             <a href="{{ route('admin.withdraw.details', $withdraw->id) }}" class="icon-btn ml-1 " data-toggle="tooltip"data-original-title="@lang('Detail')">
                                                 <i class="la la-eye"></i>
                                             </a>

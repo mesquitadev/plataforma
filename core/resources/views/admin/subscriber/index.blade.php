@@ -12,7 +12,7 @@
                                 <th scope="col">@lang('Name')</th>
                                 <th scope="col">@lang('Email')</th>
                                 <th scope="col">@lang('Joined')</th>
-                                <th scope="col">@lang('Action')</th>
+                                <th scope="col">@lang('Ação')</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -27,7 +27,7 @@
                                     </td>
                                     <td data-label="@lang('Email')">{{ $subscriber->email }}</td>
                                     <td data-label="@lang('Joined')">{{ showDateTime($subscriber->created_at) }}</td>
-                                    <td data-label="@lang('Action')">
+                                    <td data-label="@lang('Ação')">
                                         <a href="javascript:void(0)"
                                            data-id="{{ $subscriber->id }}"
                                            data-email="{{ $subscriber->email }}"

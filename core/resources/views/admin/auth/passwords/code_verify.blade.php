@@ -3,7 +3,7 @@
     <div class="page-wrapper default-version">
         <div class="form-area bg_img" data-background="{{asset('assets/admin/images/1.jpg')}}">
             <div class="form-wrapper">
-                <h4 class="logo-text mb-15"><strong>@lang('Recover Account')</strong></h4>
+                <h4 class="logo-text mb-15"><strong>@lang('Recuperar Acesso')</strong></h4>
                 <form action="{{ route('admin.password.verify-code') }}" method="POST" class="cmn-form mt-30">
                     @csrf
                     <div class="form-group">
@@ -21,11 +21,11 @@
                         </div>
                     </div>
                     <div class="form-group d-flex justify-content-between align-items-center">
-                        <a href="{{ route('admin.password.reset') }}" class="text-muted text--small">@lang('Try to send again')</a>
+                        <a href="{{ route('admin.password.reset') }}" class="text-muted text--small">@lang('Tentar novamente')</a>
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="submit-btn mt-25 b-radius--capsule">@lang('Verify Code') <i class="las la-sign-in-alt"></i></button>
+                        <button type="submit" class="submit-btn mt-25 b-radius--capsule">@lang('Verificar Código') <i class="las la-sign-in-alt"></i></button>
                     </div>
                 </form>
             </div>

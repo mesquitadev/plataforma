@@ -154,7 +154,7 @@
                                         @endif
                                     @endif
                                 @endforeach
-                                <th scope="col">@lang('Action')</th>
+                                <th scope="col">@lang('Ação')</th>
                             </tr>
                             </thead>
                             <tbody class="list">
@@ -187,7 +187,7 @@
                                             @endif
                                         @endif
                                     @endforeach
-                                    <td data-label="@lang('Action')">
+                                    <td data-label="@lang('Ação')">
                                         @if($section->element->modal)
                                         @php
                                             $images = [];

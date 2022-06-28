@@ -11,7 +11,7 @@
                                 <th scope="col">@lang('Name')</th>
                                 <th scope="col">@lang('Code')</th>
                                 <th scope="col">@lang('Default')</th>
-                                <th scope="col">@lang('Actions')</th>
+                                <th scope="col">@lang('Ação')</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -27,7 +27,7 @@
                                             <span class="text--small badge font-weight-normal badge--warning">@lang('Selectable')</span>
                                         @endif
                                     </td>
-                                    <td data-label="@lang('Action')">
+                                    <td data-label="@lang('Ação')">
                                         <a href="{{route('admin.language.key', $item->id)}}" class="icon-btn btn--success" data-toggle="tooltip" data-original-title="@lang('Translate')">
                                             <i class="la la-code"></i>
                                         </a>

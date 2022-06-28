@@ -13,7 +13,7 @@
                                 <th scope="col">@lang('Submitted By')</th>
                                 <th scope="col">@lang('Status')</th>
                                 <th scope="col">@lang('Last Reply')</th>
-                                <th scope="col">@lang('Action')</th>
+                                <th scope="col">@lang('Ação')</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -46,7 +46,7 @@
                                         {{ diffForHumans($item->last_reply) }}
                                     </td>
 
-                                    <td data-label="@lang('Action')">
+                                    <td data-label="@lang('Ação')">
                                         <a href="{{ route('admin.ticket.view', $item->id) }}" class="icon-btn  ml-1" data-toggle="tooltip" title="" data-original-title="@lang('Details')">
                                             <i class="las la-desktop"></i>
                                         </a>

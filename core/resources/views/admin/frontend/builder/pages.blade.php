@@ -10,7 +10,7 @@
                             <tr>
                                 <th scope="col">@lang('Name')</th>
                                 <th scope="col">@lang('Slug')</th>
-                                <th scope="col">@lang('Action')</th>
+                                <th scope="col">@lang('Ação')</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -18,7 +18,7 @@
                                 <tr>
                                     <td data-label="@lang('Name')">{{ __($data->name) }}</td>
                                     <td data-label="@lang('Slug')">{{ __($data->slug) }}</td>
-                                    <td data-label="@lang('Action')">
+                                    <td data-label="@lang('Ação')">
                                         <a href="{{ route('admin.frontend.manage.section', $data->id) }}" class="icon-btn btn--primary ml-1" data-toggle="tooltip" data-original-title="@lang('Edit')"><i class="la la-pen"></i></a>
                                         @if($data->is_default == 0)
                                             <button class="icon-btn btn--danger ml-1 removeBtn" data-id="{{ $data->id }}" data-toggle="tooltip" data-original-title="@lang('Delete')">

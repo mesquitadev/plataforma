@@ -12,7 +12,7 @@
                             <tr>
                                 <th scope="col">@lang('Name')</th>
                                 <th scope="col">@lang('Status')</th>
-                                <th scope="col">@lang('Action')</th>
+                                <th scope="col">@lang('Ação')</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -30,7 +30,7 @@
                                         @endif
                                     </td>
 
-                                    <td data-label="@lang('Action')">
+                                    <td data-label="@lang('Ação')">
                                         <a href="{{ route('admin.sms.template.edit', $template->id) }}"
                                            class="icon-btn ml-1 editGatewayBtn" data-toggle="tooltip"
                                            title="@lang('Edit')">

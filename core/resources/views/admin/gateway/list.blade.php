@@ -13,7 +13,7 @@
                                 <th scope="col">@lang('Supported Currency')</th>
                                 <th scope="col">@lang('Enabled Currency')</th>
                                 <th scope="col">@lang('Status')</th>
-                                <th scope="col">@lang('Action')</th>
+                                <th scope="col">@lang('Ação')</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -40,7 +40,7 @@
                                             <span class="text--small badge font-weight-normal badge--warning">@lang('Disabled')</span>
                                         @endif
                                     </td>
-                                    <td data-label="@lang('Action')">
+                                    <td data-label="@lang('Ação')">
                                         <a href="{{ route('admin.gateway.automatic.edit', $gateway->alias) }}" class="icon-btn editGatewayBtn" data-toggle="tooltip" title="" data-original-title="@lang('Edit')">
                                             <i class="la la-pencil"></i>
                                         </a>

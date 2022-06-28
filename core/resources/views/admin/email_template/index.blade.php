@@ -13,7 +13,7 @@
                                 <th scope="col">@lang('Name')</th>
                                 <th scope="col">@lang('Subject')</th>
                                 <th scope="col">@lang('Status')</th>
-                                <th scope="col">@lang('Action')</th>
+                                <th scope="col">@lang('Ação')</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -28,7 +28,7 @@
                                             <span class="text--small badge font-weight-normal badge--warning">@lang('Disabled')</span>
                                         @endif
                                     </td>
-                                    <td data-label="@lang('Action')">
+                                    <td data-label="@lang('Ação')">
                                         <a href="{{ route('admin.email.template.edit', $template->id) }}"
                                            class="icon-btn  ml-1 editGatewayBtn" data-toggle="tooltip" title="@lang('Edit')">
                                             <i class="la la-pencil"></i>

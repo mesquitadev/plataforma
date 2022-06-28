@@ -13,7 +13,7 @@
                                 <th scope="col">@lang('Email')</th>
                                 <th scope="col">@lang('Phone')</th>
                                 <th scope="col">@lang('Joined At')</th>
-                                <th scope="col">@lang('Action')</th>
+                                <th scope="col">@lang('Ação')</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -31,7 +31,7 @@
                                 <td data-label="@lang('Email')">{{ $user->email }}</td>
                                 <td data-label="@lang('Phone')">{{ $user->mobile }}</td>
                                 <td data-label="@lang('Joined At')">{{ showDateTime($user->created_at) }}</td>
-                                <td data-label="@lang('Action')">
+                                <td data-label="@lang('Ação')">
                                     <a href="{{ route('admin.users.detail', $user->id) }}" class="icon-btn" data-toggle="tooltip" data-original-title="@lang('Details')">
                                         <i class="las la-desktop text--shadow"></i>
                                     </a>

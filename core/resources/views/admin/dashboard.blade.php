@@ -7,7 +7,7 @@
             <div class="col-md-12">
                 <div class="card text-white bg-warning mb-3">
                     <div class="card-header">
-                        <h3 class="card-title"> @lang('New Version Available') <button class="btn btn--dark float-right">@lang('Version') {{json_decode($general->sys_version)->version}}</button> </h3>
+                        <h3 class="card-title"> @lang('Nova Versão Disponível') <button class="btn btn--dark float-right">@lang('Version') {{json_decode($general->sys_version)->version}}</button> </h3>
                     </div>
                     <div class="card-body">
                         <h5 class="card-title text-dark">@lang('What is the Update ?')</h5>
@@ -44,10 +44,10 @@
                         <span class="amount">{{$widget['total_users']}}</span>
                     </div>
                     <div class="desciption">
-                        <span class="text--small">@lang('Total Users')</span>
+                        <span class="text--small">@lang('Total de Usuários')</span>
                     </div>
                     <a href="{{route('admin.users.all')}}"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>
                 </div>
             </div>
         </div>
@@ -63,10 +63,10 @@
                         <span class="amount">{{getAmount($widget['users_balance'])}}</span>
                     </div>
                     <div class="desciption">
-                        <span class="text--small">@lang('Users Balance')</span>
+                        <span class="text--small">@lang('Saldo Total')</span>
                     </div>
                     <a href="{{route('admin.users.active')}}"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>
                 </div>
             </div>
         </div>
@@ -82,10 +82,10 @@
                         <span class="amount">{{$widget['verified_users']}}</span>
                     </div>
                     <div class="desciption">
-                        <span class="text--small">@lang('Total Verified Users')</span>
+                        <span class="text--small">@lang('Total de Usuários Verficados')</span>
                     </div>
                     <a href="{{route('admin.users.active')}}"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>
                 </div>
             </div>
         </div>
@@ -100,10 +100,10 @@
                         <span class="amount">{{$widget['banned_users']}}</span>
                     </div>
                     <div class="desciption">
-                        <span class="text--small">@lang('Banned Users')</span>
+                        <span class="text--small">@lang('Usuários Banidos')</span>
                     </div>
                     <a href="{{route('admin.users.banned')}}"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>
                 </div>
             </div>
         </div>
@@ -119,10 +119,10 @@
                         <span class="amount">{{$widget['email_verified_users']}}</span>
                     </div>
                     <div class="desciption">
-                        <span class="text--small">@lang('Total Email Verified')</span>
+                        <span class="text--small">@lang('Total de Usuários Verificados')</span>
                     </div>
                     <a href="{{route('admin.users.emailVerified')}}"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>
                 </div>
             </div>
         </div>
@@ -137,10 +137,10 @@
                         <span class="amount">{{$widget['emailUnverified']}}</span>
                     </div>
                     <div class="desciption">
-                        <span class="text--small">@lang('Total Email Unverified')</span>
+                        <span class="text--small">@lang('Total de Usuários Não Verificados')</span>
                     </div>
                     <a href="{{route('admin.users.emailUnverified')}}"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>
                 </div>
             </div>
         </div>
@@ -155,10 +155,10 @@
                         <span class="amount">{{$widget['sms_verified_users']}}</span>
                     </div>
                     <div class="desciption">
-                        <span class="text--small">@lang('Total SMS Verified')</span>
+                        <span class="text--small">@lang('Total SMS Verificados')</span>
                     </div>
                     <a href="{{route('admin.users.smsVerified')}}"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>
                 </div>
             </div>
         </div>
@@ -173,10 +173,10 @@
                         <span class="amount">{{$widget['smsUnverified']}}</span>
                     </div>
                     <div class="desciption">
-                        <span class="text--small">@lang('Total SMS Unverified')</span>
+                        <span class="text--small">@lang('Total SMS Não Verificado')</span>
                     </div>
                     <a href="{{route('admin.users.smsUnverified')}}"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>
                 </div>
             </div>
         </div>
@@ -193,10 +193,10 @@
                         <span class="amount">{{getAmount($widget['users_invest'])}}</span>
                     </div>
                     <div class="desciption">
-                        <span class="text--small">@lang('Total Invest')</span>
+                        <span class="text--small">@lang('Total Investido')</span>
                     </div>
                     <a href="{{route('admin.report.invest')}}"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>
                 </div>
             </div>
         </div>
@@ -212,9 +212,9 @@
                         <span class="amount">{{getAmount($widget['last7days_invest'])}}</span>
                     </div>
                     <div class="desciption">
-                        <span class="text--small">@lang('Last 7 Days Invest')</span>
+                        <span class="text--small">@lang('Investimentos dos Ultimos 7 dias')</span>
                     </div>
-                    <a href="#0" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                    <a href="#0" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>
                 </div>
             </div>
         </div>
@@ -231,112 +231,93 @@
                         <span class="amount">{{getAmount($widget['total_ref_com'])}}</span>
                     </div>
                     <div class="desciption">
-                        <span class="text--small">@lang('Total Referral Commission')</span>
+                        <span class="text--small">@lang('Total Comissão por Indicação')</span>
                     </div>
                     <a href="{{route('admin.report.refCom')}}"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
-            <div class="dashboard-w1 bg--17 b-radius--10 box-shadow">
-                <div class="icon">
-                    <i class="las la-tree"></i>
-                </div>
-                <div class="details">
-                    <div class="numbers">
-                        <span class="currency-sign">{{$general->cur_sym}}</span>
-                        <span class="amount">{{getAmount($widget['total_binary_com'])}}</span>
-
-                    </div>
-                    <div class="desciption">
-                        <span class="text--small">@lang('Total Binary Commission')</span>
-                    </div>
-                    <a href="{{route('admin.report.binaryCom')}}"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
-            <div class="dashboard-w1 bg--deep-purple b-radius--10 box-shadow">
-                <div class="icon">
-                    <i class="las la-cut"></i>
-                </div>
-                <div class="details">
-                    <div class="numbers">
-                        <span class="amount">{{getAmount($bv['totalBvCut'])}}</span>
-                    </div>
-                    <div class="desciption">
-                        <span class="text--small">@lang('Users Total Bv Cut')</span>
-                    </div>
-                    <a href="{{route('admin.report.bvLog')}}?type=cutBV"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
-            <div class="dashboard-w1 bg--15 b-radius--10 box-shadow">
-                <div class="icon">
-                    <i class="las la-cart-arrow-down"></i>
-                </div>
-                <div class="details">
-                    <div class="numbers">
-                        <span class="amount">{{getAmount($bv['bvLeft'] + $bv['bvRight'])}}</span>
-                    </div>
-                    <div class="desciption">
-                        <span class="text--small">@lang('Users Total BV')</span>
-                    </div>
-                    <a href="{{route('admin.report.bvLog')}}?type=paidBV"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>
                 </div>
             </div>
         </div>
 
 
-        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
-            <div class="dashboard-w1 bg--10 b-radius--10 box-shadow">
-                <div class="icon">
-                    <i class="las la-arrow-alt-circle-left"></i>
-                </div>
-                <div class="details">
-                    <div class="numbers">
-                        <span class="amount">{{getAmount($bv['bvLeft'])}}</span>
-                    </div>
-                    <div class="desciption">
-                        <span class="text--small">@lang('Users Left BV')</span>
-                    </div>
-                    <a href="{{route('admin.report.bvLog')}}?type=leftBV"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
-                </div>
-            </div>
-        </div>
+{{--        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">--}}
+{{--            <div class="dashboard-w1 bg--deep-purple b-radius--10 box-shadow">--}}
+{{--                <div class="icon">--}}
+{{--                    <i class="las la-cut"></i>--}}
+{{--                </div>--}}
+{{--                <div class="details">--}}
+{{--                    <div class="numbers">--}}
+{{--                        <span class="amount">{{getAmount($bv['totalBvCut'])}}</span>--}}
+{{--                    </div>--}}
+{{--                    <div class="desciption">--}}
+{{--                        <span class="text--small">@lang('Users Total Bv Cut')</span>--}}
+{{--                    </div>--}}
+{{--                    <a href="{{route('admin.report.bvLog')}}?type=cutBV"--}}
+{{--                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
-        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
-            <div class="dashboard-w1 bg--3 b-radius--10 box-shadow">
-                <div class="icon">
-                    <i class="las la-arrow-alt-circle-right"></i>
-                </div>
-                <div class="details">
-                    <div class="numbers">
-                        <span class="amount">{{getAmount($bv['bvRight'])}}</span>
-                    </div>
-                    <div class="desciption">
-                        <span class="text--small">@lang('Right BV')</span>
-                    </div>
-                    <a href="{{route('admin.report.bvLog')}}?type=rightBV" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
-                </div>
-            </div>
-        </div>
+{{--        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">--}}
+{{--            <div class="dashboard-w1 bg--15 b-radius--10 box-shadow">--}}
+{{--                <div class="icon">--}}
+{{--                    <i class="las la-cart-arrow-down"></i>--}}
+{{--                </div>--}}
+{{--                <div class="details">--}}
+{{--                    <div class="numbers">--}}
+{{--                        <span class="amount">{{getAmount($bv['bvLeft'] + $bv['bvRight'])}}</span>--}}
+{{--                    </div>--}}
+{{--                    <div class="desciption">--}}
+{{--                        <span class="text--small">@lang('Users Total BV')</span>--}}
+{{--                    </div>--}}
+{{--                    <a href="{{route('admin.report.bvLog')}}?type=paidBV"--}}
+{{--                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+
+
+{{--        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">--}}
+{{--            <div class="dashboard-w1 bg--10 b-radius--10 box-shadow">--}}
+{{--                <div class="icon">--}}
+{{--                    <i class="las la-arrow-alt-circle-left"></i>--}}
+{{--                </div>--}}
+{{--                <div class="details">--}}
+{{--                    <div class="numbers">--}}
+{{--                        <span class="amount">{{getAmount($bv['bvLeft'])}}</span>--}}
+{{--                    </div>--}}
+{{--                    <div class="desciption">--}}
+{{--                        <span class="text--small">@lang('Users Left BV')</span>--}}
+{{--                    </div>--}}
+{{--                    <a href="{{route('admin.report.bvLog')}}?type=leftBV"--}}
+{{--                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+
+{{--        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">--}}
+{{--            <div class="dashboard-w1 bg--3 b-radius--10 box-shadow">--}}
+{{--                <div class="icon">--}}
+{{--                    <i class="las la-arrow-alt-circle-right"></i>--}}
+{{--                </div>'--}}
+{{--                <div class="details">--}}
+{{--                    <div class="numbers">--}}
+{{--                        <span class="amount">{{getAmount($bv['bvRight'])}}</span>--}}
+{{--                    </div>--}}
+{{--                    <div class="desciption">--}}
+{{--                        <span class="text--small">@lang('Right BV')</span>--}}
+{{--                    </div>--}}
+{{--                    <a href="{{route('admin.report.bvLog')}}?type=rightBV" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
     </div>
 
     <div class="row mt-50 mb-none-30">
         <div class="col-xl-6 mb-30">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">@lang('Monthly  Deposit & Withdraw  Report')</h5>
+                    <h5 class="card-title">@lang('Depósitos e Saques do Mês')</h5>
                     <div id="apex-bar-chart"></div>
                 </div>
             </div>
@@ -350,7 +331,7 @@
                         </div>
                         <div class="widget-three__content">
                             <h2 class="numbers">{{getAmount($payment['total_deposit_amount'])}} {{$general->cur_text}}</h2>
-                            <p class="text--small">@lang('Total Deposit')</p>
+                            <p class="text--small">@lang('Total Depositado')</p>
                         </div>
                     </div>
                 </div>
@@ -361,7 +342,7 @@
                         </div>
                         <div class="widget-three__content">
                             <h2 class="numbers">{{getAmount($payment['total_deposit_charge'])}} {{$general->cur_text}}</h2>
-                            <p class="text--small">@lang('Total Deposit Charge')</p>
+                            <p class="text--small">@lang('Total Taxa de Depósito')</p>
                         </div>
                     </div>
                 </div>
@@ -373,7 +354,7 @@
                         </div>
                         <div class="widget-three__content">
                             <h2 class="numbers">{{$payment['total_deposit_pending']}}</h2>
-                            <p class="text--small">@lang('Pending Deposit')</p>
+                            <p class="text--small">@lang('Depósitos Pendentes')</p>
                         </div>
                     </div>
                 </div>
@@ -384,7 +365,7 @@
                         </div>
                         <div class="widget-three__content">
                             <h2 class="numbers">{{$payment['total_deposit_reject']}}</h2>
-                            <p class="text--small">@lang('Reject Deposit')</p>
+                            <p class="text--small">@lang('Depósitos Rejeitados')</p>
                         </div>
                     </div>
                 </div>
@@ -404,10 +385,10 @@
                         <span class="amount">{{$paymentWithdraw['withdraw_method']}}</span>
                     </div>
                     <div class="desciption">
-                        <span>@lang('Withdraw Method')</span>
+                        <span>@lang('Métodos de Saque')</span>
                     </div>
                     <a href="{{route('admin.withdraw.method.index')}}"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>
                 </div>
             </div>
         </div>
@@ -424,10 +405,10 @@
                         <span class="currency-sign">{{trans($general->cur_text)}}</span>
                     </div>
                     <div class="desciption">
-                        <span>@lang('Total Withdraw')</span>
+                        <span>@lang('Total Saques')</span>
                     </div>
                     <a href="{{route('admin.withdraw.approved')}}"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>
                 </div>
             </div>
         </div>
@@ -443,11 +424,11 @@
                         <span class="currency-sign">{{trans($general->cur_text)}}</span>
                     </div>
                     <div class="desciption">
-                        <span>@lang('Total Withdraw Charge')</span>
+                        <span>@lang('Total Taxa de Saque')</span>
                     </div>
 
                     <a href="{{route('admin.withdraw.approved')}}"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>
                 </div>
             </div>
         </div>
@@ -462,11 +443,11 @@
                         <span class="amount">{{$paymentWithdraw['total_withdraw_pending']}}</span>
                     </div>
                     <div class="desciption">
-                        <span>@lang('Withdraw Pending')</span>
+                        <span>@lang('Saques Pendentes')</span>
                     </div>
 
                     <a href="{{route('admin.withdraw.pending')}}"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>
                 </div>
             </div>
         </div>
@@ -485,10 +466,10 @@
                         <table class="table table--light style--two">
                             <thead>
                             <tr>
-                                <th scope="col">@lang('User')</th>
-                                <th scope="col">@lang('Username')</th>
+                                <th scope="col">@lang('Nome')</th>
+                                <th scope="col">@lang('Usuário')</th>
                                 <th scope="col">@lang('Email')</th>
-                                <th scope="col">@lang('Action')</th>
+                                <th scope="col">@lang('Ação')</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -506,7 +487,7 @@
                                             href="{{ route('admin.users.detail', $user->id) }}">{{ $user->username }}</a>
                                     </td>
                                     <td data-label="@lang('Email')">{{ $user->email }}</td>
-                                    <td data-label="@lang('Action')">
+                                    <td data-label="@lang('Ação')">
                                         <a href="{{ route('admin.users.detail', $user->id) }}" class="icon-btn"
                                            data-toggle="tooltip" title="@lang('Details')">
                                             <i class="las la-desktop text--shadow"></i>

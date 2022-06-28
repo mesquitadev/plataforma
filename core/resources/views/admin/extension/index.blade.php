@@ -11,7 +11,7 @@
                                 <tr>
                                     <th scope="col">@lang('Extension')</th>
                                     <th scope="col">@lang('Status')</th>
-                                    <th scope="col">@lang('Action')</th>
+                                    <th scope="col">@lang('Ação')</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -30,7 +30,7 @@
                                             <span class="badge badge--warning">@lang('Disabled')</span>
                                         @endif
                                     </td>
-                                    <td data-label="@lang('Action')">
+                                    <td data-label="@lang('Ação')">
                                         <button type="button" class="icon-btn ml-1 editBtn"
                                                 data-name="{{ __($extension->name) }}"
                                                 data-shortcode="{{ json_encode($extension->shortcode) }}"

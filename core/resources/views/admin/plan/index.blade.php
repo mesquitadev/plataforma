@@ -17,7 +17,7 @@
                                 <th scope="col">@lang('Referral Commission')</th>
                                 <th scope="col">@lang('Tree Commission')</th>
                                 <th scope="col">@lang('Status')</th>
-                                <th scope="col">@lang('Action')</th>
+                                <th scope="col">@lang('Ação')</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -40,7 +40,7 @@
                                         @endif
                                     </td>
 
-                                    <td data-label="@lang('Action')">
+                                    <td data-label="@lang('Ação')">
                                         <button type="button" class="icon-btn edit" data-toggle="tooltip"
                                                 data-id="{{ $plan->id }}"
                                                 data-name="{{ $plan->name }}"

@@ -44,7 +44,7 @@
                                 <th scope="col">@lang('Amount')</th>
                                 <th scope="col">@lang('Payable')</th>
                                 <th scope="col">@lang('Status')</th>
-                                <th scope="col">@lang('Action')</th>
+                                <th scope="col">@lang('Ação')</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -83,7 +83,7 @@
                                             <span class="badge badge--danger">@lang('Rejected')</span>
                                         @endif
                                     </td>
-                                    <td data-label="@lang('Action')">
+                                    <td data-label="@lang('Ação')">
                                         <a href="{{ route('admin.deposit.details', $deposit->id) }}"
                                            class="icon-btn ml-1 " data-toggle="tooltip" title=""
                                            data-original-title="@lang('Detail')">

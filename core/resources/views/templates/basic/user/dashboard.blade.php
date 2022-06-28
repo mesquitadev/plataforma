@@ -45,7 +45,7 @@
                         <span class="text--small">@lang('Current Balance')</span>
                     </div>
                     <a href="{{route('user.report.transactions')}}"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>
                 </div>
             </div>
         </div>
@@ -64,7 +64,7 @@
                         <span class="text--small">@lang('Total Deposit')</span>
                     </div>
                     <a href="{{route('user.report.deposit')}}"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>
                 </div>
             </div>
         </div>
@@ -83,7 +83,7 @@
                         <span class="text--small">@lang('Total Withdraw')</span>
                     </div>
                     <a href="{{route('user.report.withdraw')}}"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>
                 </div>
             </div>
         </div>
@@ -100,7 +100,7 @@
                         <span class="text--small">@lang('Complete Withdraw')</span>
                     </div>
                     <a href="{{route('user.report.withdraw')}}?type=complete"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>
                 </div>
             </div>
         </div>
@@ -118,7 +118,7 @@
                         <span class="text--small">@lang('Pending Withdraw')</span>
                     </div>
                     <a href="{{route('user.report.withdraw')}}?type=complete"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>
                 </div>
             </div>
         </div>
@@ -136,7 +136,7 @@
                         <span class="text--small">@lang('Reject Withdraw')</span>
                     </div>
                     <a href="{{route('user.report.withdraw')}}?type=reject"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>
                 </div>
             </div>
         </div>
@@ -155,7 +155,7 @@
                         <span class="text--small">@lang('Total Invest')</span>
                     </div>
                     <a href="{{route('user.report.invest')}}"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>
                 </div>
             </div>
         </div>
@@ -174,7 +174,7 @@
                         <span class="text--small">@lang('Total Referral Commission')</span>
                     </div>
                     <a href="{{route('user.report.refCom')}}"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>
                 </div>
             </div>
         </div>
@@ -193,7 +193,7 @@
                         <span class="text--small">@lang('Total Binary Commission')</span>
                     </div>
                     <a href="{{route('user.report.binaryCom')}}"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>
                 </div>
             </div>
         </div>
@@ -211,7 +211,7 @@
                         <span class="text--small">@lang('Total Referral')</span>
                     </div>
                     <a href="{{route('user.my.ref')}}"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>
                 </div>
             </div>
         </div>
@@ -229,7 +229,7 @@
                         <span class="text--small">@lang('Total Left')</span>
                     </div>
                     <a href="{{route('user.my.tree')}}"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>
                 </div>
             </div>
         </div>
@@ -248,7 +248,7 @@
                         <span class="text--small">@lang('Total Right')</span>
                     </div>
                     <a href="{{route('user.my.tree')}}"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>
                 </div>
             </div>
         </div>
@@ -268,7 +268,7 @@
                         <span class="text--small">@lang('Total BV')</span>
                     </div>
                     <a href="{{route('user.bv.log')}}?type=paidBV"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>
                 </div>
             </div>
         </div>
@@ -287,7 +287,7 @@
                         <span class="text--small">@lang('Left BV')</span>
                     </div>
                     <a href="{{route('user.bv.log')}}?type=leftBV"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>
                 </div>
             </div>
         </div>
@@ -305,7 +305,7 @@
                         <span class="text--small">@lang('Right BV')</span>
                     </div>
                     <a href="{{route('user.bv.log')}}?type=rightBV"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>
                 </div>
             </div>
         </div>
@@ -325,7 +325,7 @@
                         <span class="text--small">@lang('Total Bv Cut')</span>
                     </div>
                     <a href="{{route('user.bv.log')}}?type=cutBV"
-                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                       class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('Ver Todos')</a>
                 </div>
             </div>
         </div>
