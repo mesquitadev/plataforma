@@ -85,5 +85,5 @@
     </script>
 @endpush
 @push('breadcrumb-plugins')
-    <a href="{{route('ticket') }}" class="btn btn-sm btn--primary box--shadow1 text--small"><i class="la la-backward"></i> @lang('Go Back')</a>
+    <a href="{{route('ticket') }}" class="btn btn-sm btn--primary box--shadow1 text--small"><i class="la la-backward"></i> @lang('Voltar')</a>
 @endpush

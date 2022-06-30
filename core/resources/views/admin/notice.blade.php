@@ -9,19 +9,19 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>@lang('All user notice')</label>
+                                <label>@lang('Avisos')</label>
                                 <textarea rows="10" class="form-control nicEdit"  name="notice">{{ __($general->notice) }}</textarea>
                             </div>
-                            <div class="form-group">
-                                <label>@lang('Free user notice')</label>
-                                <textarea rows="10" class="form-control nicEdit"  name="free_user_notice">{{ __($general->free_user_notice) }}</textarea>
-                            </div>
+{{--                            <div class="form-group">--}}
+{{--                                <label>@lang('Free user notice')</label>--}}
+{{--                                <textarea rows="10" class="form-control nicEdit"  name="free_user_notice">{{ __($general->free_user_notice) }}</textarea>--}}
+{{--                            </div>--}}
                         </div>
 
                     </div>
                 </div>
                 <div class="card-footer py-4">
-                    <button type="submit" class="btn btn-block btn--primary mr-2">@lang('Update')</button>
+                    <button type="submit" class="btn btn-block btn--primary mr-2">@lang('Atualizar')</button>
                 </div>
             </form>
         </div>

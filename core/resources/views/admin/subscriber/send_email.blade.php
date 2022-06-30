@@ -30,5 +30,5 @@
 @endsection
 
 @push('breadcrumb-plugins')
-    <a href="{{ route('admin.subscriber.index') }}" class="btn btn-sm btn--primary box--shadow1 text--small"><i class="fa fa-fw fa-backward"></i> @lang('Go Back')</a>
+    <a href="{{ route('admin.subscriber.index') }}" class="btn btn-sm btn--primary box--shadow1 text--small"><i class="fa fa-fw fa-backward"></i> @lang('Voltar')</a>
 @endpush

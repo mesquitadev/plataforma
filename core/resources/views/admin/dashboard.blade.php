@@ -459,7 +459,7 @@
         <div class="col-xl-6 mb-30">
             <div class="card ">
                 <div class="card-header">
-                    <h6 class="card-title mb-0">@lang('New User list')</h6>
+                    <h6 class="card-title mb-0">@lang('Novos usuários')</h6>
                 </div>
                 <div class="card-body p-0">
                     <div class="table-responsive--sm table-responsive">
@@ -489,14 +489,14 @@
                                     <td data-label="@lang('Email')">{{ $user->email }}</td>
                                     <td data-label="@lang('Ação')">
                                         <a href="{{ route('admin.users.detail', $user->id) }}" class="icon-btn"
-                                           data-toggle="tooltip" title="@lang('Details')">
+                                           data-toggle="tooltip" title="@lang('Detalhes')">
                                             <i class="las la-desktop text--shadow"></i>
                                         </a>
                                     </td>
                                 </tr>
                             @empty
                                 <tr>
-                                    <td class="text-muted text-center" colspan="100%">@lang('User Not Found')</td>
+                                    <td class="text-muted text-center" colspan="100%">@lang('Usuário não encontrado.')</td>
                                 </tr>
                             @endforelse
 
@@ -510,7 +510,7 @@
         <div class="col-xl-6 mb-30">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">@lang('Last 30 days Withdraw History')</h5>
+                    <h5 class="card-title">@lang('Saques dos ultimos 30 dias')</h5>
                     <div id="withdraw-line"></div>
                 </div>
             </div>
@@ -523,7 +523,7 @@
         <div class="col-xl-4 col-lg-6 mb-30">
             <div class="card overflow-hidden">
                 <div class="card-body">
-                    <h5 class="card-title">@lang('Login By Browser')</h5>
+                    <h5 class="card-title">@lang('Login por Navegador')</h5>
                     <canvas id="userBrowserChart"></canvas>
                 </div>
             </div>
@@ -531,7 +531,7 @@
         <div class="col-xl-4 col-lg-6 mb-30">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">@lang('Login By OS')</h5>
+                    <h5 class="card-title">@lang('Login por Sistema')</h5>
                     <canvas id="userOsChart"></canvas>
                 </div>
             </div>
@@ -539,7 +539,7 @@
         <div class="col-xl-4 col-lg-6 mb-30">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">@lang('Login By Country')</h5>
+                    <h5 class="card-title">@lang('Login por País')</h5>
                     <canvas id="userCountryChart"></canvas>
                 </div>
             </div>
@@ -553,7 +553,7 @@
 @push('breadcrumb-plugins')
     <a href="javascript:void(0)" class="btn @if(Carbon\Carbon::parse($general->last_cron)->diffInSeconds()<600)
         btn--success @elseif(Carbon\Carbon::parse($general->last_cron)->diffInSeconds()<1200) btn--warning @else
-        btn--danger @endif "><i class="fa fa-fw fa-clock"></i>@lang('Last Cron Run') : {{Carbon\Carbon::parse($general->last_cron)->difFforHumans()}}</a>
+        btn--danger @endif "><i class="fa fa-fw fa-clock"></i>@lang('Ultimo pagamento de Cashback.') : {{Carbon\Carbon::parse($general->last_cron)->difFforHumans()}}</a>
 @endpush
 
 
@@ -567,14 +567,14 @@
         // apex-bar-chart js
         var options = {
             series: [{
-                name: 'Total Deposit',
+                name: 'Total Depositado',
                 data: [
                     @foreach($report['months'] as $month)
                     {{ getAmount(@$depositsMonth->where('months',$month)->first()->depositAmount) }},
                     @endforeach
                 ]
             }, {
-                name: 'Total Withdraw',
+                name: 'Total Saques',
                 data: [
                     @foreach($report['months'] as $month)
                     {{ getAmount(@$withdrawalMonth->where('months',$month)->first()->withdrawAmount) }},

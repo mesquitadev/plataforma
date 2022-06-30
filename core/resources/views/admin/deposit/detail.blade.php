@@ -10,57 +10,57 @@
                     </div>
                     <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            @lang('Date')
+                            @lang('Data')
                             <span class="font-weight-bold">{{ showDateTime($deposit->created_at) }}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            @lang('Transaction Number')
+                            @lang('Transação')
                             <span class="font-weight-bold">{{ $deposit->trx }}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            @lang('Username')
+                            @lang('Usuário')
                             <span class="font-weight-bold">
                                 <a href="{{ route('admin.users.detail', $deposit->user_id) }}">{{ @$deposit->user->username }}</a>
                             </span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            @lang('Method')
+                            @lang('Método')
                             <span class="font-weight-bold">{{ __(@$deposit->gateway->name) }}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            @lang('Amount')
+                            @lang('Quantidade')
                             <span class="font-weight-bold">{{ getAmount($deposit->amount ) }} {{ __($general->cur_text) }}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            @lang('Charge')
+                            @lang('Taxa')
                             <span class="font-weight-bold">{{ getAmount($deposit->charge ) }} {{ __($general->cur_text) }}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            @lang('After Charge')
+                            @lang('Depois da Taxa')
                             <span class="font-weight-bold">{{ getAmount($deposit->amount+$deposit->charge ) }} {{ __($general->cur_text) }}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            @lang('Rate')
+                            @lang('Referência')
                             <span class="font-weight-bold">1 {{__($general->cur_text)}}
                                 = {{ getAmount($deposit->rate) }} {{__($deposit->baseCurrency())}}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            @lang('Payable')
+                            @lang('Pagável')
                             <span class="font-weight-bold">{{ getAmount($deposit->final_amo ) }} {{__($deposit->method_currency)}}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             @lang('Status')
                             @if($deposit->status == 2)
-                                <span class="badge badge-pill bg--warning">@lang('Pending')</span>
+                                <span class="badge badge-pill bg--warning">@lang('Pendente')</span>
                             @elseif($deposit->status == 1)
-                                <span class="badge badge-pill bg--success">@lang('Approved')</span>
+                                <span class="badge badge-pill bg--success">@lang('Aprovado')</span>
                             @elseif($deposit->status == 3)
-                                <span class="badge badge-pill bg--danger">@lang('Rejected')</span>
+                                <span class="badge badge-pill bg--danger">@lang('Rejeitado')</span>
                             @endif
                         </li>
                         @if($deposit->admin_feedback)
                             <li class="list-group-item">
-                                <strong>@lang('Admin Response')</strong>
+                                <strong>@lang('Resposta da Administração')</strong>
                                 <br>
                                 <p>{{__($deposit->admin_feedback)}}</p>
                             </li>
@@ -72,14 +72,14 @@
         <div class="col-xl-8 col-md-6 mb-30">
             <div class="card b-radius--10 overflow-hidden box--shadow1">
                 <div class="card-body">
-                    <h5 class="card-title mb-50 border-bottom pb-2">@lang('User Deposit Information')</h5>
+                    <h5 class="card-title mb-50 border-bottom pb-2">@lang('Informação do Usuário')</h5>
                     @if($details != null)
                         @foreach(json_decode($details) as $k => $val)
                             @if($val->type == 'file')
                                 <div class="row mt-4">
                                     <div class="col-md-8">
                                         <h6>{{inputTitle($k)}}</h6>
-                                        <img src="{{getImage('assets/images/verify/deposit/'.$val->field_name)}}" alt="@lang('Image')">
+                                        <img src="{{getImage('assets/images/verify/deposit/'.$val->field_name)}}" alt="@lang('Imagem')">
                                     </div>
                                 </div>
                             @else
@@ -100,8 +100,8 @@
                                         data-info="{{$details}}"
                                         data-amount="{{ getAmount($deposit->amount)}} {{ __($general->cur_text) }}"
                                         data-username="{{ @$deposit->user->username }}"
-                                        data-toggle="tooltip" data-original-title="@lang('Approve')"><i class="fas fa-check"></i>
-                                    @lang('Approve')
+                                        data-toggle="tooltip" data-original-title="@lang('Aprovar')"><i class="fas fa-check"></i>
+                                    @lang('Aprovar')
                                 </button>
 
                                 <button class="btn btn--danger ml-1 rejectBtn"
@@ -109,8 +109,8 @@
                                         data-info="{{$details}}"
                                         data-amount="{{ getAmount($deposit->amount)}} {{ __($general->cur_text) }}"
                                         data-username="{{ @$deposit->user->username }}"
-                                        data-toggle="tooltip" data-original-title="@lang('Reject')"><i class="fas fa-ban"></i>
-                                    @lang('Reject')
+                                        data-toggle="tooltip" data-original-title="@lang('Rejeitar')"><i class="fas fa-ban"></i>
+                                    @lang('Rejeitar')
                                 </button>
                             </div>
                         </div>
@@ -126,7 +126,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">@lang('Approve Deposit Confirmation')</h5>
+                    <h5 class="modal-title">@lang('Confirmar depósito')</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -135,11 +135,11 @@
                     @csrf
                     <input type="hidden" name="id">
                     <div class="modal-body">
-                        <p>@lang('Are you sure to') <span class="font-weight-bold">@lang('approve')</span> <span class="font-weight-bold withdraw-amount text-success"></span> @lang('deposit of') <span class="font-weight-bold withdraw-user"></span>?</p>
+                        <p>@lang('Você deseja') <span class="font-weight-bold">@lang('Aprovar')</span> <span class="font-weight-bold withdraw-amount text-success"></span> @lang(' o depósito de ') <span class="font-weight-bold withdraw-user"></span>?</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Close')</button>
-                        <button type="submit" class="btn btn--success">@lang('Approve')</button>
+                        <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Fechar')</button>
+                        <button type="submit" class="btn btn--success">@lang('Aprovar')</button>
                     </div>
                 </form>
             </div>
@@ -151,7 +151,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">@lang('Reject Deposit Confirmation')</h5>
+                    <h5 class="modal-title">@lang('Rejeitar Depósito')</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -160,17 +160,17 @@
                     @csrf
                     <input type="hidden" name="id">
                     <div class="modal-body">
-                        <p>@lang('Are you sure to') <span class="font-weight-bold">@lang('reject')</span> <span class="font-weight-bold withdraw-amount text-success"></span> @lang('deposit of') <span class="font-weight-bold withdraw-user"></span>?</p>
+                        <p>@lang('Você deseja ') <span class="font-weight-bold">@lang('rejeitar')</span> <span class="font-weight-bold withdraw-amount text-success"></span> @lang(' o depósito de ') <span class="font-weight-bold withdraw-user"></span>?</p>
 
                         <div class="form-group">
-                            <label class="font-weight-bold mt-2">@lang('Reason for Rejection')</label>
-                            <textarea name="message" id="message" placeholder="@lang('Reason for Rejection')" class="form-control" rows="5"></textarea>
+                            <label class="font-weight-bold mt-2">@lang('Razão da negação')</label>
+                            <textarea name="message" id="message" placeholder="@lang('Razão da negação')" class="form-control" rows="5"></textarea>
                         </div>
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Close')</button>
-                        <button type="submit" class="btn btn--danger">@lang('Reject')</button>
+                        <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Fechar')</button>
+                        <button type="submit" class="btn btn--danger">@lang('Rejeitar')</button>
                     </div>
                 </form>
             </div>

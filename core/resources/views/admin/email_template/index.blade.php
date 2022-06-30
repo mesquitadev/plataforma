@@ -10,8 +10,8 @@
                         <table class="table table--light style--two custom-data-table">
                             <thead>
                             <tr>
-                                <th scope="col">@lang('Name')</th>
-                                <th scope="col">@lang('Subject')</th>
+                                <th scope="col">@lang('Nome')</th>
+                                <th scope="col">@lang('Assunto')</th>
                                 <th scope="col">@lang('Status')</th>
                                 <th scope="col">@lang('Ação')</th>
                             </tr>
@@ -19,18 +19,18 @@
                             <tbody>
                             @forelse($email_templates as $template)
                                 <tr>
-                                    <td data-label="@lang('Name')">{{ __($template->name) }}</td>
-                                    <td data-label="@lang('Subject')">{{ __($template->subj) }}</td>
+                                    <td data-label="@lang('Nome')">{{ __($template->name) }}</td>
+                                    <td data-label="@lang('Assunto')">{{ __($template->subj) }}</td>
                                     <td data-label="@lang('Status')">
                                         @if($template->email_status == 1)
-                                            <span class="text--small badge font-weight-normal badge--success">@lang('Active')</span>
+                                            <span class="text--small badge font-weight-normal badge--success">@lang('Ativo')</span>
                                         @else
-                                            <span class="text--small badge font-weight-normal badge--warning">@lang('Disabled')</span>
+                                            <span class="text--small badge font-weight-normal badge--warning">@lang('Inativo')</span>
                                         @endif
                                     </td>
                                     <td data-label="@lang('Ação')">
                                         <a href="{{ route('admin.email.template.edit', $template->id) }}"
-                                           class="icon-btn  ml-1 editGatewayBtn" data-toggle="tooltip" title="@lang('Edit')">
+                                           class="icon-btn  ml-1 editGatewayBtn" data-toggle="tooltip" title="@lang('Editar')">
                                             <i class="la la-pencil"></i>
                                         </a>
                                     </td>

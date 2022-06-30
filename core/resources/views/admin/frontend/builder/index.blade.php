@@ -135,7 +135,7 @@
 
 
 @push('breadcrumb-plugins')
-    <a href="{{route('admin.frontend.manage.pages')}}"  class="btn btn-sm btn--primary box--shadow1 text--small"><i class="la la-backward"></i> @lang('Go Back') </a>
+    <a href="{{route('admin.frontend.manage.pages')}}"  class="btn btn-sm btn--primary box--shadow1 text--small"><i class="la la-backward"></i> @lang('Voltar') </a>
 @endpush
 
 @push('style')

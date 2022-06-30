@@ -35,13 +35,13 @@
                                                 data-name="{{ __($extension->name) }}"
                                                 data-shortcode="{{ json_encode($extension->shortcode) }}"
                                                 data-action="{{ route('admin.extensions.update', $extension->id) }}"
-                                                data-original-title="@lang('Configure')">
+                                                data-original-title="@lang('Configurar')">
                                             <i class="la la-cogs"></i>
                                         </button>
                                         <button type="button" class="icon-btn btn--dark ml-1 helpBtn"
                                                 data-description="{{ __($extension->description) }}"
                                                 data-support="{{ __($extension->support) }}"
-                                                data-original-title="@lang('Help')">
+                                                data-original-title="@lang('Ajuda')">
                                             <i class="la la-question"></i>
                                         </button>
                                         @if($extension->status == 0)
@@ -49,7 +49,7 @@
                                                     class="icon-btn btn--success ml-1 activateBtn"
                                                     data-toggle="modal" data-target="#activateModal"
                                                     data-id="{{ $extension->id }}" data-name="{{ __($extension->name) }}"
-                                                    data-original-title="@lang('Enable')">
+                                                    data-original-title="@lang('Ativar')">
                                                 <i class="la la-eye"></i>
                                             </button>
                                         @else
@@ -57,7 +57,7 @@
                                                     class="icon-btn btn--danger ml-1 deactivateBtn"
                                                     data-toggle="modal" data-target="#deactivateModal"
                                                     data-id="{{ $extension->id }}" data-name="{{ __($extension->name) }}"
-                                                    data-original-title="@lang('Disable')">
+                                                    data-original-title="@lang('Desativar')">
                                                 <i class="la la-eye-slash"></i>
                                             </button>
                                         @endif
@@ -79,7 +79,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">@lang('Update Extension'): <span class="extension-name"></span></h5>
+                    <h5 class="modal-title">@lang('Editar Extensão'): <span class="extension-name"></span></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

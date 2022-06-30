@@ -24,18 +24,18 @@
                                     <div class="row mt-4">
                                         <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-15">
                                             <div class="form-group">
-                                                <label class="w-100 font-weight-bold">@lang('Gateway Name') <span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" placeholder="@lang('Method Name')" name="name" value="{{ $method->name }}"/>
+                                                <label class="w-100 font-weight-bold">@lang('Nome') <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" placeholder="@lang('Nome')" name="name" value="{{ $method->name }}"/>
                                             </div>
                                         </div>
                                         <div class="col-xl-3 col-md-6">
                                             <div>
-                                                <label class="w-100 font-weight-bold">@lang('Currency') <span class="text-danger">*</span></label>
-                                                <input type="text" name="currency" placeholder="@lang('Currency')" class="form-control border-radius-5" value="{{ @$method->single_currency->currency }}"/>
+                                                <label class="w-100 font-weight-bold">@lang('Moeda') <span class="text-danger">*</span></label>
+                                                <input type="text" name="currency" placeholder="@lang('Moeda')" class="form-control border-radius-5" value="{{ @$method->single_currency->currency }}"/>
                                             </div>
                                         </div>
                                         <div class="col-xl-5 col-md-12">
-                                            <label class="w-100 font-weight-bold">@lang('Rate') <span class="text-danger">*</span></label>
+                                            <label class="w-100 font-weight-bold">@lang('Referência') <span class="text-danger">*</span></label>
 
                                             <div class="input-group has_append">
                                                 <div class="input-group-prepend">
@@ -57,16 +57,16 @@
 
                                     <div class="col-lg-6">
                                         <div class="card border--primary mt-3">
-                                            <h5 class="card-header bg--primary">@lang('Range')</h5>
+                                            <h5 class="card-header bg--primary">@lang('Range de Pagamento')</h5>
                                             <div class="card-body">
-                                                <label class="font-weight-bold">@lang('Minimum Amount') <span class="text-danger">*</span></label>
+                                                <label class="font-weight-bold">@lang('Valor Minimo') <span class="text-danger">*</span></label>
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text">{{ __($general->cur_text) }}</div>
                                                     </div>
                                                     <input type="text" class="form-control" name="min_limit" placeholder="0" value="{{ getAmount(@$method->single_currency->min_amount) }}"/>
                                                 </div>
-                                                <label class="font-weight-bold">@lang('Maximum Amount') <span class="text-danger">*</span></label>
+                                                <label class="font-weight-bold">@lang('Valor Máximo') <span class="text-danger">*</span></label>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text">{{ __($general->cur_text) }}</div>
@@ -78,16 +78,16 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="card border--primary mt-3">
-                                            <h5 class="card-header bg--primary">@lang('Charge')</h5>
+                                            <h5 class="card-header bg--primary">@lang('Taxa')</h5>
                                             <div class="card-body">
-                                                <label class="font-weight-bold">@lang('Fixed Charge') <span class="text-danger">*</span></label>
+                                                <label class="font-weight-bold">@lang('Taxa Fixa') <span class="text-danger">*</span></label>
                                                 <div class="input-group mb-3">
                                                     <input type="text" class="form-control" placeholder="0" name="fixed_charge" value="{{ getAmount(@$method->single_currency->fixed_charge) }}"/>
                                                     <div class="input-group-append">
                                                         <div class="input-group-text">{{ __($general->cur_sym) }}</div>
                                                     </div>
                                                 </div>
-                                                <label class="font-weight-bold">@lang('Percent Charge') <span class="text-danger">*</span></label>
+                                                <label class="font-weight-bold">@lang('Percentual de Taxa') <span class="text-danger">*</span></label>
                                                 <div class="input-group">
                                                     <input type="text" class="form-control" placeholder="0" name="percent_charge" value="{{ getAmount(@$method->single_currency->percent_charge) }}">
                                                     <div class="input-group-append">
@@ -101,7 +101,7 @@
                                     <div class="col-lg-12">
                                         <div class="card border--dark mt-3">
 
-                                            <h5 class="card-header bg--dark">@lang('Deposit Instruction')</h5>
+                                            <h5 class="card-header bg--dark">@lang('Instruções para Depósito')</h5>
                                             <div class="card-body">
                                                 <div class="form-group">
                                                     <textarea rows="8" class="form-control border-radius-5 nicEdit" name="instruction">{{ __(@$method->description)  }}</textarea>
@@ -112,7 +112,7 @@
 
                                     <div class="col-lg-12">
                                         <div class="card border--dark mt-3">
-                                            <h5 class="card-header bg--dark  text-white">@lang('User data')
+                                            <h5 class="card-header bg--dark  text-white">@lang('Dados do Usuário')
                                                 <button type="button" class="btn btn-sm btn-outline-light float-right addUserData"><i class="la la-fw la-plus"></i>@lang('Add New')
                                                 </button>
                                             </h5>
@@ -129,15 +129,15 @@
                                                                         </div>
                                                                         <div class="col-md-3 mt-md-0 mt-2">
                                                                             <select name="type[]" class="form-control">
-                                                                                <option value="text" @if($v->type == 'text') selected @endif> @lang('Input Text') </option>
+                                                                                <option value="text" @if($v->type == 'text') selected @endif> @lang('Campo de Texto') </option>
                                                                                 <option value="textarea" @if($v->type == 'textarea') selected @endif> @lang('Textarea') </option>
-                                                                                <option value="file" @if($v->type == 'file') selected @endif> @lang('File upload') </option>
+                                                                                <option value="file" @if($v->type == 'file') selected @endif> @lang('Enviar Arquivo') </option>
                                                                             </select>
                                                                         </div>
                                                                         <div class="col-md-3 mt-md-0 mt-2">
                                                                             <select name="validation[]" class="form-control">
-                                                                                <option value="required" @if($v->validation == 'required') selected @endif> @lang('Required') </option>
-                                                                                <option value="nullable" @if($v->validation == 'nullable') selected @endif>  @lang('Optional') </option>
+                                                                                <option value="required" @if($v->validation == 'required') selected @endif> @lang('Obrigatório') </option>
+                                                                                <option value="nullable" @if($v->validation == 'nullable') selected @endif>  @lang('Opcional') </option>
                                                                             </select>
                                                                         </div>
                                                                         <div class="col-md-2 mt-md-0 mt-2 text-right">
@@ -159,7 +159,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn--primary btn-block ">@lang('Save Method')</button>
+                        <button type="submit" class="btn btn--primary btn-block ">@lang('Salvar método')</button>
                     </div>
                 </form>
             </div>
@@ -169,7 +169,7 @@
 
 
 @push('breadcrumb-plugins')
-    <a href="{{ route('admin.gateway.manual.index') }}" class="btn btn-sm btn--primary box--shadow1 text--small"><i class="la la-fw la-backward"></i> @lang('Go Back') </a>
+    <a href="{{ route('admin.gateway.manual.index') }}" class="btn btn-sm btn--primary box--shadow1 text--small"><i class="la la-fw la-backward"></i> @lang('Voltar') </a>
 @endpush
 
 @push('script')
@@ -188,20 +188,20 @@
                     <div class="form-group">
                         <div class="input-group mb-md-0 mb-4">
                             <div class="col-md-4">
-                                <input name="field_name[]" class="form-control" type="text" value="" required placeholder="@lang('Field Name')">
+                                <input name="field_name[]" class="form-control" type="text" value="" required placeholder="@lang('Nome do Campo')">
                             </div>
                             <div class="col-md-3 mt-md-0 mt-2">
                                 <select name="type[]" class="form-control">
-                                    <option value="text" > @lang('Input Text') </option>
+                                    <option value="text" > @lang('Campo Texto') </option>
                                     <option value="textarea" > @lang('Textarea') </option>
-                                    <option value="file"> @lang('File upload') </option>
+                                    <option value="file"> @lang('Arquivo') </option>
                                 </select>
                             </div>
                             <div class="col-md-3 mt-md-0 mt-2">
                                 <select name="validation[]"
                                         class="form-control">
-                                    <option value="required"> @lang('Required') </option>
-                                    <option value="nullable">  @lang('Optional') </option>
+                                    <option value="required"> @lang('Obrigatório') </option>
+                                    <option value="nullable">  @lang('Opcional') </option>
                                 </select>
                             </div>
                             <div class="col-md-2 mt-md-0 mt-2 text-right">

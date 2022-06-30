@@ -7,7 +7,7 @@
                 <div class="widget-two box--shadow2 b-radius--5 bg--success">
                     <div class="widget-two__content">
                         <h2 class="text-white">{{ __($general->cur_sym) }}{{ $deposits->where('status',1)->sum('amount') }}</h2>
-                        <p class="text-white">@lang('Successful Deposit')</p>
+                        <p class="text-white">@lang('Depósitos Concluidos')</p>
                     </div>
                 </div><!-- widget-two end -->
             </div>
@@ -15,7 +15,7 @@
                 <div class="widget-two box--shadow2 b-radius--5 bg--6">
                     <div class="widget-two__content">
                         <h2 class="text-white">{{ __($general->cur_sym) }}{{ $deposits->where('status',2)->sum('amount') }}</h2>
-                        <p class="text-white">@lang('Pending Deposit')</p>
+                        <p class="text-white">@lang('Depósitos Pendentes')</p>
                     </div>
                 </div><!-- widget-two end -->
             </div>
@@ -23,7 +23,7 @@
                 <div class="widget-two box--shadow2 b-radius--5 bg--pink">
                     <div class="widget-two__content">
                         <h2 class="text-white">{{ __($general->cur_sym) }}{{ $deposits->where('status',3)->sum('amount') }}</h2>
-                        <p class="text-white">@lang('Rejected Deposit')</p>
+                        <p class="text-white">@lang('Depósitos Rejeitados')</p>
                     </div>
                 </div><!-- widget-two end -->
             </div>
@@ -35,14 +35,14 @@
                         <table class="table table--light style--two">
                             <thead>
                             <tr>
-                                <th scope="col">@lang('Date')</th>
-                                <th scope="col">@lang('Trx Number')</th>
+                                <th scope="col">@lang('Data')</th>
+                                <th scope="col">@lang('Transação')</th>
                                 @if(!request()->routeIs('admin.users.deposits') && !request()->routeIs('admin.users.deposits.method'))
-                                    <th scope="col">@lang('Username')</th>
+                                    <th scope="col">@lang('Usuário')</th>
                                 @endif
-                                <th scope="col">@lang('Method')</th>
-                                <th scope="col">@lang('Amount')</th>
-                                <th scope="col">@lang('Payable')</th>
+                                <th scope="col">@lang('Método')</th>
+                                <th scope="col">@lang('Quantidade')</th>
+                                <th scope="col">@lang('Pagável')</th>
                                 <th scope="col">@lang('Status')</th>
                                 <th scope="col">@lang('Ação')</th>
                             </tr>
@@ -53,40 +53,40 @@
                                     $details = ($deposit->detail != null) ? json_encode($deposit->detail) : null;
                                 @endphp
                                 <tr>
-                                    <td data-label="@lang('Date')"> {{ showDateTime($deposit->created_at) }}</td>
-                                    <td data-label="@lang('Trx Number')"
+                                    <td data-label="@lang('Data')"> {{ showDateTime($deposit->created_at) }}</td>
+                                    <td data-label="@lang('Transação')"
                                         class="font-weight-bold text-uppercase">{{ $deposit->trx }}</td>
                                     @if(!request()->routeIs('admin.users.deposits') && !request()->routeIs('admin.users.deposits.method'))
-                                        <td data-label="@lang('Username')"><a
+                                        <td data-label="@lang('Usuário')"><a
                                                 href="{{ route('admin.users.detail', $deposit->user_id) }}">{{ $deposit->user->username }}</a>
                                         </td>
                                     @endif
-                                    <td data-label="@lang('Method')">
+                                    <td data-label="@lang('Método')">
                                         @if(request()->routeIs('admin.users.deposits') || request()->routeIs('admin.users.deposits.method'))
                                             <a href="{{ route('admin.users.deposits.method',[$deposit->gateway->alias,@$type?$type:'all',$userId]) }}">{{ __($deposit->gateway->name) }}</a>
                                         @else
                                             <a href="{{ route('admin.deposit.method',[$deposit->gateway->alias,@$type?$type:'all']) }}">{{ __($deposit->gateway->name) }}</a>
                                         @endif
                                     </td>
-                                    <td data-label="@lang('Amount')"
+                                    <td data-label="@lang('Quantidade')"
                                         class="font-weight-bold">{{ getAmount($deposit->amount ) }} {{ __($general->cur_text) }}</td>
 
-                                    <td data-label="@lang('Payable')" class="font-weight-bold">
+                                    <td data-label="@lang('Pagável')" class="font-weight-bold">
                                         {{ getAmount($deposit->final_amo) }} {{__($deposit->method_currency)}}
                                     </td>
                                     <td data-label="@lang('Status')">
                                         @if($deposit->status == 2)
-                                            <span class="badge badge--warning">@lang('Pending')</span>
+                                            <span class="badge badge--warning">@lang('Pendente')</span>
                                         @elseif($deposit->status == 1)
-                                            <span class="badge badge--success">@lang('Approved')</span>
+                                            <span class="badge badge--success">@lang('Aprovado')</span>
                                         @elseif($deposit->status == 3)
-                                            <span class="badge badge--danger">@lang('Rejected')</span>
+                                            <span class="badge badge--danger">@lang('Rejeitado')</span>
                                         @endif
                                     </td>
                                     <td data-label="@lang('Ação')">
                                         <a href="{{ route('admin.deposit.details', $deposit->id) }}"
                                            class="icon-btn ml-1 " data-toggle="tooltip" title=""
-                                           data-original-title="@lang('Detail')">
+                                           data-original-title="@lang('Detalhe')">
                                             <i class="la la-eye"></i>
                                         </a>
                                     </td>
@@ -117,7 +117,7 @@
             action="{{route('admin.deposit.search', $scope ?? str_replace('admin.deposit.', '', request()->route()->getName()))}}"
             method="GET" class="form-inline float-sm-right bg--white mb-2">
             <div class="input-group has_append  ">
-                <input type="text" name="search" class="form-control" placeholder="@lang('Deposit code/Username')"
+                <input type="text" name="search" class="form-control" placeholder="@lang('Transação / Usuário')"
                        value="{{ $search ?? '' }}">
                 <div class="input-group-append">
                     <button class="btn btn--primary" type="submit"><i class="fa fa-search"></i></button>

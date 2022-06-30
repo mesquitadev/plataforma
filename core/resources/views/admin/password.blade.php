@@ -16,12 +16,12 @@
                     </div>
                     <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            @lang('Name')
+                            @lang('Nome')
                             <span class="font-weight-bold">{{ __($admin->name) }}</span>
                         </li>
 
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            @lang('Username')
+                            @lang('Usuário')
                             <span  class="font-weight-bold">{{ __($admin->username) }}</span>
                         </li>
 
@@ -38,30 +38,30 @@
         <div class="col-lg-9 col-md-9 mb-30">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title mb-50 border-bottom pb-2">@lang('Change Password')</h5>
+                    <h5 class="card-title mb-50 border-bottom pb-2">@lang('Alterar Senha')</h5>
 
                     <form action="{{ route('admin.password.update') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">@lang('Password')</label>
+                            <label class="col-lg-3 col-form-label form-control-label">@lang('Senha')</label>
                             <div class="col-lg-9">
 
-                                <input class="form-control" type="password" placeholder="@lang('Password')" name="old_password">
+                                <input class="form-control" type="password" placeholder="@lang('Senha')" name="old_password">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">@lang('New Password')</label>
+                            <label class="col-lg-3 col-form-label form-control-label">@lang('Nova Senha')</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="password" placeholder="@lang('New Password')" name="password">
+                                <input class="form-control" type="password" placeholder="@lang('Nova Senha')" name="password">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">@lang('Confirm Password')</label>
+                            <label class="col-lg-3 col-form-label form-control-label">@lang('Confirmar Senha')</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="password" placeholder="@lang('Confirm Password')" name="password_confirmation">
+                                <input class="form-control" type="password" placeholder="@lang('Confirmar Senha')" name="password_confirmation">
                             </div>
                         </div>
 
@@ -70,7 +70,7 @@
 
                             <label class="col-lg-3 col-form-label form-control-label"></label>
                             <div class="col-lg-9">
-                            <button type="submit" class="btn btn--primary btn-block btn-lg">@lang('Save Changes')</button>
+                            <button type="submit" class="btn btn--primary btn-block btn-lg">@lang('Salvar Alterações')</button>
                             </div>
                         </div>
                     </form>
@@ -81,5 +81,5 @@
 @endsection
 
 @push('breadcrumb-plugins')
-    <a href="{{route('admin.profile')}}" class="btn btn-sm btn--primary box--shadow1 text--small" ><i class="fa fa-user"></i>@lang('Profile Setting')</a>
+    <a href="{{route('admin.profile')}}" class="btn btn-sm btn--primary box--shadow1 text--small" ><i class="fa fa-user"></i>@lang('Configuração de Perfil')</a>
 @endpush

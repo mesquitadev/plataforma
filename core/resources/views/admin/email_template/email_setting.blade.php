@@ -29,7 +29,7 @@
                         <div class="mt-4 d-none configForm" id="mailjet"></div>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-block btn--primary mr-2">@lang('Update')</button>
+                        <button type="submit" class="btn btn-block btn--primary mr-2">@lang('Atualizar')</button>
                     </div>
                 </form>
             </div><!-- card end -->
@@ -42,7 +42,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">@lang('Sending Test Mail')</h5>
+                    <h5 class="modal-title">@lang('Enviando Email de Teste')</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -54,15 +54,15 @@
                         <input type="hidden" name="id">
                         <div class="form-group row">
                             <div class="col-md-2">
-                                <label class="font-weight-bold" for="mail-to">@lang('To')</label>
+                                <label class="font-weight-bold" for="mail-to">@lang('Para')</label>
                             </div>
                             <div class="col-md-10">
-                                <input type="text" name="email" id="mail-to" class="form-control" placeholder="@lang('Email Address')">
+                                <input type="text" name="email" id="mail-to" class="form-control" placeholder="@lang('Email')">
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn text--small btn--success">@lang('Send')</button>
+                        <button type="submit" class="btn text--small btn--success">@lang('Enviar')</button>
                     </div>
                 </form>
             </div>

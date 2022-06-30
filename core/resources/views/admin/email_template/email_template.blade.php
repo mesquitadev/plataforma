@@ -11,18 +11,18 @@
                         <table class=" table align-items-center table--light">
                             <thead>
                             <tr>
-                                <th>@lang('Short Code') </th>
-                                <th>@lang('Description')</th>
+                                <th>@lang('Variável') </th>
+                                <th>@lang('Descrição')</th>
                             </tr>
                             </thead>
                             <tbody class="list">
                             <tr>
-                                <td data-label="@lang('Short Code')">@{{name}}</td>
-                                <td data-label="@lang('Description')">@lang('User Name')</td>
+                                <td data-label="@lang('Variável')">@{{name}}</td>
+                                <td data-label="@lang('Descrição')">@lang('User Name')</td>
                             </tr>
                             <tr>
-                                <td data-label="@lang('Short Code')">@{{message}}</td>
-                                <td data-label="@lang('Description')">@lang('Message')</td>
+                                <td data-label="@lang('Variável')">@{{message}}</td>
+                                <td data-label="@lang('Descrição')">@lang('Mensagem')</td>
                             </tr>
                             </tbody>
                         </table>
@@ -41,15 +41,15 @@
                         <div class="form-row">
 
                             <div class="form-group col-md-12">
-                                <label class="font-weight-bold">@lang('Email Sent From') <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control form-control-lg" placeholder="@lang('Email address')" name="email_from" value="{{ $general_setting->email_from }}" required/>
+                                <label class="font-weight-bold">@lang('Enviar por') <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control form-control-lg" placeholder="@lang('Email')" name="email_from" value="{{ $general_setting->email_from }}" required/>
                             </div>
                             <div class="form-group col-md-12">
-                                <label class="font-weight-bold">@lang('Email Body') <span class="text-danger">*</span></label>
-                                <textarea name="email_template" rows="10" class="form-control form-control-lg nicEdit" placeholder="@lang('Your email template')">{{ $general_setting->email_template }}</textarea>
+                                <label class="font-weight-bold">@lang('Corpo do Email') <span class="text-danger">*</span></label>
+                                <textarea name="email_template" rows="10" class="form-control form-control-lg nicEdit" placeholder="@lang('Template')">{{ $general_setting->email_template }}</textarea>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-block btn--primary mr-2">@lang('Update')</button>
+                        <button type="submit" class="btn btn-block btn--primary mr-2">@lang('Atualizar')</button>
                     </form>
                 </div>
             </div><!-- card end -->

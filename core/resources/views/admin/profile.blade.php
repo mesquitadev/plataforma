@@ -15,12 +15,12 @@
                     </div>
                     <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            @lang('Name')
+                            @lang('Nome')
                             <span class="font-weight-bold">{{__($admin->name)}}</span>
                         </li>
 
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            @lang('Username')
+                            @lang('Usuário')
                             <span  class="font-weight-bold">{{__($admin->username)}}</span>
                         </li>
 
@@ -36,7 +36,7 @@
         <div class="col-lg-9 col-md-9 mb-30">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title mb-50 border-bottom pb-2">@lang('Profile Information')</h5>
+                    <h5 class="card-title mb-50 border-bottom pb-2">@lang('Informações do Perfil')</h5>
                     <form action="{{ route('admin.profile.update') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
@@ -53,8 +53,8 @@
                                             </div>
                                             <div class="avatar-edit">
                                                 <input type="file" class="profilePicUpload" name="image" id="profilePicUpload1" accept=".png, .jpg, .jpeg">
-                                                <label for="profilePicUpload1" class="bg--success">@lang('Upload Image')</label>
-                                                <small class="mt-2 text-facebook">@lang('Supported files'): <b>@lang('jpeg'), @lang('jpg').</b> @lang('Image will be resized into 400x400px') </small>
+                                                <label for="profilePicUpload1" class="bg--success">@lang('Enviar Imagem')</label>
+                                                <small class="mt-2 text-facebook">@lang('Arquivos Suportados'): <b>@lang('jpeg'), @lang('jpg').</b> @lang('a imagem vai ser reduzida para 400x400px') </small>
                                             </div>
                                         </div>
                                     </div>
@@ -63,7 +63,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group ">
-                                    <label class="form-control-label font-weight-bold">@lang('Name')</label>
+                                    <label class="form-control-label font-weight-bold">@lang('Nome')</label>
                                     <input class="form-control" type="text" name="name" value="{{ auth()->guard('admin')->user()->name }}" >
                                 </div>
 
@@ -74,7 +74,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn--primary btn-block btn-lg">@lang('Save Changes')</button>
+                            <button type="submit" class="btn btn--primary btn-block btn-lg">@lang('Salvar')</button>
                         </div>
                     </form>
                 </div>
@@ -84,5 +84,5 @@
 @endsection
 
 @push('breadcrumb-plugins')
-    <a href="{{route('admin.password')}}" class="btn btn-sm btn--primary box--shadow1 text--small" ><i class="fa fa-key"></i>@lang('Password Setting')</a>
+    <a href="{{route('admin.password')}}" class="btn btn-sm btn--primary box--shadow1 text--small" ><i class="fa fa-key"></i>@lang('Configurações de Senha')</a>
 @endpush

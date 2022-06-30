@@ -170,7 +170,7 @@
 
 
 @push('breadcrumb-plugins')
-    <a href="{{ route('admin.ticket') }}" class="btn btn-sm btn--primary box--shadow1 text--small"><i class="la la-fw la-backward"></i> @lang('Go Back') </a>
+    <a href="{{ route('admin.ticket') }}" class="btn btn-sm btn--primary box--shadow1 text--small"><i class="la la-fw la-backward"></i> @lang('Voltar') </a>
 @endpush
 
 @push('script')

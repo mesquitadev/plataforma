@@ -25,13 +25,13 @@
 
                                     <td data-label="@lang('Status')">
                                         @if($gateway->status == 1)
-                                            <span class="text--small badge font-weight-normal badge--success">@lang('Active')</span>
+                                            <span class="text--small badge font-weight-normal badge--success">@lang('Ativo')</span>
                                         @else
-                                            <span class="text--small badge font-weight-normal badge--warning">@lang('Disabled')</span>
+                                            <span class="text--small badge font-weight-normal badge--warning">@lang('Inativo')</span>
                                         @endif
                                     </td>
                                     <td data-label="@lang('Ação')">
-                                        <a href="{{ route('admin.gateway.manual.edit', $gateway->alias) }}" class="icon-btn editGatewayBtn" data-toggle="tooltip" title="@lang('Edit')" data-original-title="@lang('Edit')">
+                                        <a href="{{ route('admin.gateway.manual.edit', $gateway->alias) }}" class="icon-btn editGatewayBtn" data-toggle="tooltip" title="@lang('Editar')" data-original-title="@lang('Editar')">
                                             <i class="la la-pencil"></i>
                                         </a>
 
@@ -65,7 +65,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">@lang('Payment Method Activation Confirmation')</h5>
+                    <h5 class="modal-title">@lang('Modal de Ativação')</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -74,11 +74,11 @@
                     @csrf
                     <input type="hidden" name="code">
                     <div class="modal-body">
-                        <p>@lang('Are you sure to activate') <span class="font-weight-bold method-name"></span> @lang('method')?</p>
+                        <p>@lang('Você deseja ativar') <span class="font-weight-bold method-name"></span> @lang('método')?</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Close')</button>
-                        <button type="submit" class="btn btn--primary">@lang('Activate')</button>
+                        <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Fechar')</button>
+                        <button type="submit" class="btn btn--primary">@lang('Ativar')</button>
                     </div>
                 </form>
             </div>
@@ -90,7 +90,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">@lang('Payment Method Disable Confirmation')</h5>
+                    <h5 class="modal-title">@lang('Modal de Desativação')</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -100,11 +100,11 @@
                     @csrf
                     <input type="hidden" name="code">
                     <div class="modal-body">
-                        <p>@lang('Are you sure to disable') <span class="font-weight-bold method-name"></span> @lang('method')?</p>
+                        <p>@lang('Você deseja desativar') <span class="font-weight-bold method-name"></span> @lang('método')?</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Close')</button>
-                        <button type="submit" class="btn btn--danger">@lang('Disable')</button>
+                        <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Fechar')</button>
+                        <button type="submit" class="btn btn--danger">@lang('Desativar')</button>
                     </div>
                 </form>
             </div>
@@ -114,7 +114,7 @@
 
 
 @push('breadcrumb-plugins')
-    <a class="btn btn-sm btn--primary box--shadow1 text--small" href="{{ route('admin.gateway.manual.create') }}"><i class="fa fa-fw fa-plus"></i>@lang('Add New')</a>
+    <a class="btn btn-sm btn--primary box--shadow1 text--small" href="{{ route('admin.gateway.manual.create') }}"><i class="fa fa-fw fa-plus"></i>@lang('Adicionar Novo')</a>
 @endpush
 @push('script')
     <script>

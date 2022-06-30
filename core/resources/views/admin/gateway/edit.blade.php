@@ -426,7 +426,7 @@
 
 
 @push('breadcrumb-plugins')
-    <a href="{{ route('admin.gateway.automatic.index') }}" class="btn btn-sm btn--primary box--shadow1 text--small"><i class="la la-fw fa-backward"></i>@lang('Go Back')</a>
+    <a href="{{ route('admin.gateway.automatic.index') }}" class="btn btn-sm btn--primary box--shadow1 text--small"><i class="la la-fw fa-backward"></i>@lang('Voltar')</a>
 @endpush
 
 @push('script')
