@@ -4,7 +4,7 @@
             @php echo  getCustomCaptcha($height = 46, $width = '100%', $bgcolor = '#003', $textcolor = '#abc') @endphp
         </div>
         <div class="col-md-12 mt-4">
-            <input type="text" name="captcha" maxlength="6" placeholder="@lang('Enter Code')" required>
+            <input type="text" name="captcha" maxlength="6" placeholder="@lang('Digite o Código Acima')" required>
         </div>
     </div>
 @endif

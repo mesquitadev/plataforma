@@ -25,9 +25,9 @@ class SiteController extends Controller
     {
         $id = User::where('username', $request->ref_id)->first();
         if ($id == '') {
-            return response()->json(['success' => false, 'msg' => "<span class='help-block'><strong class='text-danger'>Referrer username not found</strong></span>"]);
+            return response()->json(['success' => false, 'msg' => "<span class='help-block'><strong class='text-danger'>Patrocinador não encontrado</strong></span>"]);
         } else {
-            return response()->json(['success' => true, 'msg' => "<span class='help-block'><strong class='text-success'>Referrer username matched</strong></span>
+            return response()->json(['success' => true, 'msg' => "<span class='help-block'><strong class='text-success'>Patrocinador Encontrado</strong></span>
                      <input type='hidden' id='referrer_id' value='$id->id' name='referrer_id'>"]);
 
         }
@@ -38,10 +38,10 @@ class SiteController extends Controller
     {
 
         if (!$request->referrer) {
-            return response()->json(['success' => false, 'msg' => "<span class='help-block'><strong class='text-danger'>Inter Referral name first</strong></span>"]);
+            return response()->json(['success' => false, 'msg' => "<span class='help-block'><strong class='text-danger'>Digite o Patrocinador Primeiro</strong></span>"]);
         }
         if (!$request->position) {
-            return response()->json(['success' => false, 'msg' => "<span class='help-block'><strong class='text-danger'>Select your position*</strong></span>"]);
+            return response()->json(['success' => false, 'msg' => "<span class='help-block'><strong class='text-danger'>Selecione sua posição*</strong></span>"]);
         }
         $user = User::find($request->referrer);
         $pos = getPosition($user->id, $request->position);
@@ -51,7 +51,7 @@ class SiteController extends Controller
         else {
             $position = 'Right';
         }
-        return response()->json(['success' => true, 'msg' => "<span class='help-block'><strong class='text-success'>Your are joining under $join_under->username at $position  </strong></span>"]);
+        return response()->json(['success' => true, 'msg' => "<span class='help-block'><strong class='text-success'>Você está entrando na rede do: $join_under->username   </strong></span>"]);
     }
 
     public function index(){
@@ -80,7 +80,7 @@ class SiteController extends Controller
 
     public function contact()
     {
-        $data['page_title'] = "Contact Us";
+        $data['page_title'] = "Contato";
         $data['contact'] = Frontend::where('data_keys', 'contact_us.content')->first();
         return view($this->activeTemplate . 'contact', $data);
     }

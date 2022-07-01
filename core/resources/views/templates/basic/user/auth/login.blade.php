@@ -15,7 +15,7 @@
                                 <h4 class="title">{{__(@$content->data_values->register_section_title)}}</h4>
                                 <p>{{__(@$content->data_values->register_section_short_details)}}</p>
                                 <a href="{{route('user.register')}}"
-                                   class="custom-button account-control-button">@lang('Sign Up')</a>
+                                   class="custom-button account-control-button">@lang('Entrar')</a>
                             </div>
                         </div>
                         <div class="col-lg-6 p-0">
@@ -27,11 +27,11 @@
                                     @csrf
                                     <div class="form-group">
                                         <input type="text" name="username" value="{{old('username')}}"
-                                               placeholder="@lang('Username')" required>
+                                               placeholder="@lang('Usuário')" required>
                                     </div>
                                     <div class="form-group">
                                         <input type="password" id="myInputThree" name="password"
-                                               placeholder="@lang('Password')" required>
+                                               placeholder="@lang('Senha')" required>
                                         <a href="javascript:void(0)" class="show-pass show-pass-three"><i class="fas fa-eye"></i></a>
                                     </div>
 
@@ -46,10 +46,10 @@
                                     <div class="form-group d-flex flex-wrap justify-content-between align-items-center">
                                         <ul class="lost-pass m-0 pt-3">
                                             <li class="w-100">
-                                                <a href="{{route('user.password.request')}}">@lang('Forget Password?')</a>
+                                                <a href="{{route('user.password.request')}}">@lang('Esqueceu a Senha?')</a>
                                             </li>
                                         </ul>
-                                        <input type="submit" value="@lang('Login Account')">
+                                        <input type="submit" value="@lang('Entrar na Conta')">
                                     </div>
                                 </form>
                             </div>

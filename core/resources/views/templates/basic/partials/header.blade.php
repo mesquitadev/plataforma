@@ -21,12 +21,12 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav main-menu ml-auto">
-                                <li><a href="{{url('/')}}">@lang('Home')</a></li>
+                                <li><a href="{{url('/')}}">@lang('Inicio')</a></li>
                                 @foreach($pages as $k => $data)
                                     <li><a href="{{route('pages',[$data->slug])}}">{{trans($data->name)}}</a></li>
                                 @endforeach
                                 <li><a href="{{route('blog')}}">@lang('Blog')</a></li>
-                                <li><a href="{{route('contact')}}">@lang('Contact')</a></li>
+                                <li><a href="{{route('contact')}}">@lang('Contato')</a></li>
 
                                 @auth
                                     <li><a href="{{route('user.home')}}">@lang('Dashboard')</a></li>
@@ -42,7 +42,7 @@
                             </div>
                             <div class="header-action">
                                 @guest
-                                    <a href="{{route('user.register')}}" class="btn--base">@lang('Register')</a>
+                                    <a href="{{route('user.register')}}" class="btn--base">@lang('Criar Conta')</a>
                                     <a href="{{route('user.login')}}" class="btn--base active">@lang('Login')</a>
                                 @else
                                     <a href="{{route('user.home')}}" class="btn--base active">@lang('Dashboard')</a>

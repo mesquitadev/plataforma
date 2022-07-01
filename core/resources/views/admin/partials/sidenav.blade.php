@@ -1,4 +1,5 @@
 <div class="sidebar {{ sidebarVariation()['selector'] }} {{ sidebarVariation()['sidebar'] }} {{ @sidebarVariation()['overlay'] }} {{ @sidebarVariation()['opacity'] }}"
+<div class="sidebar {{ sidebarVariation()['selector'] }} {{ sidebarVariation()['sidebar'] }} {{ @sidebarVariation()['overlay'] }} {{ @sidebarVariation()['opacity'] }}"
      data-background="{{getImage('assets/admin/images/sidebar/2.jpg','400x800')}}">
 
 
@@ -264,7 +265,7 @@
                 <li class="sidebar-menu-item sidebar-dropdown">
                     <a href="javascript:void(0)" class="{{menuActive('admin.report*',3)}}">
                         <i class="menu-icon la la-list"></i>
-                        <span class="menu-title">@lang('Report') </span>
+                        <span class="menu-title">@lang('Relatórios') </span>
                     </a>
                     <div class="sidebar-submenu {{menuActive('admin.report*',2)}} ">
                         <ul>

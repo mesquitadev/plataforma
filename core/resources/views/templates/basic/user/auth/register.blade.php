@@ -16,7 +16,7 @@
                                 <h4 class="title">{{__(@$content->data_values->login_section_title)}}</h4>
                                 <p>{{__(@$content->data_values->login_section_short_details)}}</p>
                                 <a href="{{route('user.login')}}"
-                                   class="custom-button account-control-button">@lang('Login Account')</a>
+                                   class="custom-button account-control-button">@lang('Entrar na Conta')</a>
                             </div>
                         </div>
                         <div class="col-lg-8 p-0">
@@ -33,7 +33,7 @@
                                             <div class="form-group ">
                                                 <input type="text" name="referral" class="referral"
                                                        value="{{old('referral')}}" id="ref_name"
-                                                       placeholder="@lang('Enter referral username')*" required>
+                                                       placeholder="@lang('Digite o Usuário do Patrocinador')*" required>
                                                 <div id="ref"></div>
                                                 <span id="referral"></span>
                                             </div>
@@ -42,13 +42,13 @@
                                             <div class="form-group ">
                                                 <select name="position" class="position" id="position" required
                                                         disabled>
-                                                    <option value="">@lang('Select position')*</option>
+                                                    <option value="">@lang('Selecionar Posição')*</option>
                                                     @foreach(mlmPositions() as $k=> $v)
                                                         <option value="{{$k}}">@lang($v)</option>
                                                     @endforeach
                                                 </select>
                                                 <span id="position-test"><span
-                                                        class="text-danger">@lang('Please enter referral username first')</span></span>
+                                                        class="text-danger">@lang('Digite o código do patrocinador primeiro')</span></span>
                                             </div>
                                         </div>
                                     @else
@@ -56,7 +56,7 @@
                                             <div class="form-group ">
                                                 <input type="text" name="referral" class="referral"
                                                        value="{{$ref_user->username}}"
-                                                       placeholder="@lang('Enter referral username')*" required
+                                                       placeholder="@lang('Digite o código do patrocinador')*" required
                                                        readonly>
                                             </div>
                                         </div>
@@ -64,7 +64,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group ">
                                                 <select class="position" id="position" required disabled>
-                                                    <option value="">@lang('Select position')*</option>
+                                                    <option value="">@lang('Selecionar Posição')*</option>
                                                     @foreach(mlmPositions() as $k=> $v)
                                                         <option @if($position == $k) selected
                                                                 @endif value="{{$k}}">@lang($v)</option>
@@ -79,20 +79,20 @@
                                     <div class="col-md-6">
                                         <div class="form-group mb-3">
                                             <input type="text" name="firstname" value="{{old('firstname')}}"
-                                                   autocomplete="off" placeholder="@lang('Enter your first name')*"
+                                                   autocomplete="off" placeholder="@lang('Nome')*"
                                                    required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group mb-3">
                                             <input type="text" name="lastname" value="{{old('lastname')}}"
-                                                   placeholder="@lang('Enter your last name')*" required>
+                                                   placeholder="@lang('Sobrenome')*" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group mb-3">
                                             <input type="email" name="email" value="{{old('email')}}"
-                                                   placeholder="@lang('Enter your email')*" required>
+                                                   placeholder="@lang('Email')*" required>
                                         </div>
                                     </div>
 
@@ -105,7 +105,7 @@
                                                 </select>
                                             </div>
                                             <input type="text" class="form-control" name="mobile"
-                                                   placeholder="@lang('Your Phone Number')" required>
+                                                   placeholder="@lang('Telefone')" required>
                                         </div>
 
                                     </div>
@@ -113,7 +113,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group mb-3">
-                                            <input type="text" name="country" placeholder="@lang('Country')" readonly/>
+                                            <input type="text" name="country" placeholder="@lang('País')" readonly/>
                                         </div>
                                     </div>
 
@@ -121,43 +121,43 @@
                                     <div class="col-md-6 mb-3">
                                         <div class="form-group ">
                                             <input type="text" name="city" value="{{old('city')}}"
-                                                   placeholder="@lang('Enter your city')*" required>
+                                                   placeholder="@lang('Cidade')*" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <div class="form-group ">
                                             <input type="text" name="state" value="{{old('state')}}"
-                                                   placeholder="@lang('Enter your state')*" required>
+                                                   placeholder="@lang('Estado')*" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <div class="form-group ">
                                             <input type="text" name="zip" value="{{old('zip')}}"
-                                                   placeholder="@lang('Enter your zip')*" required>
+                                                   placeholder="@lang('CEP')*" required>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group mb-3">
                                             <input type="text" name="username" value="{{old('username')}}"
-                                                   placeholder="@lang('Enter your username')*" required>
+                                                   placeholder="@lang('Digite seu Usuário')*" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group mb-3">
                                             <input type="password" name="password" id="myInputTwo"
-                                                   placeholder="@lang('Password')*">
+                                                   placeholder="@lang('Senha')*">
                                         </div>
 
                                         @if($general->secure_password)
-                                            <p class="text-danger my-1 capital">@lang('At least 1 capital letter is required')</p>
-                                            <p class="text-danger my-1 number">@lang('At least 1 number is required')</p>
-                                            <p class="text-danger my-1 special">@lang('At least 1 special character is required')</p>
+                                            <p class="text-danger my-1 capital">@lang('Uma letra maiúscula é obrigatória')</p>
+                                            <p class="text-danger my-1 number">@lang('Um número é obrigatório')</p>
+                                            <p class="text-danger my-1 special">@lang('Um caractere especial é obrigatório')</p>
                                         @endif
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group mb-3">
                                             <input type="password" name="password_confirmation" id="myInputTwo"
-                                                   placeholder="@lang('Confirm password')*" required>
+                                                   placeholder="@lang('Confirmar Senha')*" required>
                                         </div>
                                     </div>
 
@@ -174,11 +174,11 @@
 
 
                                     <div class="form-group col-md-12">
-                                        <input type="submit" value="Create an Account">
+                                        <input type="submit" value="Criar sua Conta">
                                     </div>
                                 </form>
-                                <p class="terms-and-conditions">@lang('First Read Our All') <a
-                                        href="{{route('terms')}}"> @lang('Terms & Conditions')</a></p>
+                                <p class="terms-and-conditions"> <a
+                                        href="{{route('terms')}}"> @lang('Termos & Condições')</a></p>
                             </div>
                         </div>
                     </div>
@@ -249,7 +249,7 @@
             function submitUserForm() {
                 var response = grecaptcha.getResponse();
                 if (response.length == 0) {
-                    document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">@lang("Captcha field is required.")</span>';
+                    document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">@lang("O Captcha é obrigatório!")</span>';
                     return false;
                 }
                 return true;
