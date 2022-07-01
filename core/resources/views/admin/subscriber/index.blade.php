@@ -9,30 +9,30 @@
                         <table class="table table--light style--two">
                             <thead>
                             <tr>
-                                <th scope="col">@lang('Name')</th>
+                                <th scope="col">@lang('Nome')</th>
                                 <th scope="col">@lang('Email')</th>
-                                <th scope="col">@lang('Joined')</th>
+                                <th scope="col">@lang('Entrou em')</th>
                                 <th scope="col">@lang('Ação')</th>
                             </tr>
                             </thead>
                             <tbody>
                             @forelse($subscribers as $subscriber)
                                 <tr>
-                                    <td data-label="@lang('Name')">
+                                    <td data-label="@lang('Nome')">
                                         @if($subscriber->name)
                                             {{ $subscriber->name }}
                                         @else
-                                            @lang('Unknown')
+                                            @lang('Desconhecido')
                                         @endif
                                     </td>
                                     <td data-label="@lang('Email')">{{ $subscriber->email }}</td>
-                                    <td data-label="@lang('Joined')">{{ showDateTime($subscriber->created_at) }}</td>
+                                    <td data-label="@lang('Entrou em')">{{ showDateTime($subscriber->created_at) }}</td>
                                     <td data-label="@lang('Ação')">
                                         <a href="javascript:void(0)"
                                            data-id="{{ $subscriber->id }}"
                                            data-email="{{ $subscriber->email }}"
                                            class="icon-btn btn--danger ml-1 removeModalBtn" data-toggle="tooltip"
-                                           data-original-title="@lang('Remove')">
+                                           data-original-title="@lang('Remover')">
                                             <i class="las la-trash"></i>
                                         </a>
                                     </td>
@@ -60,7 +60,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">@lang('Are you sure want to remove?')</h5>
+                    <h5 class="modal-title">@lang('Você deseja remover?')</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -69,11 +69,11 @@
                     @csrf
                     <div class="modal-body">
                         <input type="hidden" name="subscriber">
-                        <p><span class="font-weight-bold subscriber-email"></span> @lang('will be removed.')</p>
+                        <p><span class="font-weight-bold subscriber-email"></span> @lang('foi removido.')</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Close')</button>
-                        <button type="submit" class="btn btn--danger">@lang('Remove')</button>
+                        <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Fechar')</button>
+                        <button type="submit" class="btn btn--danger">@lang('Remover')</button>
                     </div>
                 </form>
             </div>
@@ -82,7 +82,7 @@
 @endsection
 
 @push('breadcrumb-plugins')
-    <a href="{{ route('admin.subscriber.sendEmail') }}" class="btn btn-sm btn--primary box--shadow1 text--small" ><i class="fa fa-fw fa-paper-plane"></i>@lang('Send Email')</a>
+    <a href="{{ route('admin.subscriber.sendEmail') }}" class="btn btn-sm btn--primary box--shadow1 text--small" ><i class="fa fa-fw fa-paper-plane"></i>@lang('Enviar Email')</a>
 @endpush
 
 @push('script')

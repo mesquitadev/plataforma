@@ -11,11 +11,11 @@
                             <thead>
                             <tr>
                                 <th scope="col">@lang('Sl')</th>
-                                <th scope="col">@lang('Username')</th>
-                                <th scope="col">@lang('BV')</th>
-                                <th scope="col">@lang('Position')</th>
-                                <th scope="col">@lang('Detail')</th>
-                                <th scope="col">@lang('Date')</th>
+                                <th scope="col">@lang('Usuário')</th>
+                                <th scope="col">@lang('Pontos')</th>
+                                <th scope="col">@lang('Posição')</th>
+                                <th scope="col">@lang('Detalhe')</th>
+                                <th scope="col">@lang('Data')</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -23,20 +23,20 @@
                                 <tr>
                                     <td data-label="@lang('Sl')">{{$logs->firstItem()+$key}}</td>
 
-                                    <td data-label="@lang('Username')"><a href="{{ route('admin.users.detail', @$data->user_id) }}">{{ @$data->user->username }}</a></td>
+                                    <td data-label="@lang('Usuário')"><a href="{{ route('admin.users.detail', @$data->user_id) }}">{{ @$data->user->username }}</a></td>
 
-                                    <td data-label="@lang('BV')" class="budget">
+                                    <td data-label="@lang('Pontos')" class="budget">
                                         <strong @if($data->trx_type == '+') class="text-success"
                                                 @else class="text-danger" @endif> {{($data->trx_type == '+') ? '+':'-'}} {{getAmount($data->amount)}}</strong>
                                     </td>
 
-                                    <td data-label="@lang('Position')">
-                                        @if ($data->position == 1)<span class="badge badge--success">@lang('Left')</span>
+                                    <td data-label="@lang('Posição')">
+                                        @if ($data->position == 1)<span class="badge badge--success">@lang('Esquerda')</span>
                                         @else
-                                            <span class="badge badge--primary">@lang('Right')</span>
+                                            <span class="badge badge--primary">@lang('Direita')</span>
                                         @endif</td>
-                                    <td data-label="@lang('Detail')">{{$data->details}}</td>
-                                    <td data-label="@lang('Date')">{{$data->created_at != ''? date('d/m/y  g:i A',strtotime($data->created_at)): __('Not Assign')}}</td>
+                                    <td data-label="@lang('Detalhe')">{{$data->details}}</td>
+                                    <td data-label="@lang('Data')">{{$data->created_at != ''? date('d/m/y  g:i A',strtotime($data->created_at)): __('Not Assign')}}</td>
                                 </tr>
 
                             @empty
@@ -63,7 +63,7 @@
     @if(request()->routeIs('admin.users.transactions'))
         <form action="" method="GET" class="form-inline float-sm-right bg--white">
             <div class="input-group has_append">
-                <input type="text" name="search" class="form-control" placeholder="@lang('TRX')" value="{{ $search ?? '' }}">
+                <input type="text" name="search" class="form-control" placeholder="@lang('Transação')" value="{{ $search ?? '' }}">
                 <div class="input-group-append">
                     <button class="btn btn--primary" type="submit"><i class="fa fa-search"></i></button>
                 </div>
@@ -73,7 +73,7 @@
         <form action="{{ route('admin.report.transaction.search') }}" method="GET"
               class="form-inline float-sm-right bg--white">
             <div class="input-group has_append">
-                <input type="text" name="search" class="form-control" placeholder="@lang('TRX / Username')"
+                <input type="text" name="search" class="form-control" placeholder="@lang('Transação / Usuário')"
                        value="{{ $search ?? '' }}">
                 <div class="input-group-append">
                     <button class="btn btn--primary" type="submit"><i class="fa fa-search"></i></button>

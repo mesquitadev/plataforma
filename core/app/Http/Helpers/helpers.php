@@ -1129,7 +1129,7 @@ function showSingleUserinTree($user)
 
         $res .= "<div class=\"user\" type=\"button\">";
         $res .= "<img src=\"$img\" alt=\"*\"  class=\"no-user\">";
-        $res .= "<p class=\"user-name\">No user</p>";
+        $res .= "<p class=\"user-name\">Sem Usuário</p>";
     }
 
     $res .= " </div>";

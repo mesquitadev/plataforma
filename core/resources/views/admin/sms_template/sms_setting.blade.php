@@ -9,18 +9,18 @@
                         <table class="table align-items-center table--light">
                             <thead>
                             <tr>
-                                <th>@lang('Short Code')</th>
-                                <th>@lang('Description')</th>
+                                <th>@lang('Variável')</th>
+                                <th>@lang('Descrição')</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
                                 <th>@{{number}}</th>
-                                <td>@lang('Number')</td>
+                                <td>@lang('Número')</td>
                             </tr>
                             <tr>
                                 <th>@{{message}}</th>
-                                <td>@lang('Message')</td>
+                                <td>@lang('Mensagem')</td>
                             </tr>
                             </tbody>
                         </table>
@@ -38,19 +38,19 @@
                         <div class="card-header">
                             <h4 class="float-left">{{ $page_title }}</h4>
                             <div class="text-right">
-                                <button type="button" data-target="#testSMSModal" data-toggle="modal" class="btn btn--info">@lang('Send Test SMS')</button>
+                                <button type="button" data-target="#testSMSModal" data-toggle="modal" class="btn btn--info">@lang('Enviar SMS de Teste')</button>
                             </div>
                         </div>
                         <div class="card-body">
                             <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <label>@lang('SMS API') <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" placeholder="@lang('SMS API Configuration')" name="sms_api" value="{{ $general_setting->sms_api }}" required/>
+                                    <input type="text" class="form-control" placeholder="@lang('Configuração de API SMS')" name="sms_api" value="{{ $general_setting->sms_api }}" required/>
                                 </div>
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-block btn--primary mr-2">@lang('Submit')</button>
+                            <button type="submit" class="btn btn-block btn--primary mr-2">@lang('Enviar')</button>
                         </div>
                     </form>
                 </div>
@@ -63,7 +63,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">@lang('Test Mail Setup')</h5>
+                    <h5 class="modal-title">@lang('Configuração de Email de Teste')</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -74,14 +74,14 @@
                     <div class="modal-body">
                         <div class="form-row">
                             <div class="form-group col-md-12">
-                                <label>@lang('Sent to') <span class="text-danger">*</span></label>
-                                <input type="text" name="mobile" class="form-control" placeholder="@lang('Moble')">
+                                <label>@lang('Enviar Para') <span class="text-danger">*</span></label>
+                                <input type="text" name="mobile" class="form-control" placeholder="@lang('Telefone')">
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Close')</button>
-                        <button type="submit" class="btn btn--success">@lang('Send')</button>
+                        <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Fechar')</button>
+                        <button type="submit" class="btn btn--success">@lang('Enviar')</button>
                     </div>
                 </form>
             </div>

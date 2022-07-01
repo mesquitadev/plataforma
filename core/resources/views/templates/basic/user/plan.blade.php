@@ -11,23 +11,23 @@
                             <span class="price text--dark font-weight-bold d-block">{{$general->cur_sym}}{{getAmount($data->price)}}</span>
                             <hr>
                             <ul class="package-features-list mt-30">
-                                <li><i class="fas fa-check bg--success"></i> <span>@lang('Business Volume (BV)'): {{getAmount($data->bv)}}</span>   <span class="icon" data-toggle="modal" data-target="#bvInfoModal"><i
+                                <li><i class="fas fa-check bg--success"></i> <span>@lang('Bônus por Volume da Rede'): {{getAmount($data->bv)}}</span>   <span class="icon" data-toggle="modal" data-target="#bvInfoModal"><i
                                             class="fas fa-question-circle"></i></span></li>
-                                <li><i class="fas fa-check bg--success"></i> <span> @lang('Referral Commission'): {{$general->cur_sym}} {{getAmount($data->ref_com)}} </span>
+                                <li><i class="fas fa-check bg--success"></i> <span> @lang('Comissão por Indicação'): {{$general->cur_sym}} {{getAmount($data->ref_com)}} </span>
                                     <span class="icon" data-toggle="modal" data-target="#refComInfoModal"><i
                                     class="fas fa-question-circle"></i></span>
                                 </li>
                                 <li>
-                                    <i class="fas @if(getAmount($data->tree_com) != 0) fa-check bg--success @else fa-times bg--danger @endif "></i>  <span>@lang('Tree Commission'): {{$general->cur_sym}} {{getAmount($data->tree_com)}} </span>
+                                    <i class="fas @if(getAmount($data->tree_com) != 0) fa-check bg--success @else fa-times bg--danger @endif "></i>  <span>@lang('Comissão da Rede'): {{$general->cur_sym}} {{getAmount($data->tree_com)}} </span>
                                      <span class="icon" data-toggle="modal" data-target="#treeComInfoModal"><i
                                     class="fas fa-question-circle"></i></span>
                                 </li>
                             </ul>
                         </div>
                         @if(Auth::user()->plan_id != $data->id)
-                            <a href="#confBuyModal{{$data->id}}" data-toggle="modal" class="btn w-100 btn-outline--primary  mt-20 py-2 box--shadow1">@lang('Subscribe')</a>
+                            <a href="#confBuyModal{{$data->id}}" data-toggle="modal" class="btn w-100 btn-outline--primary  mt-20 py-2 box--shadow1">@lang('Assinar')</a>
                         @else
-                            <a data-toggle="modal" class="btn w-100 btn-outline--primary  mt-20 py-2 box--shadow1">@lang('Already Subscribe')</a>
+                            <a data-toggle="modal" class="btn w-100 btn-outline--primary  mt-20 py-2 box--shadow1">@lang('Já Assinado')</a>
                         @endif
                     </div>
 
@@ -40,21 +40,21 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title" id="myModalLabel"> @lang('Confirm Purchase '.$data->name)?</h4>
+                            <h4 class="modal-title" id="myModalLabel"> @lang('Confirmar Assinatura '.$data->name)?</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                     aria-hidden="true">×</span></button>
                         </div>
                         <div class="modal-body">
-                            <h5 class="text-danger text-center">{{getAmount($data->price)}} {{$general->cur_text}} @lang('will subtract from your balance')</h5>
+                            <h5 class="text-danger text-center">{{getAmount($data->price)}} {{$general->cur_text}} @lang('será deduzido do seu saldo')</h5>
                         </div>
                         <form method="post" action="{{route('user.plan.purchase')}}">
                             @csrf
                             <div class="modal-footer">
                                 <button type="button" class="btn btn--danger" data-dismiss="modal"><i
-                                        class="fa fa-times"></i> @lang('Close')</button>
+                                        class="fa fa-times"></i> @lang('Fechar')</button>
 
                                 <button type="submit" name="plan_id" value="{{$data->id}}" class="btn btn--success"><i
-                                        class="lab la-telegram-plane"></i> @lang('Subscribe')</button>
+                                        class="lab la-telegram-plane"></i> @lang('Assinar')</button>
                             </div>
                         </form>
                     </div>
@@ -67,17 +67,17 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">@lang("Business Volume (BV) info")</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="@lang('Close')">
+                    <h5 class="modal-title">@lang("Bonus por Volume da rede")</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="@lang('Fechar')">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <h5 class="text-danger">@lang('When someone from your below tree subscribe this plan, You will get this Business Volume  which will be used for matching bonus').
+                    <h5 class="text-danger">@lang('Quando alguém da sua árvore abaixo assinar este plano, você receberá este volume de negócios que será usado para bônus de correspondência').
                     </h5>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Close')</button>
+                    <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Fechar')</button>
                 </div>
             </div>
         </div>
@@ -87,21 +87,21 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">@lang('Referral Commission info')</h5>
+                    <h5 class="modal-title">@lang('Comissão de Indicação')</h5>
                     <button type="button" class="close" data-dismiss="modal">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <h5><span
-                            class=" text-danger">@lang('When your referred user subscribe in') <b> @lang('ANY PLAN')</b>, @lang('you will get this amount').</span>
+                            class=" text-danger">@lang('Quando seu usuário indicado se inscrever em') <b> @lang('QUALQUER PLANO')</b>, @lang('você vai receber esse valor').</span>
                         <br>
                         <br>
-                        <span class="text-success"> @lang('This is the reason you should choose a plan with bigger referral commission').</span>
+                        <span class="text-success"> @lang('Esta é a razão pela qual você deve escolher um plano com maior comissão de referência').</span>
                     </h5>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Close')</button>
+                    <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Fechar')</button>
                 </div>
             </div>
         </div>
@@ -111,16 +111,16 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">@lang('Commission to tree info')</h5>
+                    <h5 class="modal-title">@lang('Comissão para Rede')</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <h5 class=" text-danger">@lang('When someone from your below tree subscribe this plan, You will get this amount as tree commission'). </h5>
+                    <h5 class=" text-danger">@lang('Quando alguém da sua árvore abaixo assinar este plano, você receberá esse valor como comissão da árvore'). </h5>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Close')</button>
+                    <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Fechar')</button>
                 </div>
             </div>
         </div>

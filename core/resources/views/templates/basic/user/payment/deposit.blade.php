@@ -17,7 +17,7 @@
                             data-base_symbol="{{$data->baseSymbol()}}"
                             data-fix_charge="{{getAmount($data->fixed_charge)}}"
                             data-percent_charge="{{getAmount($data->percent_charge)}}" class=" btn  btn--success btn-block custom-success deposit" data-toggle="modal" data-target="#depositModal">
-                            @lang('Deposit Now')</a>
+                            @lang('Depositar')</a>
                     </div>
                 </div>
             </div>
@@ -43,7 +43,7 @@
                             <input type="hidden" name="method_code" class="edit-method-code" value="">
                         </div>
                         <div class="form-group">
-                            <label>@lang('Enter Amount'):</label>
+                            <label>@lang('Digite o Valor'):</label>
                             <div class="input-group">
                                 <input id="amount" type="text" class="form-control form-control-lg" onkeyup="this.value = this.value.replace (/^\.|[^\d\.]/g, '')" name="amount" placeholder="0.00" required  value="{{old('amount')}}">
                                 <div class="input-group-append">
@@ -53,7 +53,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-block btn-lg btn--success">@lang('Submit')</button>
+                        <button type="submit" class="btn btn-block btn-lg btn--success">@lang('Depositar')</button>
                     </div>
                 </form>
             </div>
@@ -74,11 +74,11 @@
                 var fixCharge = $(this).data('fix_charge');
                 var percentCharge = $(this).data('percent_charge');
 
-                var depositLimit = `@lang('Deposit Limit:') ${minAmount} - ${maxAmount}  ${baseSymbol}`;
+                var depositLimit = `@lang('Limite de Depósito:') ${minAmount} - ${maxAmount}  ${baseSymbol}`;
                 $('.depositLimit').text(depositLimit);
-                var depositCharge = `@lang('Charge:') ${fixCharge} ${baseSymbol}  ${(0 < percentCharge) ? ' + ' +percentCharge + ' % ' : ''}`;
+                var depositCharge = `@lang('Taxa:') ${fixCharge} ${baseSymbol}  ${(0 < percentCharge) ? ' + ' +percentCharge + ' % ' : ''}`;
                 $('.depositCharge').text(depositCharge);
-                $('.method-name').text(`@lang('Payment By ') ${result.name}`);
+                $('.method-name').text(`@lang('Depositar Via ') ${result.name}`);
                 $('.currency-addon').text(baseSymbol);
                 $('.edit-currency').val(result.currency);
                 $('.edit-method-code').val(result.method_code);

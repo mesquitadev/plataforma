@@ -11,20 +11,20 @@
                         <table class="table table--light style--two">
                             <thead>
                             <tr>
-                                <th scope="col">@lang('Date')</th>
+                                <th scope="col">@lang('Data')</th>
                                 <th scope="col">@lang('IP')</th>
-                                <th scope="col">@lang('Location')</th>
-                                <th scope="col">@lang('Browser')</th>
+                                <th scope="col">@lang('Localização')</th>
+                                <th scope="col">@lang('Navegador')</th>
                                 <th scope="col">@lang('OS')</th>
                             </tr>
                             </thead>
                             <tbody>
                             @forelse($login_logs as $log)
                                 <tr>
-                                    <td data-label="@lang('Date')">{{ \Carbon\Carbon::parse($log->created_at)->diffForHumans() }}</td>
+                                    <td data-label="@lang('Data')">{{ \Carbon\Carbon::parse($log->created_at)->diffForHumans() }}</td>
                                     <td data-label="@lang('IP')">{{ $log->user_ip }}</td>
-                                    <td data-label="@lang('Location')">{{ $log->location }}</td>
-                                    <td data-label="@lang('Browser')">{{ $log->browser }}</td>
+                                    <td data-label="@lang('Localização')">{{ $log->location }}</td>
+                                    <td data-label="@lang('Navegador')">{{ $log->browser }}</td>
                                     <td data-label="@lang('OS')">{{ $log->os }}</td>
                                 </tr>
                             @empty
@@ -51,7 +51,7 @@
     @if(request()->routeIs('admin.users.login.history'))
     <form action="{{ route('admin.users.login.history') }}" method="GET" class="form-inline float-sm-right bg--white">
         <div class="input-group has_append">
-            <input type="text" name="search" class="form-control" placeholder="@lang('Username')" value="{{ $search ?? '' }}">
+            <input type="text" name="search" class="form-control" placeholder="@lang('Usuário')" value="{{ $search ?? '' }}">
 
             <div class="input-group-append">
                 <button class="btn btn--primary" type="submit"><i class="fa fa-search"></i></button>

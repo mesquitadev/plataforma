@@ -7,17 +7,17 @@
                 <div class="card-header card-header-bg d-flex flex-wrap justify-content-between align-items-center">
                     <h5 class="card-title mt-0">
                         @if($my_ticket->status == 0)
-                            <span class="badge badge--success">@lang('Open')</span>
+                            <span class="badge badge--success">@lang('Aberto')</span>
                         @elseif($my_ticket->status == 1)
-                            <span class="badge badge--primary ">@lang('Answered')</span>
+                            <span class="badge badge--primary ">@lang('Respondido')</span>
                         @elseif($my_ticket->status == 2)
-                            <span class="badge badge--warning">@lang('Replied')</span>
+                            <span class="badge badge--warning">@lang('Respondido')</span>
                         @elseif($my_ticket->status == 3)
-                            <span class="badge badge--dark">@lang('Closed')</span>
+                            <span class="badge badge--dark">@lang('Fechado')</span>
                         @endif
                         [@lang('Ticket')#{{ $my_ticket->ticket }}] {{ $my_ticket->subject }}
                     </h5>
-                    <button class="btn btn-sm btn--danger close-button" type="button" data-toggle="modal" data-target="#DelModal"><i class="fa fa-times"></i> @lang('Close Ticket')
+                    <button class="btn btn-sm btn--danger close-button" type="button" data-toggle="modal" data-target="#DelModal"><i class="fa fa-times"></i> @lang('Fechar TIcket')
                     </button>
                 </div>
                 <div class="card-body">
@@ -29,36 +29,36 @@
                             <div class="row justify-content-between">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <textarea name="message" class="form-control form-control-lg" id="inputMessage" placeholder="@lang('Your Reply') ..." rows="4" cols="10" required></textarea>
+                                        <textarea name="message" class="form-control form-control-lg" id="inputMessage" placeholder="@lang('Sua Resposta') ..." rows="4" cols="10" required></textarea>
                                     </div>
                                 </div>
                             </div>
 
 
                           <div class="form-group mb-0">
-                                <span for="inputAttachments text-white">@lang('Attachments')</span>
+                                <span for="inputAttachments text-white">@lang('Anexos')</span>
                                 <div class="custom-file">
                                     <input name="attachments[]" type="file" id="customFile" class="custom-file-input" accept=".jpg,.jpeg,.png,.pdf">
 
-                                    <label class="custom-file-label form-control-lg" for="custmFile">@lang('Choose file')</label>
+                                    <label class="custom-file-label form-control-lg" for="custmFile">@lang('Selecionar Arquivo')</label>
                                 </div>
                             </div>
 
                             <div class="fileUploadsContainer"></div>
 
                             <p class="text-muted m-2">
-                                <i class="la la-info-circle"></i> @lang("Allowed File Extensions: .jpg, .jpeg, .png, .pdf")
+                                <i class="la la-info-circle"></i> @lang("Arquivos suportados: .jpg, .jpeg, .png, .pdf")
                             </p>
 
                             <div class="form-group">
                                 <a href="javascript:void(0)" class="btn btn--success add-more-btn">
                                     <i class="la la-plus"></i>
-                                    @lang('Add More')
+                                    @lang('Adicionar Mais')
                                 </a>
                             </div>
 
 
-                            <button type="submit" class="btn btn--success btn-block" name="replayTicket" value="1"><i class="fa fa-reply"></i> @lang('Reply')</button>
+                            <button type="submit" class="btn btn--success btn-block" name="replayTicket" value="1"><i class="fa fa-reply"></i> @lang('Responder')</button>
                         </form>
                     @endif
                 </div>
@@ -85,7 +85,7 @@
                                             @foreach($message->attachments as $k=> $image)
                                                 <a href="{{route('ticket.download',encrypt($image->id))}}"
                                                    class="mr-3"><i
-                                                        class="fa fa-file"></i> @lang('Attachment') {{++$k}}
+                                                        class="fa fa-file"></i> @lang('Anexo') {{++$k}}
                                                 </a>
                                             @endforeach
                                         </div>
@@ -97,7 +97,7 @@
                                  style="background-color: #ffd96729">
                                 <div class="col-md-3 border-right text-right">
                                     <h5 class="my-3">{{ $message->admin->name }}</h5>
-                                    <p class="lead text-muted">@lang('Staff')</p>
+                                    <p class="lead text-muted">@lang('Administração')</p>
                                 </div>
                                 <div class="col-md-9">
                                     <p class="text-muted font-weight-bold my-3">
@@ -107,7 +107,7 @@
                                             @foreach($message->attachments as $k=> $image)
                                                 <a href="{{route('ticket.download',encrypt($image->id))}}"
                                                    class="mr-3"><i
-                                                        class="fa fa-file"></i> @lang('Attachment') {{++$k}}
+                                                        class="fa fa-file"></i> @lang('Anexo') {{++$k}}
                                                 </a>
                                             @endforeach
                                         </div>
@@ -128,18 +128,18 @@
                     @csrf
                     @method('PUT')
                     <div class="modal-header">
-                        <h5 class="modal-title"> @lang('Confirmation Alert')!</h5>
+                        <h5 class="modal-title"> @lang('Confirmar')!</h5>
                         <button type="button" class="close close-button" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <strong class="text-dark">@lang('Are you sure you want to Close This Support Ticket')?</strong>
+                        <strong class="text-dark">@lang('Você deseja fechar o ticket?')?</strong>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn--dark btn-sm" data-dismiss="modal">
-                            @lang('No')
+                            @lang('Não')
                         </button>
                         <button type="submit" class="btn btn--success btn-sm" name="replayTicket"
-                                value="2"></i> @lang("Yes")
+                                value="2"></i> @lang("Sim")
                         </button>
                     </div>
                 </form>
@@ -162,7 +162,7 @@
                 itr++
                 $(".fileUploadsContainer").append(` <div class="form-group custom-file mt-3">
                                             <input type="file" name="attachments[]" id="customFile${itr}" class="custom-file-input" accept=".jpg,.jpeg,.png,.pdf" />
-                                            <label class="custom-file-label form-control-lg" for="customFile${itr}">@lang('Choose file')</label>
+                                            <label class="custom-file-label form-control-lg" for="customFile${itr}">@lang('Selecionar Arquivo')</label>
                                         </div>`);
 
             });

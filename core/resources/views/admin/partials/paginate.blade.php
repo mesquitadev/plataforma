@@ -6,7 +6,7 @@
             <li class="page-item ">
                 <a class="page-link" href="{{ $paginator->previousPageUrl() }}" tabindex="-1">
                     <i class="fa fa-angle-left"></i>
-                    <span class="sr-only">@lang('Previous')</span>
+                    <span class="sr-only">@lang('Anterior')</span>
                 </a>
             </li>
         @endif
@@ -44,7 +44,7 @@
             <li class="page-item">
                 <a class="page-link" href="{{ $paginator->nextPageUrl() }}">
                     <i class="fa fa-angle-right"></i>
-                    <span class="sr-only">@lang('Next')</span>
+                    <span class="sr-only">@lang('Próximo')</span>
                 </a>
             </li>
         @else

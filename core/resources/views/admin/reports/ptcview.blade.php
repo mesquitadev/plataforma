@@ -8,23 +8,23 @@
                     <table class="table table--light style--two">
                         <thead>
                             <tr>
-                                <th scope="col">@lang('Date')</th>
+                                <th scope="col">@lang('Data')</th>
                                 <th scope="col">@lang('PTC Ad')</th>
-                                <th scope="col">@lang('User')</th>
-                                <th scope="col">@lang('Amount')</th>
+                                <th scope="col">@lang('Usuário')</th>
+                                <th scope="col">@lang('Quantidade')</th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse($ptcviews as $data)
                             <tr>
-                                <td data-label="@lang('Date')">{{ $data->vdt }}</td>
+                                <td data-label="@lang('Data')">{{ $data->vdt }}</td>
                                 <td data-label="@lang('PTC Ad')"> <a href="{{route('admin.ptc.edit',$data->ptc->id)}}">{{shortDescription($data->ptc->title,20)}}</a></td>
 
-                                <td data-label="@lang('User')">
+                                <td data-label="@lang('Usuário')">
                                     <a href="{{ route('admin.users.detail', $data->user->id??0) }}">{{ @$data->user->username }}</a>
                                 </td>
 
-                                <td class="font-weight-bold" data-label="@lang('Amount')">{{ getAmount($data->amount)}} {{$general->cur_text}} </td>
+                                <td class="font-weight-bold" data-label="@lang('Quantidade')">{{ getAmount($data->amount)}} {{$general->cur_text}} </td>
                             </tr>
                             @empty
                             <tr>
@@ -45,7 +45,7 @@
 @push('breadcrumb-plugins')
     <form action="{{route('admin.report.ptcview.search')}}" method="GET" class="form-inline float-right bg--white">
         <div class="input-group has_append">
-            <input type="text" name="search" class="form-control" placeholder="@lang('username')" value="{{ $search ?? '' }}">
+            <input type="text" name="search" class="form-control" placeholder="@lang('Usuário')" value="{{ $search ?? '' }}">
             <div class="input-group-append">
                 <button class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
             </div>

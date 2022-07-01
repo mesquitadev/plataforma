@@ -9,10 +9,10 @@
                         <img id="output" src="{{ getImage('assets/images/user/profile/'. auth()->user()->image, '350x300')}}" alt="@lang('profile-image')" class="b-radius--10 w-100">
                         <ul class="list-group mt-3">
                             <li class="list-group-item d-flex justify-content-between">
-                                <span>@lang('Name')</span> {{auth()->user()->fullname}}
+                                <span>@lang('Nome')</span> {{auth()->user()->fullname}}
                             </li>
                             <li class="list-group-item rounded-0 d-flex justify-content-between">
-                                <span>@lang('Username')</span> {{auth()->user()->username}}
+                                <span>@lang('Usuário')</span> {{auth()->user()->username}}
                             </li>
                         </ul>
                     </div>
@@ -22,24 +22,24 @@
         <div class="col-lg-9 col-md-9 mb-30">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title mb-50 border-bottom pb-2">@lang('Change Password')</h5>
+                    <h5 class="card-title mb-50 border-bottom pb-2">@lang('Alterar Senha')</h5>
                     <form action="" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">@lang('Password')</label>
+                            <label class="col-lg-3 col-form-label form-control-label">@lang('Senha atual')</label>
                             <div class="col-lg-9">
                                 <input class="form-control form-control-lg" type="password" name="current_password" required minlength="5">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">@lang('New password')</label>
+                            <label class="col-lg-3 col-form-label form-control-label">@lang('Nova Senha')</label>
                             <div class="col-lg-9">
                                 <input class="form-control form-control-lg" type="password" name="password" required minlength="5">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">@lang('Confirm password')</label>
+                            <label class="col-lg-3 col-form-label form-control-label">@lang('Confirmar Senha')</label>
                             <div class="col-lg-9">
                                 <input class="form-control form-control-lg" type="password" required minlength="5"
                                        name="password_confirmation">
@@ -49,7 +49,7 @@
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label"></label>
                             <div class="col-lg-9">
-                                <button type="submit" class="btn btn--primary btn-block btn-lg">@lang('Save Changes')</button>
+                                <button type="submit" class="btn btn--primary btn-block btn-lg">@lang('Salvar')</button>
                             </div>
                         </div>
                     </form>
@@ -60,5 +60,5 @@
 @endsection
 
 @push('breadcrumb-plugins')
-    <a href="{{route('user.profile-setting')}}" class="btn btn--success btn--shadow"><i class="fa fa-user"></i>@lang('Profile Setting')</a>
+    <a href="{{route('user.profile-setting')}}" class="btn btn--success btn--shadow"><i class="fa fa-user"></i>@lang('Configuração do Perfil')</a>
 @endpush

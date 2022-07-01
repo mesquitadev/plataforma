@@ -9,14 +9,14 @@
                         <img src="{{getImage(imagePath()['withdraw']['method']['path'].'/'. $data->image)}}"
                                 class="card-img-top w-100" alt="{{__($data->name)}}">
                         <ul  class="list-group text-center font-15">
-                            <li class="list-group-item">@lang('Limit')
+                            <li class="list-group-item">@lang('Limite')
                                 : {{getAmount($data->min_limit)}}
                                 - {{getAmount($data->max_limit)}} {{$general->cur_text}}</li>
-                            <li class="list-group-item"> @lang('Charge')
+                            <li class="list-group-item"> @lang('Taxa')
                                 - {{getAmount($data->fixed_charge)}} {{$general->cur_text}}
                                 + {{getAmount($data->percent_charge)}}%
                             </li>
-                            <li class="list-group-item">@lang('Processing Time')
+                            <li class="list-group-item">@lang('Tempo de Processamento')
                                 - {{$data->delay}}</li>
                         </ul>
 
@@ -30,7 +30,7 @@
                             data-percent_charge="{{getAmount($data->percent_charge)}}"
                             data-base_symbol="{{$general->cur_text}}"
                             class="btn btn-block  btn--success deposit" data-toggle="modal" data-target="#exampleModal">
-                            @lang('Withdraw Now')</a>
+                            @lang('Solicitar Saque')</a>
                     </div>
                 </div>
             </div>
@@ -55,7 +55,7 @@
                             <input type="hidden" name="method_code" class="edit-method-code  form-control" value="">
                         </div>
                         <div class="form-group">
-                            <label>@lang('Enter Amount'):</label>
+                            <label>@lang('Digitar Valor'):</label>
                             <div class="input-group">
                                 <input id="amount" type="text" class="form-control form-control-lg" onkeyup="this.value = this.value.replace (/^\.|[^\d\.]/g, '')" name="amount" placeholder="0.00" required=""  value="{{old('amount')}}">
                                 <div class="input-group-append">
@@ -66,8 +66,8 @@
                         <p class="text-danger text-center depositLimit"></p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn--secondary" data-dismiss="modal">@lang('Close')</button>
-                        <button type="submit" class="btn btn--success">@lang('Confirm')</button>
+                        <button type="button" class="btn btn--secondary" data-dismiss="modal">@lang('Fechar')</button>
+                        <button type="submit" class="btn btn--success">@lang('Confirmar')</button>
                     </div>
                 </form>
             </div>
@@ -86,11 +86,11 @@
                 var fixCharge = $(this).data('fix_charge');
                 var percentCharge = $(this).data('percent_charge');
 
-                var depositLimit = `@lang('Withdraw Limit:') ${minAmount} - ${maxAmount}  {{$general->cur_text}}`;
+                var depositLimit = `@lang('Limite de Saque:') ${minAmount} - ${maxAmount}  {{$general->cur_text}}`;
                 $('.depositLimit').text(depositLimit);
-                var depositCharge = `@lang('Charge:') ${fixCharge} {{$general->cur_text}} ${(0 < percentCharge) ? ' + ' + percentCharge + ' %' : ''}`
+                var depositCharge = `@lang('Taxa:') ${fixCharge} {{$general->cur_text}} ${(0 < percentCharge) ? ' + ' + percentCharge + ' %' : ''}`
                 $('.depositCharge').text(depositCharge);
-                $('.method-name').text(`@lang('Withdraw Via ') ${result.name}`);
+                $('.method-name').text(`@lang('Sacar Via ') ${result.name}`);
                 $('.edit-currency').val(result.currency);
                 $('.edit-method-code').val(result.id);
             });

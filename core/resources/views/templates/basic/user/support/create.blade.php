@@ -10,48 +10,48 @@
                             @csrf
                             <div class="row ">
                                 <div class="form-group col-md-6">
-                                    <label for="name">@lang('Name')</label>
-                                    <input type="text"  name="name" value="{{@$user->firstname . ' '.@$user->lastname}}" class="form-control form-control-lg" placeholder="@lang('Enter Name')" required>
+                                    <label for="name">@lang('Nome')</label>
+                                    <input type="text"  name="name" value="{{@$user->firstname . ' '.@$user->lastname}}" class="form-control form-control-lg" placeholder="@lang('Nome')" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="email">@lang('Email address')</label>
-                                    <input type="email"  name="email" value="{{@$user->email}}" class="form-control form-control-lg" placeholder="@lang('Enter your Email')" required>
+                                    <label for="email">@lang('Email')</label>
+                                    <input type="email"  name="email" value="{{@$user->email}}" class="form-control form-control-lg" placeholder="@lang('Digite seu Email')" required>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="website">@lang('Subject')</label>
-                                    <input type="text" name="subject" value="{{old('subject')}}" class="form-control form-control-lg" placeholder="@lang('Subject')" >
+                                    <label for="website">@lang('Assunto')</label>
+                                    <input type="text" name="subject" value="{{old('subject')}}" class="form-control form-control-lg" placeholder="@lang('Assunto')" >
                                 </div>
                                 <div class="col-12 form-group">
-                                    <label for="inputMessage">@lang('Message')</label>
+                                    <label for="inputMessage">@lang('Mensagem')</label>
                                     <textarea name="message" id="inputMessage" rows="6" class="form-control form-control-lg">{{old('message')}}</textarea>
                                 </div>
                             </div>
 
                             <div class="form-group mb-0">
-                                <span for="inputAttachments text-white">@lang('Attachments')</span>
+                                <span for="inputAttachments text-white">@lang('Anexos')</span>
                                 <div class="custom-file">
                                     <input name="attachments[]" type="file" id="customFile" class="custom-file-input" accept=".jpg,.jpeg,.png,.pdf">
 
-                                    <label class="custom-file-label form-control-lg" for="custmFile">@lang('Choose file')</label>
+                                    <label class="custom-file-label form-control-lg" for="custmFile">@lang('Selecionar Arquivo')</label>
                                 </div>
                             </div>
 
                             <div class="fileUploadsContainer"></div>
 
                             <p class="text-muted m-2">
-                                <i class="la la-info-circle"></i> @lang("Allowed File Extensions: .jpg, .jpeg, .png, .pdf")
+                                <i class="la la-info-circle"></i> @lang("Arquivos Permitidos: .jpg, .jpeg, .png, .pdf")
                             </p>
 
                             <div class="form-group">
                                 <a href="javascript:void(0)" class="btn btn--success add-more-btn">
                                     <i class="la la-plus"></i>
-                                    @lang('Add More')
+                                    @lang('Adicionar Mais')
                                 </a>
                             </div>
 
                             <div class="row form-group justify-content-center">
                                 <div class="col-md-12">
-                                    <button class="btn btn-block btn--success" type="submit" id="recaptcha" ><i class="fa fa-paper-plane"></i>&nbsp;@lang('Send')</button>
+                                    <button class="btn btn-block btn--success" type="submit" id="recaptcha" ><i class="fa fa-paper-plane"></i>&nbsp;@lang('Enviar')</button>
 
                                 </div>
                             </div>
@@ -76,7 +76,7 @@
                 itr++
                 $(".fileUploadsContainer").append(` <div class="form-group custom-file mt-3">
                                             <input type="file" name="attachments[]" id="customFile${itr}" class="custom-file-input" accept=".jpg,.jpeg,.png,.pdf" />
-                                            <label class="custom-file-label form-control-lg" for="customFile${itr}">@lang('Choose file')</label>
+                                            <label class="custom-file-label form-control-lg" for="customFile${itr}">@lang('Selecionar Arquivo')</label>
                                         </div>`);
 
             });

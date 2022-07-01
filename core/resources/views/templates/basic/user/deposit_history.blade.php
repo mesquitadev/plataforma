@@ -9,30 +9,30 @@
                         <table class="table table--light style--two">
                             <thead>
                             <tr>
-                                <th scope="col">@lang('Transaction ID')</th>
+                                <th scope="col">@lang('Transação')</th>
                                 <th scope="col">@lang('Gateway')</th>
-                                <th scope="col">@lang('Amount')</th>
+                                <th scope="col">@lang('Quantidade')</th>
                                 <th scope="col">@lang('Status')</th>
-                                <th scope="col">@lang('Time')</th>
-                                <th scope="col"> @lang('Details')</th>
+                                <th scope="col">@lang('Tempo')</th>
+                                <th scope="col"> @lang('Detalhes')</th>
                             </tr>
                             </thead>
                             <tbody>
                             @if(count($logs) >0)
                                 @foreach($logs as $k=>$data)
                                     <tr>
-                                        <td data-label="#@lang('Transaction ID')">{{$data->trx}}</td>
+                                        <td data-label="#@lang('Transação')">{{$data->trx}}</td>
                                         <td data-label="@lang('Gateway')">{{__($data->gateway->name)}}</td>
-                                        <td data-label="@lang('Amount')">
+                                        <td data-label="@lang('Quantidade')">
                                             <strong>{{getAmount($data->amount)}} {{$general->cur_text}}</strong>
                                         </td>
                                         <td data-label="@lang('Status')">
                                             @if($data->status == 1)
-                                                <span class="badge badge--success">@lang('Complete')</span>
+                                                <span class="badge badge--success">@lang('Completo')</span>
                                             @elseif($data->status == 2)
-                                                <span class="badge badge--warning">@lang('Pending')</span>
+                                                <span class="badge badge--warning">@lang('Pendente')</span>
                                             @elseif($data->status == 3)
-                                                <span class="badge badge--danger">@lang('Cancel')</span>
+                                                <span class="badge badge--danger">@lang('Cancelado')</span>
                                             @endif
                                             @if($data->admin_feedback != null)
                                                 <button class="btn--info btn-rounded  badge detailBtn"
@@ -40,13 +40,13 @@
                                                         class="fa fa-info"></i></button>
                                             @endif
                                         </td>
-                                        <td data-label="@lang('Time')">
+                                        <td data-label="@lang('Tempo')">
                                             <i class="las la-calendar"></i> {{showDateTime($data->created_at)}}
                                         </td>
                                         @php
                                             $details = ($data->detail != null) ? json_encode($data->detail) : null;
                                         @endphp
-                                        <td data-label="@lang('Details')">
+                                        <td data-label="@lang('Detalhes')">
                                             <a href="javascript:void(0)" class="icon-btn  approveBtn"
                                                data-info="{{$details}}"
                                                data-id="{{ $data->id }}"
@@ -62,7 +62,7 @@
                                 @endforeach
                             @else
                                 <tr>
-                                    <td colspan="100%" class="text-center"> @lang('No results found')!</td>
+                                    <td colspan="100%" class="text-center"> @lang('Sem registros encontrados.')!</td>
                                 </tr>
                             @endif
                             </tbody>
@@ -81,26 +81,26 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">@lang('Details')</h5>
+                    <h5 class="modal-title">@lang('Detalhes')</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <ul class="list-group">
-                        <li class="list-group-item ">@lang('Amount') : <span class="withdraw-amount "></span></li>
-                        <li class="list-group-item ">@lang('Charge') : <span class="withdraw-charge "></span></li>
-                        <li class="list-group-item ">@lang('After Charge') : <span class="withdraw-after_charge"></span>
+                        <li class="list-group-item ">@lang('Quantidade') : <span class="withdraw-amount "></span></li>
+                        <li class="list-group-item ">@lang('Taxa') : <span class="withdraw-charge "></span></li>
+                        <li class="list-group-item ">@lang('Depois da Taxa') : <span class="withdraw-after_charge"></span>
                         </li>
-                        <li class="list-group-item ">@lang('Conversion Rate') : <span class="withdraw-rate"></span></li>
-                        <li class="list-group-item ">@lang('Payable Amount') : <span class="withdraw-payable"></span>
+                        <li class="list-group-item ">@lang('Referência') : <span class="withdraw-rate"></span></li>
+                        <li class="list-group-item ">@lang('Pagável') : <span class="withdraw-payable"></span>
                         </li>
                     </ul>
                     <ul class="list-group withdraw-detail mt-1">
                     </ul>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Close')</button>
+                    <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Fechar')</button>
                 </div>
             </div>
         </div>
@@ -112,8 +112,8 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">@lang('Details')</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="@lang('Close')">
+                    <h5 class="modal-title">@lang('Detalhes')</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="@lang('Fechar')">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -121,7 +121,7 @@
                     <div class="withdraw-detail"></div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn--danger" data-dismiss="modal">@lang('Close')</button>
+                    <button type="button" class="btn btn--danger" data-dismiss="modal">@lang('Fechar')</button>
                 </div>
             </div>
         </div>
@@ -179,7 +179,7 @@
 @push('breadcrumb-plugins')
     <form action="" method="GET" class="form-inline float-sm-right bg--white">
         <div class="input-group has_append">
-            <input type="text" name="search" class="form-control" placeholder="@lang('Search by TRX')" value="{{ @$search }}">
+            <input type="text" name="search" class="form-control" placeholder="@lang('Buscar por Transação')" value="{{ @$search }}">
             <div class="input-group-append">
                 <button class="btn btn--primary" type="submit"><i class="fa fa-search"></i></button>
             </div>

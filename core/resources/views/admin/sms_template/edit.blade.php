@@ -8,8 +8,8 @@
                         <table class=" table align-items-center table--light">
                             <thead>
                             <tr>
-                                <th>@lang('Short Code')</th>
-                                <th>@lang('Description')</th>
+                                <th>@lang('Variável')</th>
+                                <th>@lang('Descrição')</th>
                             </tr>
                             </thead>
                             <tbody class="list">
@@ -43,17 +43,17 @@
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label class="font-weight-bold">@lang('Status') <span class="text-danger">*</span></label>
-                                <input type="checkbox" data-height="46px" data-width="100%" data-onstyle="-success" data-offstyle="-danger" data-toggle="toggle" data-on="@lang('Send SMS')" data-off="@lang("Don't Send")" name="sms_status" @if($sms_template->sms_status) checked @endif>
+                                <input type="checkbox" data-height="46px" data-width="100%" data-onstyle="-success" data-offstyle="-danger" data-toggle="toggle" data-on="@lang('Enviar SMS')" data-off="@lang("Não Enviar")" name="sms_status" @if($sms_template->sms_status) checked @endif>
                             </div>
 
                             <div class="form-group col-md-12">
-                                <label class="font-weight-bold">@lang('Message') <span class="text-danger">*</span></label>
-                                <textarea name="sms_body" rows="10" class="form-control" placeholder="@lang('Your message using shortcodes')">{{ $sms_template->sms_body }}</textarea>
+                                <label class="font-weight-bold">@lang('Mensagem') <span class="text-danger">*</span></label>
+                                <textarea name="sms_body" rows="10" class="form-control" placeholder="@lang('Mensagem usando variáveis')">{{ $sms_template->sms_body }}</textarea>
                             </div>
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-block btn--primary mr-2">@lang('Submit')</button>
+                        <button type="submit" class="btn btn-block btn--primary mr-2">@lang('Enviar')</button>
                     </div>
                 </form>
             </div>

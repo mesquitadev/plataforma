@@ -11,11 +11,11 @@
                             <thead>
                             <tr>
                                 <th scope="col">@lang('Sl')</th>
-                                <th scope="col">@lang('Name')</th>
-                                <th scope="col">@lang('Price')</th>
-                                <th scope="col">@lang('Business Volume (BV)')</th>
-                                <th scope="col">@lang('Referral Commission')</th>
-                                <th scope="col">@lang('Tree Commission')</th>
+                                <th scope="col">@lang('Nome')</th>
+                                <th scope="col">@lang('Preço')</th>
+                                <th scope="col">@lang('Pontos')</th>
+                                <th scope="col">@lang('Comissão de Indicação')</th>
+                                <th scope="col">@lang('Comissão da Rede')</th>
                                 <th scope="col">@lang('Status')</th>
                                 <th scope="col">@lang('Ação')</th>
                             </tr>
@@ -24,19 +24,19 @@
                             @forelse($plans as $key => $plan)
                                 <tr>
                                     <td data-label="@lang('Sl')">{{$key+1}}</td>
-                                    <td data-label="@lang('Name')">{{ __($plan->name) }}</td>
-                                    <td data-label="@lang('Price')">{{ getAmount($plan->price) }} {{$general->cur_text}}</td>
-                                    <td data-label="@lang('Bv')">{{ $plan->bv }}</td>
-                                    <td data-label="@lang('Referral Commission')"> {{ getAmount($plan->ref_com) }} {{$general->cur_text}}</td>
+                                    <td data-label="@lang('Nome')">{{ __($plan->name) }}</td>
+                                    <td data-label="@lang('Preço')">{{ getAmount($plan->price) }} {{$general->cur_text}}</td>
+                                    <td data-label="@lang('Pontos')">{{ $plan->bv }}</td>
+                                    <td data-label="@lang('Comissão de Indicação')"> {{ getAmount($plan->ref_com) }} {{$general->cur_text}}</td>
 
-                                    <td data-label="@lang('Tree Commission')">
+                                    <td data-label="@lang('Comissão de Rede')">
                                        {{ getAmount($plan->tree_com) }} {{$general->cur_text}}
                                     </td>
                                     <td data-label="@lang('Status')">
                                         @if($plan->status == 1)
-                                            <span class="text--small badge font-weight-normal badge--success">@lang('Active')</span>
+                                            <span class="text--small badge font-weight-normal badge--success">@lang('Ativo')</span>
                                         @else
-                                            <span class="text--small badge font-weight-normal badge--danger">@lang('Inactive')</span>
+                                            <span class="text--small badge font-weight-normal badge--danger">@lang('Inativo')</span>
                                         @endif
                                     </td>
 
@@ -77,7 +77,7 @@
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">@lang('Edit Plan')</h5>
+                    <h5 class="modal-title">@lang('Editar Plano')</h5>
 
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -92,11 +92,11 @@
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label class="font-weight-bold"> @lang('Name') :</label>
+                                <label class="font-weight-bold"> @lang('Nome') :</label>
                                 <input class="form-control name" name="name" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label class="font-weight-bold"> @lang('Price') </label>
+                                <label class="font-weight-bold"> @lang('Preço') </label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span
                                             class="input-group-text">{{$general->cur_sym}} </span></div>
@@ -106,42 +106,42 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="font-weight-bold"> @lang('Business Volume (BV)')</label>
+                            <label class="font-weight-bold"> @lang('Pontos')</label>
                             <input class="form-control bv" name="bv" required>
-                            <small class="text--red">@lang('When someone buys this plan, all of his ancestors will get this value which will be used for a matching bonus.')</small>
+                            <small class="text--red">@lang('Quando alguém compra este plano, todos os seus ancestrais receberão esse valor que será usado para um bônus de correspondência.')</small>
                         </div>
 
                         <div class="form-group">
-                            <label class="font-weight-bold">@lang('Referral Commission')</label>
+                            <label class="font-weight-bold">@lang('Comissão por Indicação')</label>
                             <div class="input-group">
                                 <div class="input-group-prepend"><span
                                     class="input-group-text">{{$general->cur_sym}} </span></div>
                                     <input type="text" class="form-control  ref_com" name="ref_com"
                                     required>
-                                    <small class="text--red">@lang('If a user who subscribed to this plan, refers someone and if the referred user buys a plan, then he will get this amount.')</small>
+                                    <small class="text--red">@lang('Se um usuário que se inscreveu neste plano, indicar alguém e se o usuário indicado comprar um plano, ele receberá esse valor.')</small>
                             </div>
                         </div>
 
 
                         <div class="form-group">
-                            <label class="font-weight-bold">@lang('Tree Commission')</label>
+                            <label class="font-weight-bold">@lang('Comissão da Rede')</label>
                             <div class="input-group">
                                 <div class="input-group-prepend"><span class="input-group-text">{{$general->cur_sym}} </span></div>
                                 <input type="text" class="form-control  tree_com" name="tree_com"
                                     required>
                             </div>
-                            <small class="small text--red">@lang('When someone buys this plan, all of his ancestors will get this amount.')</small>
+                            <small class="small text--red">@lang('Quando alguém compra esse plano, todos os seus ancestrais receberão esse valor.')</small>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label class="font-weight-bold">@lang('Status')</label>
-                                <input type="checkbox" data-width="100%" data-onstyle="-success" data-offstyle="-danger" data-toggle="toggle" data-on="@lang('Active')" data-off="@lang('Inactive')" name="status" checked>
+                                <input type="checkbox" data-width="100%" data-onstyle="-success" data-offstyle="-danger" data-toggle="toggle" data-on="@lang('Ativo')" data-off="@lang('Inativo')" name="status" checked>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-block btn--primary">@lang('Update')</button>
+                        <button type="submit" class="btn btn-block btn--primary">@lang('Atualizar')</button>
                     </div>
                 </form>
             </div>
@@ -152,7 +152,7 @@
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">@lang('Add New plan')</h5>
+                    <h5 class="modal-title">@lang('Adicionar Novo')</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -164,12 +164,12 @@
                         <input class="form-control plan_id" type="hidden" name="id">
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label class="font-weight-bold"> @lang('Name') :</label>
+                                <label class="font-weight-bold"> @lang('Nome') :</label>
                                 <input type="text" class="form-control " name="name"
                                        required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label class="font-weight-bold"> @lang('Price') </label>
+                                <label class="font-weight-bold"> @lang('Preço') </label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span
                                             class="input-group-text">{{$general->cur_sym}} </span></div>
@@ -181,36 +181,36 @@
                             <label class="font-weight-bold"> @lang('Business Volume (BV)')</label>
                             <input class="form-control " type="number" min="0" name="bv" required>
 
-                            <small class="text--red">@lang('If a user who subscribed to this plan, refers someone and if the referred user buys a plan, then he will get this amount.')</small>
+                            <small class="text--red">@lang('Se um usuário que se inscreveu neste plano, indicar alguém e se o usuário indicado comprar um plano, ele receberá esse valor.')</small>
                         </div>
                         <div class="form-group">
-                            <label class="font-weight-bold"> @lang('Referral Commission')</label>
+                            <label class="font-weight-bold"> @lang('Comissão por Indicação')</label>
                             <div class="input-group">
                                 <div class="input-group-prepend"><span
                                         class="input-group-text">{{$general->cur_sym}} </span></div>
                                 <input type="text" class="form-control  " name="ref_com" required>
-                                <small class="small text--red">@lang('If a user who subscribed to this plan, refers someone and if the referred user buys a plan, then he will get this amount.')</small>
+                                <small class="small text--red">@lang('Se um usuário que se inscreveu neste plano, indicar alguém e se o usuário indicado comprar um plano, ele receberá esse valor.')</small>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="font-weight-bold"> @lang('Tree Commission')</label>
+                            <label class="font-weight-bold"> @lang('Comissão da Rede')</label>
                             <div class="input-group">
                                 <div class="input-group-prepend"><span
                                         class="input-group-text">{{$general->cur_sym}} </span></div>
                                 <input type="text" class="form-control  " name="tree_com" required>
                             </div>
-                            <small class="small text--red">@lang('When someone buys this plan, all of his ancestors will get this amount.')</small>
+                            <small class="small text--red">@lang('Quando alguém compra esse plano, todos os seus ancestrais receberão esse valor.')</small>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group col">
                                 <label class="font-weight-bold">@lang('Status')</label>
-                                <input type="checkbox" data-width="100%" data-onstyle="-success" data-offstyle="-danger" data-toggle="toggle" data-on="@lang('Active')" data-off="@lang('Inactive')" name="status" checked>
+                                <input type="checkbox" data-width="100%" data-onstyle="-success" data-offstyle="-danger" data-toggle="toggle" data-on="@lang('Ativo')" data-off="@lang('Inativo')" name="status" checked>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn-block btn btn--primary">@lang('Submit')</button>
+                        <button type="submit" class="btn-block btn btn--primary">@lang('Salvar')</button>
                     </div>
                 </form>
 
@@ -224,7 +224,7 @@
 
 
 @push('breadcrumb-plugins')
-    <a href="javascript:void(0)" class="btn btn-sm btn--success add-plan"><i class="fa fa-fw fa-plus"></i>@lang('Add New')</a>
+    <a href="javascript:void(0)" class="btn btn-sm btn--success add-plan"><i class="fa fa-fw fa-plus"></i>@lang('Adicionar Novo')</a>
 
 @endpush
 

@@ -11,26 +11,26 @@
                         <table class="table table--light style--two">
                             <thead>
                             <tr>
-                                <th scope="col">@lang('Date')</th>
-                                <th scope="col">@lang('Username')</th>
+                                <th scope="col">@lang('Data')</th>
+                                <th scope="col">@lang('Usuario')</th>
                                 <th scope="col">@lang('IP')</th>
-                                <th scope="col">@lang('Location')</th>
-                                <th scope="col">@lang('Browser')</th>
+                                <th scope="col">@lang('Local')</th>
+                                <th scope="col">@lang('Navegador')</th>
                                 <th scope="col">@lang('OS')</th>
                             </tr>
                             </thead>
                             <tbody>
                             @forelse($login_logs as $log)
                                 <tr>
-                                    <td data-label="@lang('Date')">{{diffForHumans($log->created_at) }}</td>
-                                    <td data-label="@lang('Username')"><a href="{{ route('admin.users.detail', $log->user_id)}}"> {{ ($log->user) ? $log->user->username : '' }}</a></td>
+                                    <td data-label="@lang('Data')">{{diffForHumans($log->created_at) }}</td>
+                                    <td data-label="@lang('Usuário')"><a href="{{ route('admin.users.detail', $log->user_id)}}"> {{ ($log->user) ? $log->user->username : '' }}</a></td>
                                     <td data-label="@lang('IP')">
                                         <a href="{{route('admin.report.login.ipHistory',[$log->user_ip])}}">
                                             {{ $log->user_ip }}
                                         </a>
                                     </td>
-                                    <td data-label="@lang('Location')">{{ $log->location }}</td>
-                                    <td data-label="@lang('Browser')">{{ __($log->browser) }}</td>
+                                    <td data-label="@lang('Local')">{{ $log->location }}</td>
+                                    <td data-label="@lang('Navegador')">{{ __($log->browser) }}</td>
                                     <td data-label="@lang('OS')">{{ __($log->os) }}</td>
                                 </tr>
                             @empty

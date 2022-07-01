@@ -15,11 +15,11 @@
                                 $extra = $data->gateway->extra;
                             @endphp
                             <div class="col-md-12 text-center">
-                                <p class="text-center mt-2">@lang('You have requested ') <b
-                                        class="text--success">{{ getAmount($data['amount'])  }} {{$general->cur_text}}</b>, @lang('Please pay')
-                                    <b class="text--success">{{getAmount($data['final_amo']) .' '.$data['method_currency'] }}</b> @lang('for successful payment')
+                                <p class="text-center mt-2">@lang('Você solicitou ') <b
+                                        class="text--success">{{ getAmount($data['amount'])  }} {{$general->cur_text}}</b>, @lang('Por favor')
+                                    <b class="text--success">{{getAmount($data['final_amo']) .' '.$data['method_currency'] }}</b> @lang('para finalizar com sucesso')
                                 </p>
-                                <h4 class="text-center mb-4">@lang('Please follow the instruction bellow')</h4>
+                                <h4 class="text-center mb-4">@lang('Favor, siga as instruções abaixo')</h4>
                                 <p class="my-4 text-center">@php echo  $data->gateway->description @endphp</p>
                             </div>
 
@@ -56,12 +56,12 @@
 
                                                     <div class="img-input-div">
                                                             <span class="btn btn--info btn-file">
-                                                                <span class="fileinput-new text-white"> @lang('Select') {{$v->field_level}}</span>
-                                                                <span class="fileinput-exists text-white"> @lang('Change')</span>
+                                                                <span class="fileinput-new text-white"> @lang('Selecionar') {{$v->field_level}}</span>
+                                                                <span class="fileinput-exists text-white"> @lang('Alterar')</span>
                                                                 <input type="file" name="{{$k}}" accept="image/*" >
                                                             </span>
                                                         <a href="#" class="btn btn--danger  fileinput-exists"
-                                                            data-dismiss="fileinput"> @lang('Remove')</a>
+                                                            data-dismiss="fileinput"> @lang('Remover')</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -72,7 +72,7 @@
 
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn--success   btn-block mt-2 text-center">@lang('Pay Now')</button>
+                                    <button type="submit" class="btn btn--success   btn-block mt-2 text-center">@lang('Pagar')</button>
                                 </div>
                             </div>
                         </div>

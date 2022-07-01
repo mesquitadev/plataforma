@@ -11,28 +11,28 @@
                             <thead>
                             <tr>
                                 <th scope="col">@lang('SL')</th>
-                                <th scope="col">@lang('Date')</th>
-                                <th scope="col">@lang('TRX')</th>
-                                <th scope="col">@lang('Amount')</th>
-                                <th scope="col">@lang('Charge')</th>
-                                <th scope="col">@lang('Post Balance')</th>
-                                <th scope="col">@lang('Detail')</th>
+                                <th scope="col">@lang('Data')</th>
+                                <th scope="col">@lang('Transação')</th>
+                                <th scope="col">@lang('Valor')</th>
+                                <th scope="col">@lang('Taxa')</th>
+                                <th scope="col">@lang('Pós-Saldo')</th>
+                                <th scope="col">@lang('Detalhe')</th>
                             </tr>
                             </thead>
                             <tbody>
                             @forelse($transactions  as $trx)
                                 <tr>
                                     <td data-label="@lang('SL')">{{ $transactions->firstItem()+$loop->index }}</td>
-                                    <td data-label="@lang('Date')">{{ showDateTime($trx->created_at) }}</td>
-                                    <td data-label="@lang('TRX')" class="font-weight-bold">{{ $trx->trx }}</td>
-                                    <td data-label="@lang('Amount')" class="budget">
+                                    <td data-label="@lang('Data')">{{ showDateTime($trx->created_at) }}</td>
+                                    <td data-label="@lang('Transação')" class="font-weight-bold">{{ $trx->trx }}</td>
+                                    <td data-label="@lang('Valor')" class="budget">
                                         <strong @if($trx->trx_type == '+') class="text-success"
                                                 @else class="text-danger" @endif> {{($trx->trx_type == '+') ? '+':'-'}} {{getAmount($trx->amount)}} {{$general->cur_text}}</strong>
                                     </td>
-                                    <td data-label="@lang('Charge')"
+                                    <td data-label="@lang('Taxa')"
                                         class="budget">{{ $general->cur_sym }} {{ getAmount($trx->charge) }} </td>
-                                    <td data-label="@lang('Post Balance')">{{ $trx->post_balance +0 }} {{$general->cur_text}}</td>
-                                    <td data-label="@lang('Detail')">{{ __($trx->details) }}</td>
+                                    <td data-label="@lang('Pós-Saldo')">{{ $trx->post_balance +0 }} {{$general->cur_text}}</td>
+                                    <td data-label="@lang('Detalhe')">{{ __($trx->details) }}</td>
                                 </tr>
                             @empty
                                 <tr>
@@ -56,7 +56,7 @@
 @push('breadcrumb-plugins')
     <form action="" method="GET" class="form-inline float-sm-right bg--white">
         <div class="input-group has_append">
-            <input type="text" name="search" class="form-control" placeholder="@lang('Search by TRX')" value="{{ $search ?? '' }}">
+            <input type="text" name="search" class="form-control" placeholder="@lang('Buscar Por Transação')" value="{{ $search ?? '' }}">
             <div class="input-group-append">
                 <button class="btn btn--primary" type="submit"><i class="fa fa-search"></i></button>
             </div>

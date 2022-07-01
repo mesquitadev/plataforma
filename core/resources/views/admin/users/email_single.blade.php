@@ -9,12 +9,12 @@
                     <div class="card-body">
                         <div class="form-row">
                             <div class="form-group col-md-12">
-                                <label class="font-weight-bold">@lang('Subject') <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" placeholder="@lang('Email subject')" name="subject"  required/>
+                                <label class="font-weight-bold">@lang('Assunto') <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" placeholder="@lang('Assunto')" name="subject"  required/>
                             </div>
                             <div class="form-group col-md-12">
-                                <label class="font-weight-bold">@lang('Message') <span class="text-danger">*</span></label>
-                                <textarea name="message" rows="10" class="form-control nicEdit" placeholder="@lang('Your message')"></textarea>
+                                <label class="font-weight-bold">@lang('Mensagem') <span class="text-danger">*</span></label>
+                                <textarea name="message" rows="10" class="form-control nicEdit" placeholder="@lang('Sua Mensagem')"></textarea>
                             </div>
                         </div>
                     </div>
@@ -22,7 +22,7 @@
                     <div class="card-footer">
                         <div class="form-row">
                             <div class="form-group col-md-12 text-center">
-                                <button type="submit" class="btn btn-block btn--primary mr-2">@lang('Send Email')</button>
+                                <button type="submit" class="btn btn-block btn--primary mr-2">@lang('Enviar Email')</button>
                             </div>
                         </div>
                     </div>

@@ -5,7 +5,7 @@
             <i class="las la-search"></i>
         </button>
         <input type="search" name="navbar-search__field" id="navbar-search__field"
-               placeholder="@lang('Search...')">
+               placeholder="@lang('Buscar...')">
         <button type="button" class="navbar-search__close"><i class="las la-times"></i></button>
 
         <div id="navbar_search_result_area">
@@ -39,11 +39,11 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu--md p-0 border-0 box--shadow1 dropdown-menu-right">
                   <div class="dropdown-menu__header">
-                    <span class="caption">@lang('Notification')</span>
+                    <span class="caption">@lang('Notificação')</span>
                     @if($adminNotifications->count() > 0)
-                        <p>@lang('You have') {{ $adminNotifications->count() }} @lang('unread notification')</p>
+                        <p>@lang('Você tem') {{ $adminNotifications->count() }} @lang('notificações não lidas')</p>
                     @else
-                        <p>@lang('No unread notification found')</p>
+                        <p>@lang('Sem notificações não lidas')</p>
                     @endif
                   </div>
                   <div class="dropdown-menu__body">
@@ -60,7 +60,7 @@
                     @endforeach
                   </div>
                   <div class="dropdown-menu__footer">
-                    <a href="{{ route('admin.notifications') }}" class="view-all-message">@lang('View all notification')</a>
+                    <a href="{{ route('admin.notifications') }}" class="view-all-message">@lang('Ver todas as Notificações')</a>
                   </div>
                 </div>
             </li>
@@ -83,19 +83,19 @@
                     <a href="{{ route('admin.profile') }}"
                        class="dropdown-menu__item d-flex align-items-center px-3 py-2">
                         <i class="dropdown-menu__icon las la-user-circle"></i>
-                        <span class="dropdown-menu__caption">@lang('Profile')</span>
+                        <span class="dropdown-menu__caption">@lang('Perfil')</span>
                     </a>
 
                     <a href="{{route('admin.password')}}"
                        class="dropdown-menu__item d-flex align-items-center px-3 py-2">
                         <i class="dropdown-menu__icon las la-key"></i>
-                        <span class="dropdown-menu__caption">@lang('Password')</span>
+                        <span class="dropdown-menu__caption">@lang('Senha')</span>
                     </a>
 
                     <a href="{{ route('admin.logout') }}"
                        class="dropdown-menu__item d-flex align-items-center px-3 py-2">
                         <i class="dropdown-menu__icon las la-sign-out-alt"></i>
-                        <span class="dropdown-menu__caption">@lang('Logout')</span>
+                        <span class="dropdown-menu__caption">@lang('Sair')</span>
                     </a>
                 </div>
             </li>

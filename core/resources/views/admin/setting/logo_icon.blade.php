@@ -26,7 +26,7 @@
                                         </div>
                                         <div class="avatar-edit">
                                             <input type="file" class="profilePicUpload" id="profilePicUpload1" accept=".png, .jpg, .jpeg" name="logo">
-                                            <label for="profilePicUpload1" class="bg-primary">@lang('Select Logo') </label>
+                                            <label for="profilePicUpload1" class="bg-primary">@lang('Selecionar Logo') </label>
                                         </div>
                                     </div>
                                 </div>
@@ -50,13 +50,13 @@
                                         </div>
                                         <div class="avatar-edit">
                                             <input type="file" class="profilePicUpload" id="profilePicUpload2" accept=".png" name="favicon">
-                                            <label for="profilePicUpload2" class="bg-primary">@lang('Select Favicon')</label>
+                                            <label for="profilePicUpload2" class="bg-primary">@lang('Selecionar Favicon')</label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn--primary btn-block btn-lg">@lang('Update')</button>
+                        <button type="submit" class="btn btn--primary btn-block btn-lg">@lang('Atualizar')</button>
                     </form>
                 </div>
             </div>

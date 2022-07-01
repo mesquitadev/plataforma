@@ -10,7 +10,7 @@
                         <table class="table table--light style--two custom-data-table">
                             <thead>
                             <tr>
-                                <th scope="col">@lang('Name')</th>
+                                <th scope="col">@lang('Nome')</th>
                                 <th scope="col">@lang('Status')</th>
                                 <th scope="col">@lang('Ação')</th>
                             </tr>
@@ -18,22 +18,22 @@
                             <tbody>
                             @forelse ($sms_templates as $template)
                                 <tr>
-                                    <td data-label="@lang('Name')">
+                                    <td data-label="@lang('Nome')">
                                         {{ __($template->name) }}
                                     </td>
 
                                     <td data-label="@lang('Status')">
                                         @if($template->sms_status == 1)
-                                            <span class="badge  badge--success">@lang('Active')</span>
+                                            <span class="badge  badge--success">@lang('Ativo')</span>
                                         @else
-                                            <span class="badge  badge--warning">@lang('Disabled')</span>
+                                            <span class="badge  badge--warning">@lang('Inativo')</span>
                                         @endif
                                     </td>
 
                                     <td data-label="@lang('Ação')">
                                         <a href="{{ route('admin.sms.template.edit', $template->id) }}"
                                            class="icon-btn ml-1 editGatewayBtn" data-toggle="tooltip"
-                                           title="@lang('Edit')">
+                                           title="@lang('Editar')">
                                             <i class="la la-pencil"></i>
                                         </a>
 

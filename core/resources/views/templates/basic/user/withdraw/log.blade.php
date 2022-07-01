@@ -9,54 +9,54 @@
                         <table class="table table--light style--two">
                             <thead>
                             <tr>
-                                <th scope="col">@lang('Transaction ID')</th>
+                                <th scope="col">@lang('Transação')</th>
                                 <th scope="col">@lang('Gateway')</th>
-                                <th scope="col">@lang('Amount')</th>
-                                <th scope="col">@lang('Charge')</th>
-                                <th scope="col">@lang('After Charge')</th>
-                                <th scope="col">@lang('Rate')</th>
-                                <th scope="col">@lang('Receivable')</th>
+                                <th scope="col">@lang('Quantidade')</th>
+                                <th scope="col">@lang('Taxa')</th>
+                                <th scope="col">@lang('Depois da Taxa')</th>
+                                <th scope="col">@lang('Referência')</th>
+                                <th scope="col">@lang('Recebível')</th>
                                 <th scope="col">@lang('Status')</th>
-                                <th scope="col">@lang('Time')</th>
+                                <th scope="col">@lang('Tempo')</th>
                             </tr>
                             </thead>
                             <tbody>
                             @forelse($withdraws as $k=>$data)
                                 <tr>
-                                    <td data-label="#@lang('Trx')">{{$data->trx}}</td>
+                                    <td data-label="#@lang('Transação')">{{$data->trx}}</td>
                                     <td data-label="@lang('Gateway')">{{ $data->method->name   }}</td>
-                                    <td data-label="@lang('Amount')">
+                                    <td data-label="@lang('Quantidade')">
                                         <strong>{{getAmount($data->amount)}} {{$general->cur_text}}</strong>
                                     </td>
-                                    <td data-label="@lang('Charge')" class="text--danger">
+                                    <td data-label="@lang('Taxa')" class="text--danger">
                                         {{getAmount($data->charge)}} {{$general->cur_text}}
                                     </td>
-                                    <td data-label="@lang('After Charge')">
+                                    <td data-label="@lang('Depois da Taxa')">
                                         {{getAmount($data->after_charge)}} {{$general->cur_text}}
                                     </td>
-                                    <td data-label="@lang('Rate')">
+                                    <td data-label="@lang('Referência')">
                                         {{getAmount($data->rate)}} {{$data->currency}}
                                     </td>
-                                    <td data-label="@lang('Receivable')" class="text--success">
+                                    <td data-label="@lang('Recebível')" class="text--success">
                                         <strong>{{getAmount($data->final_amount)}} {{$data->currency}}</strong>
                                     </td>
                                     <td data-label="@lang('Status')">
                                         @if($data->status == 2)
-                                            <span class="badge badge--warning">@lang('Pending')</span>
+                                            <span class="badge badge--warning">@lang('Pendente')</span>
                                         @elseif($data->status == 1)
-                                            <span class="badge badge--success">@lang('Completed')</span>
+                                            <span class="badge badge--success">@lang('Completado')</span>
                                             <button class="btn-info btn-rounded  badge approveBtn"
                                                     data-admin_feedback="{{$data->admin_feedback}}"><i
                                                     class="fa fa-info"></i></button>
                                         @elseif($data->status == 3)
-                                            <span class="badge badge--danger">@lang('Rejected')</span>
+                                            <span class="badge badge--danger">@lang('Rejeitado')</span>
                                             <button class="btn-info btn-rounded badge approveBtn"
                                                     data-admin_feedback="{{$data->admin_feedback}}"><i
                                                     class="fa fa-info"></i></button>
                                         @endif
 
                                     </td>
-                                    <td data-label="@lang('Time')">
+                                    <td data-label="@lang('Tempo')">
                                         <i class="las la-calendar"></i> {{showDateTime($data->created_at)}}
                                     </td>
                                 </tr>
@@ -83,7 +83,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">@lang('Details')</h5>
+                    <h5 class="modal-title">@lang('Detalhes')</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -94,7 +94,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">@lang('Close')</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">@lang('Fechar')</button>
                 </div>
             </div>
         </div>
@@ -119,7 +119,7 @@
 @push('breadcrumb-plugins')
     <form action="" method="GET" class="form-inline float-sm-right bg--white">
         <div class="input-group has_append">
-            <input type="text" name="search" class="form-control" placeholder="@lang('Search by TRX')"
+            <input type="text" name="search" class="form-control" placeholder="@lang('Buscar por Transação')"
                    value="{{ $search ?? '' }}">
             <div class="input-group-append">
                 <button class="btn btn--primary" type="submit"><i class="fa fa-search"></i></button>

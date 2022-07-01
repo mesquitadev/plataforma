@@ -85,7 +85,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">@lang('User Details')</h5>
+                    <h5 class="modal-title" id="exampleModalCenterTitle">@lang('Detalhes do Usuário')</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -102,25 +102,25 @@
                             </div>
                         </div>
                         <div class="user-details-body text-center">
-                            <h6 class="my-3">@lang('Referred By'): <span class="tree_ref"></span></h6>
+                            <h6 class="my-3">@lang('Indicado por'): <span class="tree_ref"></span></h6>
                             <table class="table table-bordered">
                                 <tr>
                                     <th>&nbsp;</th>
-                                    <th>@lang('LEFT')</th>
-                                    <th>@lang('RIGHT')</th>
+                                    <th>@lang('Esquerda')</th>
+                                    <th>@lang('Direita')</th>
                                 </tr>
                                 <tr>
-                                    <td>@lang('Current BV')</td>
+                                    <td>@lang('Pontos')</td>
                                     <td><span class="lbv"></span></td>
                                     <td><span class="rbv"></span></td>
                                 </tr>
+{{--                                <tr>--}}
+{{--                                    <td>@lang('Free Member')</td>--}}
+{{--                                    <td><span class="lfree"></span></td>--}}
+{{--                                    <td><span class="rfree"></span></td>--}}
+{{--                                </tr>--}}
                                 <tr>
-                                    <td>@lang('Free Member')</td>
-                                    <td><span class="lfree"></span></td>
-                                    <td><span class="rfree"></span></td>
-                                </tr>
-                                <tr>
-                                    <td>@lang('Paid Member')</td>
+                                    <td>@lang('Membros Investindo')</td>
                                     <td><span class="lpaid"></span></td>
                                     <td><span class="rpaid"></span></td>
                                 </tr>
@@ -145,7 +145,7 @@
                 $('.tree_plan').text($(this).data('plan'));
                 $('.tree_image').attr({"src": $(this).data('image')});
                 $('.user-details-header').removeClass('Paid');
-                $('.user-details-header').removeClass('Free');
+                // $('.user-details-header').removeClass('Free');
                 $('.user-details-header').addClass($(this).data('status'));
                 $('.tree_ref').text($(this).data('refby'));
                 $('.lbv').text($(this).data('lbv'));
@@ -165,7 +165,7 @@
 
     <form action="{{route('admin.users.other.tree.search')}}" method="GET" class="form-inline float-right bg--white">
         <div class="input-group has_append">
-            <input type="text" name="username" class="form-control" placeholder="@lang('Search by username')">
+            <input type="text" name="username" class="form-control" placeholder="@lang('Buscar por Usuário')">
             <div class="input-group-append">
                 <button class="btn btn--success" type="submit"><i class="fa fa-search"></i></button>
             </div>

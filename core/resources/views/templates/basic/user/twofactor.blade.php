@@ -6,7 +6,7 @@
         <div class="modal-dialog">
             <div class="modal-content blue-bg">
                 <div class="modal-header">
-                    <h4 class="modal-title text-dark">@lang('Verify Your OTP')</h4>
+                    <h4 class="modal-title text-dark">@lang('Verificar seu OTP')</h4>
                     <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
 
                 </div>
@@ -16,13 +16,13 @@
 
                         <div class="form-group">
                             <input type="hidden" name="key" value="{{$secret}}">
-                            <input type="text" class="form-control" name="code" placeholder="@lang('Enter Google Authenticator Code')">
+                            <input type="text" class="form-control" name="code" placeholder="@lang('Digite o Código gerado no APP')">
                         </div>
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Close')</button>
-                        <button type="submit" class="btn btn--success pull-right">@lang('Submit')</button>
+                        <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Fechar')</button>
+                        <button type="submit" class="btn btn--success pull-right">@lang('Enviar')</button>
                     </div>
 
                 </form>
@@ -38,7 +38,7 @@
             <!-- Modal content-->
             <div class="modal-content blue-bg ">
                 <div class="modal-header">
-                    <h4 class="modal-title">@lang('Verify Your OTP to Disable')</h4>
+                    <h4 class="modal-title">@lang('Verificar seu APP para Desativar')</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
 
                 </div>
@@ -46,12 +46,12 @@
                     {{csrf_field()}}
                     <div class="modal-body">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="code" placeholder="@lang('Enter Google Authenticator Code')">
+                            <input type="text" class="form-control" name="code" placeholder="@lang('Digite o Código gerado no APP')">
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn--success btn-block pull-left">@lang('Verify')</button>
-                        <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Close')</button>
+                        <button type="submit" class="btn btn--success btn-block pull-left">@lang('Verificar')</button>
+                        <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Fechar')</button>
                     </div>
                 </form>
             </div>
@@ -68,22 +68,22 @@
                 @if(Auth::user()->ts == '1')
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="panel-title text-center">@lang('Two Factor Authenticator')</h4>
+                            <h4 class="panel-title text-center">@lang('Autenticação de 2 Fatores')</h4>
                         </div>
                         <div class="card-body min-height-310 text-center">
-                            <button type="button" class="btn btn-block btn-lg bttn btn-fill btn--danger" data-toggle="modal" data-target="#disableModal">@lang('Disable Two Factor Authenticator')</button>
+                            <button type="button" class="btn btn-block btn-lg bttn btn-fill btn--danger" data-toggle="modal" data-target="#disableModal">@lang('Desativar Autenticação de 2 Fatores')</button>
                         </div>
                     </div>
                 @else
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="panel-title text-center">@lang('Two Factor Authenticator')</h4>
+                            <h4 class="panel-title text-center">@lang('Autenticação de 2 Fatores')</h4>
                         </div>
                         <div class="card-body text-center">
                             <div class="input-group mb-3">
                                 <input type="text" name="key" value="{{$secret}}" class="form-control" id="code" readonly>
                                 <div class="input-group-append">
-                                    <span class="input-group-text bg--success" id="copybtnpp">@lang('Copy')</span>
+                                    <span class="input-group-text bg--success" id="copybtnpp">@lang('Copiar')</span>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -92,7 +92,7 @@
 
                         </div>
                         <div class="card-footer">
-                            <button type="button" class="btn btn-block btn--primary" data-toggle="modal" data-target="#enableModal">@lang('Enable Two Factor Authenticator')</button>
+                            <button type="button" class="btn btn-block btn--primary" data-toggle="modal" data-target="#enableModal">@lang('Ativar Autenticação de 2 Fatores')</button>
                         </div>
                     </div>
                 @endif
@@ -106,12 +106,12 @@
                         <h4 class="panel-title">@lang('Google Authenticator')</h4>
                     </div>
                     <div class="card-body text-justify min-height-310">
-                        <h3 class="mb-2">@lang('Use Google Authenticator to Scan the QR code  or use the code')</h3>
-                        <p class="font-20">{{__('Google Authenticator is a multi factor app for mobile devices. It generates timed codes used during the 2-step verification process. To use Google Authenticator, install the Google Authenticator application on your mobile device.')}}</p>
+                        <h3 class="mb-2">@lang('Use o Google Authenticator para digitalizar o código QR ou use o código')</h3>
+                        <p class="font-20">{{__('O Google Authenticator é um aplicativo multifator para dispositivos móveis. Ele gera códigos cronometrados usados durante o processo de verificação em 2 etapas. Para usar o Google Authenticator, instale o aplicativo Google Authenticator em seu dispositivo móvel.')}}</p>
                     </div>
 
                     <div class="card-footer">
-                        <a class="btn btn--primary btn-block" href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en" target="_blank">@lang('DOWNLOAD APP')</a>
+                        <a class="btn btn--primary btn-block" href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en" target="_blank">@lang('Baixar APP')</a>
                     </div>
                 </div>
             </div>
@@ -127,7 +127,7 @@
         {
             document.getElementById('code').select();
             document.execCommand('copy');
-            notify('success', 'Copied successfully');
+            notify('success', 'Copiado!');
         }
     </script>
 @endpush

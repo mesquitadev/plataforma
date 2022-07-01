@@ -5,7 +5,7 @@
         <div class="row justify-content-center mt-2">
             <div class="col-lg-8 ">
                 <div class="card card-deposit">
-                    <h5 class="text-center my-3">@lang('Current Balance') :
+                    <h5 class="text-center my-3">@lang('Saldo') :
                         <strong>{{ getAmount(auth()->user()->balance)}}  {{ $general->cur_text }}</strong></h5>
                     <span class="text-center">
                         @php
@@ -18,31 +18,31 @@
 
                                 <ul  class="list-group text-center">
                                     <li class="list-group-item">
-                                        <span class="font-weight-bold">@lang('Request Amount') :
+                                        <span class="font-weight-bold">@lang('Quantidade Solicitada') :
                                         {{getAmount($withdraw->amount)  }} {{$general->cur_text }}  </span>
                                     </li>
 
                                     <li class="list-group-item">
-                                        <span class="font-weight-bold">@lang('Withdrawal Charge') :
+                                        <span class="font-weight-bold">@lang('Taxa') :
                                          {{getAmount($withdraw->charge) }} {{$general->cur_text }} </span>
                                     </li>
                                     <li class="list-group-item">
-                                        <span class="font-weight-bold">@lang('After Charge') :
+                                        <span class="font-weight-bold">@lang('Depois da Taxa') :
                                          {{getAmount($withdraw->after_charge) }} {{$general->cur_text }} </span>
                                     </li>
                                     <li class="list-group-item">
-                                        <span class="font-weight-bold">@lang('Conversion Rate') : 1 {{$general->cur_text }} =
+                                        <span class="font-weight-bold">@lang('Referência') : 1 {{$general->cur_text }} =
                                          {{getAmount($withdraw->rate)  }} {{$withdraw->currency }} </span>
                                     </li>
                                     <li class="list-group-item">
-                                        <span class="font-weight-bold">@lang('You Will Get')
+                                        <span class="font-weight-bold">@lang('Você Recebe')
                                             {{getAmount($withdraw->final_amount)  }} {{$withdraw->currency }} </span>
                                     </li>
                                 </ul>
                                 <div class="form-group mt-5">
-                                    <label class="font-weight-bold">@lang('Balance Will be') : </label>
+                                    <label class="font-weight-bold">@lang('O Saldo será: ') : </label>
                                     <div class="input-group">
-                                        <input type="text" value="{{getAmount($withdraw->user->balance - ($withdraw->amount))}}"  class="form-control form-control-lg" placeholder="@lang('Enter Amount')" required readonly>
+                                        <input type="text" value="{{getAmount($withdraw->user->balance - ($withdraw->amount))}}"  class="form-control form-control-lg" placeholder="@lang('Quantidade')" required readonly>
                                         <div class="input-group-prepend">
                                             <span class="input-group-text ">{{ $general->cur_text }} </span>
                                         </div>
@@ -84,12 +84,12 @@
 
                                                     <div class="img-input-div">
                                                                 <span class="btn btn--info btn-file">
-                                                                    <span class="fileinput-new text-white"> @lang('Select') {{$v->field_level}}</span>
-                                                                    <span class="fileinput-exists text-white"> @lang('Change')</span>
+                                                                    <span class="fileinput-new text-white"> @lang('Selecionar') {{$v->field_level}}</span>
+                                                                    <span class="fileinput-exists text-white"> @lang('Alterar')</span>
                                                                     <input type="file" name="{{$k}}" accept="image/*" @if($v->validation == "required") required @endif>
                                                                 </span>
                                                         <a href="#" class="btn btn--danger fileinput-exists"
-                                                           data-dismiss="fileinput"> @lang('Remove')</a>
+                                                           data-dismiss="fileinput"> @lang('Remover')</a>
                                                     </div>
 
                                                 </div>
@@ -103,7 +103,7 @@
                                     @endif
 
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn--success btn-block btn-lg mt-4 text-center">@lang('Confirm')</button>
+                                        <button type="submit" class="btn btn--success btn-block btn-lg mt-4 text-center">@lang('Confirmar')</button>
                                     </div>
                                 </form>
                             </div>

@@ -11,9 +11,9 @@
                             <thead>
                             <tr>
                                 <th scope="col">@lang('SL')</th>
-                                <th scope="col">@lang('Subject')</th>
+                                <th scope="col">@lang('Assunto')</th>
                                 <th scope="col">@lang('Status')</th>
-                                <th scope="col">@lang('Last Reply')</th>
+                                <th scope="col">@lang('Última Interação')</th>
                                 <th scope="col">@lang('Ação')</th>
                             </tr>
                             </thead>
@@ -21,22 +21,22 @@
                             @foreach($supports as $key => $support)
                                 <tr>
                                     <td data-label="@lang('SL')">{{$key+1}}</td>
-                                    <td data-label="@lang('Subject')"> <a href="{{ route('ticket.view', $support->ticket) }}" class="font-weight-bold"> [@lang('Ticket')#{{ $support->ticket }}] {{ $support->subject }} </a></td>
+                                    <td data-label="@lang('Assunto')"> <a href="{{ route('ticket.view', $support->ticket) }}" class="font-weight-bold"> [@lang('Ticket')#{{ $support->ticket }}] {{ $support->subject }} </a></td>
                                     <td data-label="@lang('Status')">
                                         @if($support->status == 0)
-                                            <span class="badge badge--success">@lang('Open')</span>
+                                            <span class="badge badge--success">@lang('Aberto')</span>
                                         @elseif($support->status == 1)
-                                            <span class="badge badge--primary ">@lang('Answered')</span>
+                                            <span class="badge badge--primary ">@lang('Respondido')</span>
                                         @elseif($support->status == 2)
-                                            <span class="badge badge--warning">@lang('Reply')</span>
+                                            <span class="badge badge--warning">@lang('Responder')</span>
                                         @elseif($support->status == 3)
-                                            <span class="badge badge--dark">@lang('Closed')</span>
+                                            <span class="badge badge--dark">@lang('Fechado')</span>
                                         @endif
                                     </td>
                                     <td data-label="@lang('Last Reply')">{{ \Carbon\Carbon::parse($support->last_reply)->diffForHumans() }} </td>
 
                                     <td data-label="@lang('Ação')">
-                                        <a href="{{ route('ticket.view', $support->ticket) }}" class="icon-btn" data-toggle="tooltip" title="" data-original-title="@lang('Details')">
+                                        <a href="{{ route('ticket.view', $support->ticket) }}" class="icon-btn" data-toggle="tooltip" title="" data-original-title="@lang('Detalhes')">
                                             <i class="las la-desktop text--shadow"></i>
                                         </a>
 
@@ -59,7 +59,7 @@
 
 
 @push('breadcrumb-plugins')
-    <a href="{{route('ticket.open') }}" class="btn btn-sm btn--success box--shadow1 text--small"><i class="las la-plus-circle"></i>@lang('New Ticket')</a>
+    <a href="{{route('ticket.open') }}" class="btn btn-sm btn--success box--shadow1 text--small"><i class="las la-plus-circle"></i>@lang('Abrir Ticket')</a>
 @endpush
 
 @push('script')

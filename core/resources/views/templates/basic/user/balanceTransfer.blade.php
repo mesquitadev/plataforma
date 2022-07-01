@@ -6,12 +6,12 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title font-weight-normal">@lang('Balance Transfer')</h4>
+                        <h4 class="card-title font-weight-normal">@lang('Transferências')</h4>
                     </div>
                     <div class="col-md-12 text-center">
                         <div class="alert block-none alert-danger p-2" role="alert">
-                            <strong>@lang('Balance Transfer Charge') {{getAmount($general->bal_trans_fixed_charge)}} {{__($general->cur_text)}} @lang('Fixed and')  {{getAmount($general->bal_trans_per_charge)}}
-                                % @lang('of your total amount to transfer balance.')</strong>
+                            <strong>@lang('A taxa de transferência fixa é') {{getAmount($general->bal_trans_fixed_charge)}} {{__($general->cur_text)}} @lang('ou')  {{getAmount($general->bal_trans_per_charge)}}
+                                % @lang(' do total do valor transferido.')</strong>
                             <p id="after-balance"></p>
                         </div>
                     </div>
@@ -20,23 +20,23 @@
                         <div class="card-body">
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                      <label> <h5>  @lang('Username / Email To Send Amount')  <span class="text-danger">*</span> </h5></label>
+                                      <label> <h5>  @lang('Usuário / Email Para Enviar Saldo')  <span class="text-danger">*</span> </h5></label>
                                     <input type="text" class="form-control form-control-lg" id="username" name="username"
-                                           placeholder="@lang('username / email')" required autocomplete="off">
+                                           placeholder="@lang('usuário / email')" required autocomplete="off">
                                     <span id="position-test"></span>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="InputMail">
-                                        <h5>@lang('Transfer Amount')<span class="requred">*</span> </h5>
+                                        <h5>@lang('Valor')<span class="requred">*</span> </h5>
                                     </label>
-                                    <input onkeyup="this.value = this.value.replace (/^\.|[^\d\.]/g, '')"  class="form-control form-control-lg" autocomplete="off" id="amount" name="amount" placeholder="@lang('Amount') {{__($general->cur_text)}}" required>
+                                    <input onkeyup="this.value = this.value.replace (/^\.|[^\d\.]/g, '')"  class="form-control form-control-lg" autocomplete="off" id="amount" name="amount" placeholder="@lang('Valor') {{__($general->cur_text)}}" required>
                                     <span id="balance-message"></span>
                                 </div>
                             </div>
                         </div>
                         <div class="card-footer">
                             <div class="form-group col-md-12 text-center">
-                                <button type="submit" class=" btn btn-block btn--primary mr-2">@lang('Transfer Balance')</button>
+                                <button type="submit" class=" btn btn-block btn--primary mr-2">@lang('Transferir')</button>
                             </div>
                         </div>
                     </form>
@@ -63,9 +63,9 @@
                         },
                         success: function (data) {
                             if (data.success) {
-                                $('#position-test').html('<div class="text--success mt-1">@lang("User found")</div>');
+                                $('#position-test').html('<div class="text--success mt-1">@lang("Usuário Encontrado")</div>');
                             } else {
-                                $('#position-test').html('<div class="text--danger mt-2">@lang("User not found")</div>');
+                                $('#position-test').html('<div class="text--danger mt-2">@lang("Usuário não Encontrado")</div>');
                             }
                         }
                     });
@@ -82,10 +82,10 @@
                 var with_charge = amount+fixed_charge+percent;
                 if(with_charge > balance)
                 {
-                    $('#after-balance').html('<p  class="text-danger">' + with_charge  + ' {{$general->cur_text}} ' + ' {{__('will be subtracted from your balance')}}' + '</p>');
+                    $('#after-balance').html('<p  class="text-danger">' + with_charge  + ' {{$general->cur_text}} ' + ' {{__('será subtraído do seu saldo')}}' + '</p>');
                     $('#balance-message').html('<small class="text-danger">Insufficient Balance!</small>');
                 } else if (with_charge <= balance) {
-                    $('#after-balance').html('<p class="text-danger">' + with_charge  + ' {{$general->cur_text}} ' + ' {{__('will be subtracted from your balance')}}' + '</p>');
+                    $('#after-balance').html('<p class="text-danger">' + with_charge  + ' {{$general->cur_text}} ' + ' {{__('será subtraído do seu saldo')}}' + '</p>');
                     $('#balance-message').html('');
                 }
             });

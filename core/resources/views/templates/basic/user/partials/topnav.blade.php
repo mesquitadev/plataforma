@@ -6,7 +6,7 @@
             <i class="las la-search"></i>
         </button>
         <input type="search" name="navbar-search__field" id="navbar-search__field"
-               placeholder="@lang('Search...')">
+               placeholder="@lang('Buscar...')">
         <button type="button" class="navbar-search__close"><i class="las la-times"></i></button>
 
         <div id="navbar_search_result_area">
@@ -49,17 +49,17 @@
                     <a href="{{route('user.profile-setting')}}"
                        class="dropdown-menu__item d-flex align-items-center px-3 py-2">
                         <i class="dropdown-menu__icon las la-user-circle"></i>
-                        <span class="dropdown-menu__caption">@lang('Profile')</span>
+                        <span class="dropdown-menu__caption">@lang('Perfil')</span>
                     </a>
                     <a href="{{route('user.change-password')}}"
                        class="dropdown-menu__item d-flex align-items-center px-3 py-2">
                         <i class="dropdown-menu__icon las la-key"></i>
-                        <span class="dropdown-menu__caption">@lang('Password')</span>
+                        <span class="dropdown-menu__caption">@lang('Senha')</span>
                     </a>
                     <a href="{{ route('user.logout') }}"
                        class="dropdown-menu__item d-flex align-items-center px-3 py-2">
                         <i class="dropdown-menu__icon las la-sign-out-alt"></i>
-                        <span class="dropdown-menu__caption">@lang('Logout')</span>
+                        <span class="dropdown-menu__caption">@lang('Sair')</span>
                     </a>
                 </div>
             </li>
