@@ -29,11 +29,11 @@ class ReportController extends Controller
                 $data['logs'] = BvLog::where('trx_type', '+')->orderBy('id', 'desc')->with('user')->paginate(config('constants.table.default'));
             }
         }else{
-            $data['page_title'] = "BV LOG";
+            $data['page_title'] = "Log de Pontos";
             $data['logs'] = BvLog::orderBy('id', 'desc')->paginate(config('constants.table.default'));
         }
 
-        $data['empty_message'] = 'No data found';
+        $data['empty_message'] = 'Sem dados encontrados.';
         return view('admin.reports.bvLog', $data);
     }
 

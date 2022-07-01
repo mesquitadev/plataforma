@@ -115,18 +115,18 @@ class PlanController extends Controller
                 $data['logs'] = BvLog::where('user_id', auth()->id())->where('trx_type', '+')->orderBy('id', 'desc')->paginate(config('constants.table.default'));
             }
         } else {
-            $data['page_title'] = "BV LOG";
+            $data['page_title'] = "Log de Pontuações";
             $data['logs'] = BvLog::where('user_id', auth()->id())->orderBy('id', 'desc')->paginate(config('constants.table.default'));
         }
 
-        $data['empty_message'] = 'No data found';
+        $data['empty_message'] = 'Sem dados encontrados.';
         return view($this->activeTemplate . '.user.bvLog', $data);
     }
 
     public function myRefLog()
     {
-        $data['page_title'] = "My Referral";
-        $data['empty_message'] = 'No data found';
+        $data['page_title'] = "Meus Indicados";
+        $data['empty_message'] = 'Sem dados encontrados.';
         $data['logs'] = User::where('ref_id', auth()->id())->latest()->paginate(config('constants.table.default'));
         return view($this->activeTemplate . '.user.myRef', $data);
     }
@@ -134,7 +134,7 @@ class PlanController extends Controller
     public function myTree()
     {
         $data['tree'] = showTreePage(Auth::id());
-        $data['page_title'] = "My Tree";
+        $data['page_title'] = "Minha Rede";
         return view($this->activeTemplate . 'user.myTree', $data);
     }
 
@@ -148,7 +148,7 @@ class PlanController extends Controller
         }
         if ($user && treeAuth($user->id, auth()->id())) {
             $data['tree'] = showTreePage($user->id);
-            $data['page_title'] = "Tree of " . $user->fullname;
+            $data['page_title'] = "Rede do " . $user->fullname;
             return view($this->activeTemplate . 'user.myTree', $data);
         }
 

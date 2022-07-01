@@ -21,10 +21,10 @@ class UserReportController extends Controller
 
         $search = $request->search;
         if ($search) {
-            $data['page_title'] = "Matching Bonus search : " . $search;
+            $data['page_title'] = "Busca dos Pontos : " . $search;
             $data['transactions'] = auth()->user()->transactions()->where('remark', 'matching_bonus')->where('trx', 'like', "%$search%")->latest()->paginate(getPaginate());
         } else {
-            $data['page_title'] = 'Matching Bonus';
+            $data['page_title'] = 'Bonus de Correspondência';
             $data['transactions'] = auth()->user()->transactions()->where('remark', 'matching_bonus')->latest()->paginate(getPaginate());
         }
         $data['search'] = $search;
@@ -39,10 +39,10 @@ class UserReportController extends Controller
 
         $search = $request->search;
         if ($search) {
-            $data['page_title'] = "Invest search : " . $search;
+            $data['page_title'] = "Buscar Investimentos : " . $search;
             $data['transactions'] = auth()->user()->transactions()->where('remark', 'purchased_plan')->where('trx', 'like', "%$search%")->latest()->paginate(getPaginate());
         } else {
-            $data['page_title'] = 'Invest Log';
+            $data['page_title'] = 'Log de Investimentos';
             $data['transactions'] = auth()->user()->transactions()->where('remark', 'purchased_plan')->latest()->paginate(getPaginate());
         }
         $data['search'] = $search;
@@ -74,14 +74,14 @@ class UserReportController extends Controller
     {
         $search = $request->search;
         if ($search) {
-            $data['page_title'] = "Referral Commissions search : " . $search;
+            $data['page_title'] = "Busca de Comissão por Indicação : " . $search;
             $data['transactions'] = auth()->user()->transactions()->where('remark', 'referral_commission')->where('trx', 'like', "%$search%")->latest()->paginate(getPaginate());
         } else {
-            $data['page_title'] = 'Referral Commissions';
+            $data['page_title'] = 'Comissões de Indicação';
             $data['transactions'] = auth()->user()->transactions()->where('remark', 'referral_commission')->latest()->paginate(getPaginate());
         }
         $data['search'] = $search;
-        $data['empty_message'] = 'No data found.';
+        $data['empty_message'] = 'Sem dados Encontrados.';
         return view($this->activeTemplate . 'user.transactions', $data);
 
     }
@@ -91,14 +91,14 @@ class UserReportController extends Controller
 
         $search = $request->search;
         if ($search) {
-            $data['page_title'] = "Transaction search : " . $search;
+            $data['page_title'] = "Buscar Transações : " . $search;
             $data['transactions'] = auth()->user()->transactions()->where('trx', 'like', "%$search%")->latest()->paginate(getPaginate());
         } else {
-            $data['page_title'] = 'Transaction Log';
+            $data['page_title'] = 'Log de Transação';
             $data['transactions'] = auth()->user()->transactions()->latest()->paginate(getPaginate());
         }
         $data['search'] = $search;
-        $data['empty_message'] = 'No transactions.';
+        $data['empty_message'] = 'Sem dados encontrados.';
         return view($this->activeTemplate . 'user.transactions', $data);
 
     }
@@ -109,10 +109,10 @@ class UserReportController extends Controller
         $search = $request->search;
 
         if ($search) {
-            $data['page_title'] = "Deposit search : " . $search;
+            $data['page_title'] = "Buscar Depósito : " . $search;
             $data['logs'] = auth()->user()->deposits()->where('trx', 'like', "%$search%")->with(['gateway'])->latest()->paginate(getPaginate());
         } else {
-            $data['page_title'] = 'Deposit Log';
+            $data['page_title'] = 'Log de Depósitos';
             $data['logs'] = auth()->user()->deposits()->with(['gateway'])->latest()->paginate(getPaginate());
         }
         $data['search'] = $search;
@@ -128,10 +128,10 @@ class UserReportController extends Controller
         $search = $request->search;
 
         if ($search) {
-            $data['page_title'] = "Withdraw search : " . $search;
+            $data['page_title'] = "Buscar Saques : " . $search;
             $data['withdraws'] = auth()->user()->withdrawals()->where('trx', 'like', "%$search%")->with('method')->latest()->paginate(getPaginate());
         } else {
-            $data['page_title'] = "Withdraw Log";
+            $data['page_title'] = "Log de Saques";
             $data['withdraws'] = auth()->user()->withdrawals()->with('method')->latest()->paginate(getPaginate());
         }
         $data['search'] = $search;

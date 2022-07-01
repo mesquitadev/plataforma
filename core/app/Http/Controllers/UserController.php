@@ -144,7 +144,7 @@ class UserController extends Controller
     public function withdrawMoney()
     {
         $data['withdrawMethod'] = WithdrawMethod::whereStatus(1)->get();
-        $data['page_title'] = "Withdraw Money";
+        $data['page_title'] = "Sacar";
         return view(activeTemplate() . 'user.withdraw.methods', $data);
     }
 
@@ -193,7 +193,7 @@ class UserController extends Controller
     public function withdrawPreview()
     {
         $data['withdraw'] = Withdrawal::with('method','user')->where('trx', session()->get('wtrx'))->where('status', 0)->latest()->firstOrFail();
-        $data['page_title'] = "Withdraw Preview";
+        $data['page_title'] = "Preview do Saque";
         return view($this->activeTemplate . 'user.withdraw.preview', $data);
     }
 
@@ -310,9 +310,9 @@ class UserController extends Controller
 
     public function withdrawLog()
     {
-        $data['page_title'] = "Withdraw Log";
+        $data['page_title'] = "Log de Saques";
         $data['withdraws'] = Withdrawal::where('user_id', Auth::id())->where('status', '!=', 0)->with('method')->latest()->paginate(getPaginate());
-        $data['empty_message'] = "No Data Found!";
+        $data['empty_message'] = "Sem dados encontrados.";
         return view($this->activeTemplate.'user.withdraw.log', $data);
     }
 
