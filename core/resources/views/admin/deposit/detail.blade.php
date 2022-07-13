@@ -13,10 +13,10 @@
                             @lang('Data')
                             <span class="font-weight-bold">{{ showDateTime($deposit->created_at) }}</span>
                         </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            @lang('Transação')
-                            <span class="font-weight-bold">{{ $deposit->trx }}</span>
-                        </li>
+{{--                        <li class="list-group-item d-flex justify-content-between align-items-center">--}}
+{{--                            @lang('Transação')--}}
+{{--                            <span class="font-weight-bold">{{ $deposit->trx }}</span>--}}
+{{--                        </li>--}}
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             @lang('Usuário')
                             <span class="font-weight-bold">

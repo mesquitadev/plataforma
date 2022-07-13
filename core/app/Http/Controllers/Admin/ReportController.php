@@ -29,7 +29,7 @@ class ReportController extends Controller
                 $data['logs'] = BvLog::where('trx_type', '+')->orderBy('id', 'desc')->with('user')->paginate(config('constants.table.default'));
             }
         }else{
-            $data['page_title'] = "Log de Pontos";
+            $data['page_title'] = "Meu Volume";
             $data['logs'] = BvLog::orderBy('id', 'desc')->paginate(config('constants.table.default'));
         }
 

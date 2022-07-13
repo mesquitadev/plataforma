@@ -9,7 +9,6 @@
                         <table class="table table--light style--two">
                             <thead>
                             <tr>
-                                <th scope="col">@lang('Transação')</th>
                                 <th scope="col">@lang('Gateway')</th>
                                 <th scope="col">@lang('Quantidade')</th>
                                 <th scope="col">@lang('Status')</th>
@@ -21,7 +20,6 @@
                             @if(count($logs) >0)
                                 @foreach($logs as $k=>$data)
                                     <tr>
-                                        <td data-label="#@lang('Transação')">{{$data->trx}}</td>
                                         <td data-label="@lang('Gateway')">{{__($data->gateway->name)}}</td>
                                         <td data-label="@lang('Quantidade')">
                                             <strong>{{getAmount($data->amount)}} {{$general->cur_text}}</strong>

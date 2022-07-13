@@ -9,11 +9,9 @@
                         <table class="table table--light style--two">
                             <thead>
                             <tr>
-                                <th scope="col">@lang('Transação')</th>
                                 <th scope="col">@lang('Gateway')</th>
                                 <th scope="col">@lang('Quantidade')</th>
                                 <th scope="col">@lang('Taxa')</th>
-                                <th scope="col">@lang('Depois da Taxa')</th>
                                 <th scope="col">@lang('Referência')</th>
                                 <th scope="col">@lang('Recebível')</th>
                                 <th scope="col">@lang('Status')</th>
@@ -23,16 +21,12 @@
                             <tbody>
                             @forelse($withdraws as $k=>$data)
                                 <tr>
-                                    <td data-label="#@lang('Transação')">{{$data->trx}}</td>
                                     <td data-label="@lang('Gateway')">{{ $data->method->name   }}</td>
                                     <td data-label="@lang('Quantidade')">
                                         <strong>{{getAmount($data->amount)}} {{$general->cur_text}}</strong>
                                     </td>
                                     <td data-label="@lang('Taxa')" class="text--danger">
                                         {{getAmount($data->charge)}} {{$general->cur_text}}
-                                    </td>
-                                    <td data-label="@lang('Depois da Taxa')">
-                                        {{getAmount($data->after_charge)}} {{$general->cur_text}}
                                     </td>
                                     <td data-label="@lang('Referência')">
                                         {{getAmount($data->rate)}} {{$data->currency}}

@@ -15,7 +15,7 @@
                 <li class="sidebar-menu-item {{menuActive('user.home')}}">
                     <a href="{{route('user.home')}}" class="nav-link ">
                         <i class="menu-icon las la-home"></i>
-                        <span class="menu-title">@lang('Dashboard')</span>
+                        <span class="menu-title">@lang('Meu Negócio')</span>
                     </a>
                 </li>
                 <li class="sidebar-menu-item {{menuActive('user.plan.index')}}">
@@ -30,7 +30,7 @@
                 <li class="sidebar-menu-item {{ menuActive('user.bv.log') }}">
                     <a href="{{ route('user.bv.log') }}" class="nav-link">
                         <i class="menu-icon las la-sitemap"></i>
-                        <span class="menu-title">@lang('Log de Pontos')</span>
+                        <span class="menu-title">@lang('Meu Volume')</span>
                     </a>
                 </li>
                 <li class="sidebar-menu-item {{ menuActive('user.my.ref') }}">
@@ -39,12 +39,7 @@
                         <span class="menu-title">@lang('Meus Indicados')</span>
                     </a>
                 </li>
-                <li class="sidebar-menu-item {{ menuActive('user.my.tree') }}">
-                    <a href="{{ route('user.my.tree') }}" class="nav-link">
-                        <i class="menu-icon las la-tree"></i>
-                        <span class="menu-title">@lang('Minha Rede')</span>
-                    </a>
-                </li>
+
                 <li class="sidebar-menu-item {{ menuActive('user.deposit') }}">
                     <a href="{{ route('user.deposit') }}" class="nav-link">
                         <i class=" menu-icon las la-credit-card"></i>

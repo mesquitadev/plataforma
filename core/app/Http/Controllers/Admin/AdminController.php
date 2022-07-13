@@ -24,7 +24,7 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-        $page_title = 'Dashboard';
+        $page_title = 'Meu Negócio';
 
         // User Info
         $widget['total_users'] = User::count();

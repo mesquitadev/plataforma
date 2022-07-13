@@ -340,7 +340,7 @@ Route::name('user.')->prefix('user')->group(function () {
         Route::post('verify-g2fa', 'AuthorizationController@g2faVerification')->name('go2fa.verify');
 
         Route::middleware(['checkStatus'])->group(function () {
-            Route::get('dashboard', 'UserController@home')->name('home');
+            Route::get('dashboard', 'PlanController@bvlog')->name('home');
 
             Route::get('profile-setting', 'UserController@profile')->name('profile-setting');
             Route::post('profile-setting', 'UserController@submitProfile');

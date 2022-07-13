@@ -7,13 +7,13 @@
                         <a class="site-logo site-title" href="{{url('/')}}">
                             <img src="{{getImage(imagePath()['logoIcon']['path'] .'/logo.png')}}"  alt="@lang('site-logo')">
                         </a>
-                        <div class="language-select-area d-block d-lg-none ml-auto">
-                            <select class="language-select langSel">
-                                @foreach($language as $item)
-                                    <option value="{{$item->code}}" @if(session('lang') == $item->code) selected  @endif>{{ __($item->name) }}</option>
-                                @endforeach
-                            </select>
-                        </div>
+{{--                        <div class="language-select-area d-block d-lg-none ml-auto">--}}
+{{--                            <select class="language-select langSel">--}}
+{{--                                @foreach($language as $item)--}}
+{{--                                    <option value="{{$item->code}}" @if(session('lang') == $item->code) selected  @endif>{{ __($item->name) }}</option>--}}
+{{--                                @endforeach--}}
+{{--                            </select>--}}
+{{--                        </div>--}}
                         <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -21,25 +21,25 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav main-menu ml-auto">
-                                <li><a href="{{url('/')}}">@lang('Inicio')</a></li>
-                                @foreach($pages as $k => $data)
-                                    <li><a href="{{route('pages',[$data->slug])}}">{{trans($data->name)}}</a></li>
-                                @endforeach
-                                <li><a href="{{route('blog')}}">@lang('Blog')</a></li>
-                                <li><a href="{{route('contact')}}">@lang('Contato')</a></li>
+{{--                                <li><a href="{{url('/')}}">@lang('Inicio')</a></li>--}}
+{{--                                @foreach($pages as $k => $data)--}}
+{{--                                    <li><a href="{{route('pages',[$data->slug])}}">{{trans($data->name)}}</a></li>--}}
+{{--                                @endforeach--}}
+{{--                                <li><a href="{{route('blog')}}">@lang('Blog')</a></li>--}}
+{{--                                <li><a href="{{route('contact')}}">@lang('Contato')</a></li>--}}
 
                                 @auth
                                     <li><a href="{{route('user.home')}}">@lang('Dashboard')</a></li>
                                 @endauth
                             </ul>
 
-                            <div class="language-select-area d-none d-lg-block">
-                                <select class="language-select langSel">
-                                    @foreach($language as $item)
-                                        <option value="{{$item->code}}" @if(session('lang') == $item->code) selected  @endif>{{ __($item->name) }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+{{--                            <div class="language-select-area d-none d-lg-block">--}}
+{{--                                <select class="language-select langSel">--}}
+{{--                                    @foreach($language as $item)--}}
+{{--                                        <option value="{{$item->code}}" @if(session('lang') == $item->code) selected  @endif>{{ __($item->name) }}</option>--}}
+{{--                                    @endforeach--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
                             <div class="header-action">
                                 @guest
                                     <a href="{{route('user.register')}}" class="btn--base">@lang('Criar Conta')</a>

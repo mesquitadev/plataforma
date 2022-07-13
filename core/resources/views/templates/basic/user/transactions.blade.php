@@ -12,10 +12,10 @@
                             <tr>
                                 <th scope="col">@lang('SL')</th>
                                 <th scope="col">@lang('Data')</th>
-                                <th scope="col">@lang('Transação')</th>
+
                                 <th scope="col">@lang('Valor')</th>
                                 <th scope="col">@lang('Taxa')</th>
-                                <th scope="col">@lang('Pós-Saldo')</th>
+
                                 <th scope="col">@lang('Detalhe')</th>
                             </tr>
                             </thead>
@@ -24,14 +24,13 @@
                                 <tr>
                                     <td data-label="@lang('SL')">{{ $transactions->firstItem()+$loop->index }}</td>
                                     <td data-label="@lang('Data')">{{ showDateTime($trx->created_at) }}</td>
-                                    <td data-label="@lang('Transação')" class="font-weight-bold">{{ $trx->trx }}</td>
+
                                     <td data-label="@lang('Valor')" class="budget">
                                         <strong @if($trx->trx_type == '+') class="text-success"
                                                 @else class="text-danger" @endif> {{($trx->trx_type == '+') ? '+':'-'}} {{getAmount($trx->amount)}} {{$general->cur_text}}</strong>
                                     </td>
                                     <td data-label="@lang('Taxa')"
                                         class="budget">{{ $general->cur_sym }} {{ getAmount($trx->charge) }} </td>
-                                    <td data-label="@lang('Pós-Saldo')">{{ $trx->post_balance +0 }} {{$general->cur_text}}</td>
                                     <td data-label="@lang('Detalhe')">{{ __($trx->details) }}</td>
                                 </tr>
                             @empty

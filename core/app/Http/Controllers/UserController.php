@@ -26,7 +26,7 @@ class UserController extends Controller
     public function home()
     {
 
-        $data['page_title']         = "Dashboard";
+        $data['page_title']         = "Meu Negócio";
         $data['totalDeposit']       = Deposit::where('user_id', auth()->id())->where('status', 1)->sum('amount');
         $data['totalWithdraw']      = Withdrawal::where('user_id', auth()->id())->where('status', 1)->sum('amount');
         $data['completeWithdraw']   = Withdrawal::where('user_id', auth()->id())->where('status', 1)->count();
@@ -310,7 +310,7 @@ class UserController extends Controller
 
     public function withdrawLog()
     {
-        $data['page_title'] = "Log de Saques";
+        $data['page_title'] = "Extrato de Saques";
         $data['withdraws'] = Withdrawal::where('user_id', Auth::id())->where('status', '!=', 0)->with('method')->latest()->paginate(getPaginate());
         $data['empty_message'] = "Sem dados encontrados.";
         return view($this->activeTemplate.'user.withdraw.log', $data);

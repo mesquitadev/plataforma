@@ -115,7 +115,7 @@ class PlanController extends Controller
                 $data['logs'] = BvLog::where('user_id', auth()->id())->where('trx_type', '+')->orderBy('id', 'desc')->paginate(config('constants.table.default'));
             }
         } else {
-            $data['page_title'] = "Log de Pontuações";
+            $data['page_title'] = "Meu Volume";
             $data['logs'] = BvLog::where('user_id', auth()->id())->orderBy('id', 'desc')->paginate(config('constants.table.default'));
         }
 
