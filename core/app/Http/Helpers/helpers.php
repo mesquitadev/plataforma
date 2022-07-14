@@ -788,20 +788,6 @@ function createBVLog($user_id, $lr, $amount, $details){
     $bvlog->save();
 }
 
-
-function mlmWidth()
-{
-    return 2;
-}
-
-function mlmPositions()
-{
-    return array(
-        '1' => 'Left',
-        '2' => 'Right',
-    );
-}
-
 function getPosition($parentid, $position)
 {
     $childid = getTreeChildId($parentid, $position);
@@ -868,92 +854,13 @@ function getPositionLocation($id)
     }
 }
 
-function updateFreeCount($id)
-{
-    while ($id != "" || $id != "0") {
-        if (isUserExists($id)) {
-            $posid = getPositionId($id);
-            if ($posid == "0") {
-                break;
-            }
-            $position = getPositionLocation($id);
-
-            $extra = UserExtra::where('user_id', $posid)->first();
-
-            if ($position == 1) {
-                $extra->free_left += 1;
-            } else {
-                $extra->free_right += 1;
-            }
-            $extra->save();
-
-            $id = $posid;
-
-        } else {
-            break;
-        }
-    }
-
-}
-
 function updatePaidCount($id)
 {
     while ($id != "" || $id != "0") {
         if (isUserExists($id)) {
-            $posid = getPositionId($id);
-            if ($posid == "0") {
-                break;
-            }
-            $position = getPositionLocation($id);
+            $extra = UserExtra::where('user_id', $id)->first();
 
-            $extra = UserExtra::where('user_id', $posid)->first();
-
-            if ($position == 1) {
-                $extra->free_left -= 1;
-                $extra->paid_left += 1;
-            } else {
-                $extra->free_right -= 1;
-                $extra->paid_right += 1;
-            }
             $extra->save();
-            $id = $posid;
-        } else {
-            break;
-        }
-    }
-
-}
-
-
-function updateBV($id, $bv, $details)
-{
-    while ($id != "" || $id != "0") {
-        if (isUserExists($id)) {
-            $posid = getPositionId($id);
-            if ($posid == "0") {
-                break;
-            }
-            $posUser = User::find($posid);
-            if ($posUser->plan_id != 0) {
-                $position = getPositionLocation($id);
-                $extra = UserExtra::where('user_id', $posid)->first();
-                $bvlog = new BvLog();
-                $bvlog->user_id = $posid;
-
-                if ($position == 1) {
-                    $extra->bv_left += $bv;
-                    $bvlog->position = '1';
-                } else {
-                    $extra->bv_right += $bv;
-                    $bvlog->position = '2';
-                }
-                $extra->save();
-                $bvlog->amount = $bv;
-                $bvlog->trx_type = '+';
-                $bvlog->details = $details;
-                $bvlog->save();
-            }
-            $id = $posid;
         } else {
             break;
         }
@@ -964,16 +871,10 @@ function updateBV($id, $bv, $details)
 
 function treeComission($id, $amount, $details)
 {
-    $fromUser = User::find($id);
-
     while ($id != "" || $id != "0") {
         if (isUserExists($id)) {
-            $posid = getPositionId($id);
-            if ($posid == "0") {
-                break;
-            }
 
-            $posUser = User::find($posid);
+            $posUser = User::find($id);
             if ($posUser->plan_id != 0) {
 
                 $posUser->balance  += $amount;
@@ -992,7 +893,6 @@ function treeComission($id, $amount, $details)
 
 
             }
-            $id = $posid;
         } else {
             break;
         }

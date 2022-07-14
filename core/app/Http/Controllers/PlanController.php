@@ -41,84 +41,50 @@ class PlanController extends Controller
             return back()->withNotify($notify);
         }
 
-            $oldPlan = $user->plan_id;
-            $user->plan_id = $plan->id;
-            $user->balance -= $plan->price;
-            $user->total_invest += $plan->price;
-            $user->save();
+        $oldPlan = $user->plan_id;
+        $user->plan_id = $plan->id;
+        $user->balance -= $plan->price;
+        $user->total_invest += $plan->price;
+        $user->save();
 
-            $trx = $user->transactions()->create([
-                'amount' => $plan->price,
-                'trx_type' => '-',
-                'details' => 'Purchased ' . $plan->name,
-                'remark' => 'purchased_plan',
-                'trx' => getTrx(),
-                'post_balance' => getAmount($user->balance),
-            ]);
+        $trx = $user->transactions()->create([
+            'amount' => $plan->price,
+            'trx_type' => '-',
+            'details' => 'Purchased ' . $plan->name,
+            'remark' => 'purchased_plan',
+            'trx' => getTrx(),
+            'post_balance' => getAmount($user->balance),
+        ]);
 
-            notify($user, 'plan_purchased', [
-                'plan' => $plan->name,
-                'amount' => getAmount($plan->price),
-                'currency' => $gnl->cur_text,
-                'trx' => $trx->trx,
-                'post_balance' => getAmount($user->balance) . ' ' . $gnl->cur_text,
-            ]);
-            if ($oldPlan == 0) {
-                updatePaidCount($user->id);
-            }
-            $details = Auth::user()->username . ' Subscribed to ' . $plan->name . ' plan.';
-
-            updateBV($user->id, $plan->bv, $details);
-
-            if ($plan->tree_com > 0) {
-                treeComission($user->id, $plan->tree_com, $details);
-            }
-
-            referralComission($user->id, $details);
-
-            $notify[] = ['success', 'Comprado ' . $plan->name . ' com sucesso'];
-            return redirect()->route('user.home')->withNotify($notify);
-
-    }
+        notify($user, 'plan_purchased', [
+            'plan' => $plan->name,
+            'amount' => getAmount($plan->price),
+            'currency' => $gnl->cur_text,
+            'trx' => $trx->trx,
+            'post_balance' => getAmount($user->balance) . ' ' . $gnl->cur_text,
+        ]);
+        if ($oldPlan == 0) {
+            updatePaidCount($user->id);
+        }
+        $details = Auth::user()->username . ' Subscribed to ' . $plan->name . ' plan.';
 
 
-    public function binaryCom()
-    {
-        $data['page_title'] = "Binary Commission";
-        $data['logs'] = Transaction::where('user_id', auth()->id())->where('remark', 'binary_commission')->orderBy('id', 'DESC')->paginate(config('constants.table.default'));
-        $data['empty_message'] = 'No data found';
-        return view($this->activeTemplate . '.user.transactions', $data);
-    }
+        if ($plan->tree_com > 0) {
+            treeComission($user->id, $plan->tree_com, $details);
+        }
 
-    public function binarySummery()
-    {
-        $data['page_title'] = "Binary Summery";
-        $data['logs'] = UserExtra::where('user_id', auth()->id())->firstOrFail();
-        return view($this->activeTemplate . '.user.binarySummery', $data);
+        referralComission($user->id, $details);
+
+        $notify[] = ['success', 'Comprado ' . $plan->name . ' com sucesso'];
+        return redirect()->route('user.home')->withNotify($notify);
+
     }
 
     public function bvlog(Request $request)
     {
 
-        if ($request->type) {
-            if ($request->type == 'leftBV') {
-                $data['page_title'] = "Left BV";
-                $data['logs'] = BvLog::where('user_id', auth()->id())->where('position', 1)->where('trx_type', '+')->orderBy('id', 'desc')->paginate(config('constants.table.default'));
-            } elseif ($request->type == 'rightBV') {
-                $data['page_title'] = "Right BV";
-                $data['logs'] = BvLog::where('user_id', auth()->id())->where('position', 2)->where('trx_type', '+')->orderBy('id', 'desc')->paginate(config('constants.table.default'));
-            } elseif ($request->type == 'cutBV') {
-                $data['page_title'] = "Cut BV";
-                $data['logs'] = BvLog::where('user_id', auth()->id())->where('trx_type', '-')->orderBy('id', 'desc')->paginate(config('constants.table.default'));
-            } else {
-                $data['page_title'] = "All Paid BV";
-                $data['logs'] = BvLog::where('user_id', auth()->id())->where('trx_type', '+')->orderBy('id', 'desc')->paginate(config('constants.table.default'));
-            }
-        } else {
-            $data['page_title'] = "Meu Volume";
-            $data['logs'] = BvLog::where('user_id', auth()->id())->orderBy('id', 'desc')->paginate(config('constants.table.default'));
-        }
-
+        $data['page_title'] = "Meu Volume";
+        $data['logs'] = BvLog::where('user_id', auth()->id())->orderBy('id', 'desc')->paginate(config('constants.table.default'));
         $data['empty_message'] = 'Sem dados encontrados.';
         return view($this->activeTemplate . '.user.bvLog', $data);
     }

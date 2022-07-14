@@ -48,7 +48,7 @@
 <!-- jQuery library -->
 <script src="{{asset($activeTemplateTrue.'users/js/vendor/jquery-3.5.1.min.js')}}"></script>
 <!-- bootstrap js -->
-<script src="{{asset($activeTemplateTrue.'users/js/vendor/bootstrap.bundle.min.js')}}"></script></script>
+<script src="{{asset($activeTemplateTrue.'users/js/vendor/bootstrap.bundle.min.js')}}"></script>
 <!-- bootstrap-toggle js -->
 <script src="{{asset($activeTemplateTrue.'users/js/vendor/bootstrap-toggle.min.js')}}"></script>
 

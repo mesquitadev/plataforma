@@ -66,36 +66,17 @@ class RegisterController extends Controller
                 return redirect()->route('home')->withNotify($notify);
             }
 
-            if ($request->position == 'left') {
+            $join_under = User::find($ref_user->id);
 
-                $position = 1;
-            } elseif ($request->position == 'right') {
-                $position = 2;
-            } else {
-                $notify[] = ['error', 'Posição de indicação inválida'];
-                return redirect()->route('home')->withNotify($notify);
-            }
 
-            $pos = getPosition($ref_user->id, $position);
-
-            $join_under = User::find($pos['pos_id']);
-
-            if ($pos['position'] == 1)
-                $get_position = 'Left';
-
-            else {
-                $get_position = 'Right';
-            }
-
-            $joining = "<span class='help-block2'><strong class='custom-green' >Your are joining under $join_under->username at $get_position  </strong></span>";
+            $joining = "<span class='help-block2'><strong class='custom-green' >Your are joining under $join_under->username  </strong></span>";
 
             $page_title = "Criar Conta";
-            return view($this->activeTemplate . 'user.auth.register', compact('page_title', 'ref_user', 'joining', 'content',  'position', 'country_code'));
+            return view($this->activeTemplate . 'user.auth.register', compact('page_title', 'ref_user', 'joining', 'content', 'country_code'));
 
         }
 
         $ref_user = null;
-        $joining = null;
         $page_title = "Criar Conta";
         return view($this->activeTemplate . 'user.auth.register', compact('page_title', 'ref_user', 'content', 'country_code'));
 
@@ -114,7 +95,6 @@ class RegisterController extends Controller
 
         $validate = Validator::make($data, [
             'referral'      => 'required|string|max:160',
-            'position'      => 'required|integer',
             'firstname'     => 'sometimes|required|string|max:60',
             'lastname'      => 'sometimes|required|string|max:60',
             'email'         => 'required|string|email|max:160|unique:users',
@@ -174,7 +154,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array $data
-     * @return \App\User
+     * @return User|\App\User
      */
     protected function create(array $data)
     {
@@ -182,14 +162,11 @@ class RegisterController extends Controller
         $gnl = GeneralSetting::first();
 
         $userCheck = User::where('username', $data['referral'])->first();
-        $pos = getPosition($userCheck->id, $data['position']);
 
 
         //User Create
         $user = new User();
         $user->ref_id       = $userCheck->id;
-        $user->pos_id       = $pos['pos_id'];
-        $user->position     = $pos['position'];
         $user->firstname    = isset($data['firstname']) ? $data['firstname'] : null;
         $user->lastname     = isset($data['lastname']) ? $data['lastname'] : null;
         $user->email        = strtolower(trim($data['email']));
@@ -214,7 +191,7 @@ class RegisterController extends Controller
 
         $adminNotification = new AdminNotification();
         $adminNotification->user_id = $user->id;
-        $adminNotification->title = 'New member registered';
+        $adminNotification->title = 'Novo usuário cadastrado';
         $adminNotification->click_url = route('admin.users.detail',$user->id);
         $adminNotification->save();
 
@@ -253,7 +230,6 @@ class RegisterController extends Controller
     }
 
     protected function strongPassCheck($password){
-        $password = $password;
         $capital = '/[ABCDEFGHIJKLMNOPQRSTUVWXYZ]/';
         $capital = preg_match($capital,$password);
         $notify = null;
@@ -278,7 +254,6 @@ class RegisterController extends Controller
         $user_extras = new UserExtra();
         $user_extras->user_id = $user->id;
         $user_extras->save();
-        updateFreeCount($user->id);
         return redirect()->route('user.home');
     }
 

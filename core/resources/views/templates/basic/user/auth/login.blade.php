@@ -1,9 +1,6 @@
 @extends($activeTemplate.'layouts.master')
 
 @section('content')
-
-    @include($activeTemplate.'layouts.breadcrumb')
-
     <section class="account-section padding-bottom padding-top">
         <div class="container">
             <div class="account-wrapper">
@@ -15,7 +12,7 @@
                                 <h4 class="title">{{__(@$content->data_values->register_section_title)}}</h4>
                                 <p>{{__(@$content->data_values->register_section_short_details)}}</p>
                                 <a href="{{route('user.register')}}"
-                                   class="custom-button account-control-button">@lang('Entrar')</a>
+                                   class="custom-button account-control-button">@lang('Cadastre-se')</a>
                             </div>
                         </div>
                         <div class="col-lg-6 p-0">

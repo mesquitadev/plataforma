@@ -38,19 +38,6 @@
                                                 <span id="referral"></span>
                                             </div>
                                         </div>
-                                        <div class="col-md-6 ">
-                                            <div class="form-group ">
-                                                <select name="position" class="position" id="position" required
-                                                        disabled>
-                                                    <option value="">@lang('Selecionar Posição')*</option>
-                                                    @foreach(mlmPositions() as $k=> $v)
-                                                        <option value="{{$k}}">@lang($v)</option>
-                                                    @endforeach
-                                                </select>
-                                                <span id="position-test"><span
-                                                        class="text-danger">@lang('Digite o código do patrocinador primeiro')</span></span>
-                                            </div>
-                                        </div>
                                     @else
                                         <div class="col-md-6 ">
                                             <div class="form-group ">
@@ -61,19 +48,6 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-6">
-                                            <div class="form-group ">
-                                                <select class="position" id="position" required disabled>
-                                                    <option value="">@lang('Selecionar Posição')*</option>
-                                                    @foreach(mlmPositions() as $k=> $v)
-                                                        <option @if($position == $k) selected
-                                                                @endif value="{{$k}}">@lang($v)</option>
-                                                    @endforeach
-                                                </select>
-                                                <input type="hidden" name="position" value="{{$position}}">
-                                                @php echo $joining; @endphp
-                                            </div>
-                                        </div>
                                     @endif
 
                                     <div class="col-md-6">
@@ -194,7 +168,6 @@
 
         (function ($) {
             "use strict";
-            var not_select_msg = $('#position-test').html();
             $(document).on('keyup', '#ref_name', function () {
                 var ref_id = $('#ref_name').val();
                 var token = "{{csrf_token()}}";
@@ -206,38 +179,10 @@
                         '_token': token
                     },
                     success: function (data) {
-                        if (data.success) {
-                            $('select[name=position]').removeAttr('disabled');
-                            $('#position-test').text('');
-                        } else {
-                            $('select[name=position]').attr('disabled', true);
-                            $('#position-test').html(not_select_msg);
-                        }
                         $("#ref").html(data.msg);
                     }
                 });
             });
-            $(document).on('change', '#position', function () {
-                updateHand();
-            });
-
-            function updateHand() {
-                var pos = $('#position').val();
-                var referrer_id = $('#referrer_id').val();
-                var token = "{{csrf_token()}}";
-                $.ajax({
-                    type: "POST",
-                    url: "{{route('get.user.position')}}",
-                    data: {
-                        'referrer': referrer_id,
-                        'position': pos,
-                        '_token': token
-                    },
-                    success: function (data) {
-                        $("#position-test").html(data.msg);
-                    }
-                });
-            }
 
             @if(@$country_code)
             $(`option[data-code={{ $country_code }}]`).attr('selected', '');
@@ -287,9 +232,6 @@
             });
             @endif
 
-            @if(old('position'))
-            $(`select[name=position]`).val('{{ old('position') }}');
-            @endif
 
         })(jQuery);
 
