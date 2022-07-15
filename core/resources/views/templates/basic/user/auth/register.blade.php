@@ -2,8 +2,6 @@
 
 @section('content')
 
-    @include($activeTemplate.'layouts.breadcrumb')
-
 
     <section class="account-section padding-bottom padding-top">
         <div class="container">
