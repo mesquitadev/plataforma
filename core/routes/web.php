@@ -416,7 +416,7 @@ Route::get('/blog', 'SiteController@blog')->name('blog');
 Route::get('/blog/details/{slug}/{id}', 'SiteController@singleBlog')->name('singleBlog');
 Route::get('/terms-conditions', 'SiteController@terms')->name('terms');
 
-Route::get('/', 'SiteController@index')->name('home');
+Route::get('/', 'Auth\LoginController@showLoginForm')->name('home');
 Route::get('/{slug}', 'SiteController@pages')->name('pages');
 
 Route::get('placeholder-image/{size}', 'SiteController@placeholderImage')->name('placeholderImage');
