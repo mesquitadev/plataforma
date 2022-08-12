@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{asset($activeTemplateTrue . 'frontend/css/odometer.css')}}">
     <link rel="stylesheet" href="{{asset($activeTemplateTrue . 'frontend/css/line-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset($activeTemplateTrue . 'frontend/css/animate.css')}}">
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue . 'frontend/css/carousel.css')}}">
 
     @stack('style-lib')
     <link rel="stylesheet" href="{{asset($activeTemplateTrue . 'frontend/css/style.css')}}">

@@ -42,8 +42,9 @@ class UserReportController extends Controller
             $data['page_title'] = "Buscar Investimentos : " . $search;
             $data['transactions'] = auth()->user()->transactions()->where('remark', 'purchased_plan')->where('trx', 'like', "%$search%")->latest()->paginate(getPaginate());
         } else {
-            $data['page_title'] = 'Log de Investimentos';
+            $data['page_title'] = 'Meus Investimentos';
             $data['transactions'] = auth()->user()->transactions()->where('remark', 'purchased_plan')->latest()->paginate(getPaginate());
+            $data['amount_invest'] = Transaction::where('remark', 'purchased_plan')->with('user')->sum('amount');
         }
         $data['search'] = $search;
 

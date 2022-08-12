@@ -1,6 +1,7 @@
 @extends($activeTemplate . 'user.layouts.app')
 
 @section('panel')
+    <div class="container">
     <div class="row">
         <div class="col-lg-12">
             <div class="card b-radius--10 overflow-hidden">
@@ -47,6 +48,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 @endsection

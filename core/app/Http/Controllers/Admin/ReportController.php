@@ -107,6 +107,7 @@ class ReportController extends Controller
             $transactions = Transaction::where('user_id', $user->id)->where('remark', 'purchased_plan')->with('user')->latest()->paginate(getPaginate());
         }else {
             $page_title = 'Log de Investimento';
+            $amount_invest = Transaction::where('remark', 'purchased_plan')->with('user')->sum('amount');
             $transactions = Transaction::where('remark', 'purchased_plan')->with('user')->latest()->paginate(getPaginate());
         }
 
