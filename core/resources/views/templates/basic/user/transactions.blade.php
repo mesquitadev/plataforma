@@ -14,7 +14,7 @@
                         <span class="amount">{{getAmount(auth()->user()->total_invest)}}</span>
                     </div>
                     <div class="desciption">
-                        <span class="text--small">@lang('Total Investido')</span>
+                        <span class="text--small">@lang('Capital Investido')</span>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@
                         <span class="amount">{{getAmount(auth()->user()->total_ref_com)}}</span>
                     </div>
                     <div class="desciption">
-                        <span class="text--small">@lang('Bonus por Indicação')</span>
+                        <span class="text--small">@lang('Total de Bônus')</span>
                     </div>
                 </div>
             </div>

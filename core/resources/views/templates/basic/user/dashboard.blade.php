@@ -24,7 +24,10 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">@lang('Compre Agora')</h5>
-                        <button type="button" class="btn btn-warning btn-block">Compre Agora</button>
+                        <a href="{{route('user.plan.index')}}" class="btn btn-warning btn-block ">
+                            <i class="menu-icon las la-lightbulb"></i>
+                            <span class="menu-title">@lang('Compre Agora')</span>
+                        </a>
                     </div>
                 </div>
             </div>

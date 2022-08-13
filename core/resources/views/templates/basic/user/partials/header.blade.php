@@ -42,7 +42,7 @@
                             <li class="dropdown-item {{menuActive('user.report.invest')}}">
                                 <a href="{{route('user.report.invest')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Investimentos')</span>
+                                    <span class="menu-title">@lang('Meu Volume')</span>
                                 </a>
                             </li>
                             <li class="dropdown-item {{menuActive('user.report.refCom')}}">
@@ -51,31 +51,11 @@
                                     <span class="menu-title">@lang('Meus Ganhos')</span>
                                 </a>
                             </li>
-
-                            <li class="dropdown-submenu">
-                                <a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown-submenu">
-                                <a class="dropdown-item dropdown-toggle" href="#">Second subsubmenu</a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
-                                </ul>
-                            </li>
                         </ul>
                     </div>
                 </li>
 
-                <li class="nav-item {{ menuActive('user.bv.log') }}">
-                    <a href="{{ route('user.bv.log') }}" class="nav-link">
-                        <i class="menu-icon las la-sitemap"></i>
-                        <span class="menu-title">@lang('Meu Volume')</span>
-                    </a>
-                </li>
+
                 <li class="nav-item {{menuActive('user.plan.index')}}">
                     <a href="{{route('user.plan.index')}}" class="nav-link ">
                         <i class="menu-icon las la-lightbulb"></i>
@@ -91,61 +71,31 @@
                     </a>
                 </li>
 
-                <li class="nav-item {{ menuActive('user.deposit') }}">
-                    <a href="{{ route('user.deposit') }}" class="nav-link">
-                        <i class=" menu-icon las la-credit-card"></i>
-                        <span class="menu-title">@lang('Depositar')</span>
-                    </a>
-                </li>
-                <li class="nav-item {{ menuActive('user.withdraw') }}">
-                    <a href="{{ route('user.withdraw') }}" class="nav-link">
-                        <i class="menu-icon las la-cloud-download-alt"></i>
-                        <span class="menu-title">@lang('Sacar')</span>
-                    </a>
-                </li>
-                <li class="nav-item dropdown {{menuActive('user.report*',3)}}">
+                <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown08"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
                             class="menu-icon las la-exchange-alt"></i>
-                        <span class="menu-title">@lang('Relatórios') / @lang('Logs')</span></a>
+                        <span class="menu-title">@lang('Financeiro')</span></a>
                     <div class="dropdown-menu {{menuActive('user.report*',2)}}  " aria-labelledby="dropdown08">
+
                         <ul>
-                            <li class="dropdown-item {{menuActive('user.report.transactions')}} ">
-                                <a href="{{route('user.report.transactions')}}" class="nav-link">
-                                    <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Transações')</span>
+                            <li class="nav-item {{ menuActive('user.deposit') }}">
+                                <a href="{{ route('user.deposit') }}" class="nav-link">
+                                    <i class=" menu-icon las la-credit-card"></i>
+                                    <span class="menu-title">@lang('Depositar')</span>
                                 </a>
                             </li>
-
-                            <li class="dropdown-item {{menuActive('user.report.deposit')}}">
-                                <a href="{{route('user.report.deposit')}}" class="nav-link">
-                                    <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Depósitos')</span>
-                                </a>
-                            </li>
-
-                            <li class="dropdown-item {{menuActive('user.report.withdraw')}}">
-                                <a href="{{route('user.report.withdraw')}}" class="nav-link">
-                                    <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Saques')</span>
-                                </a>
-                            </li>
-
-                            <li class="dropdown-item {{menuActive('user.report.invest')}}">
-                                <a href="{{route('user.report.invest')}}" class="nav-link">
-                                    <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Investimentos')</span>
-                                </a>
-                            </li>
-                            <li class="dropdown-item {{menuActive('user.report.refCom')}}">
-                                <a href="{{route('user.report.refCom')}}" class="nav-link">
-                                    <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Comissões de Indicação')</span>
+                            <li class="nav-item {{ menuActive('user.withdraw') }}">
+                                <a href="{{ route('user.withdraw') }}" class="nav-link">
+                                    <i class="menu-icon las la-cloud-download-alt"></i>
+                                    <span class="menu-title">@lang('Sacar')</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </li>
+
+
                 <li class="nav-item {{ menuActive('user.profile-setting') }}">
                     <a href="{{ route('user.profile-setting') }}" class="nav-link">
                         <i class="menu-icon las la-user"></i>
