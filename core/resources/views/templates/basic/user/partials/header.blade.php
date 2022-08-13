@@ -67,7 +67,7 @@
                 <li class="nav-item {{ menuActive('user.my.ref') }}">
                     <a href="{{ route('user.my.ref') }}" class="nav-link">
                         <i class="menu-icon las la-users"></i>
-                        <span class="menu-title">@lang('Meus Indicados')</span>
+                        <span class="menu-title">@lang('Minha Linha Descendente')</span>
                     </a>
                 </li>
 
