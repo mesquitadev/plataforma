@@ -2,39 +2,6 @@
 
 @section('panel')
     <div class="row">
-        <div class="col-lg-12 mb-5">
-            <div class="card mt-3">
-                <div class="card-header">
-                    <h4 class="card-title font-weight-normal">@lang('Meu link de Indicação')</h4>
-                </div>
-                <div class="card-body">
-                    <h4 class="card-title font-weight-normal">@lang('Entrar como Esquerda')</h4>
-                    <form id="copyBoard" >
-                        <div class="form-row align-items-center">
-                            <div class="col-md-10 my-1">
-                                <input value="{{route('user.register')}}/?ref={{auth()->user()->username}}&position=left" type="url" id="ref" class="form-control from-control-lg" readonly>
-                            </div>
-                            <div class="col-md-2 my-1">
-                                <button   type="button" @click="copyBtnClick" data-copytarget="#ref" id="copybtn" class="btn btn--primary btn-block"> <i class="fa fa-copy"></i> @lang('Copiar')</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="card-body">
-                    <h4 class="card-title font-weight-normal">@lang('Entrar como Direita')</h4>
-                    <form id="copyBoard2" >
-                        <div class="form-row align-items-center">
-                            <div class="col-md-10 my-1">
-                                <input value="{{route('user.register')}}?ref={{auth()->user()->username}}&position=right" type="url" id="ref2" class="form-control from-control-lg" readonly>
-                            </div>
-                            <div class="col-md-2 my-1">
-                                <button   type="button" @click="copyBtnClick" data-copytarget="#ref2" id="copybtn2" class="btn btn--primary btn-block"> <i class="fa fa-copy"></i> @lang('Copiar')</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
 
         <div class="col-lg-12 ">
             <div class="card b-radius--10 overflow-hidden">
@@ -52,6 +19,7 @@
                             </tr>
                             </thead>
                             <tbody>
+
                             @forelse($logs as $key=>$data)
                                 <tr>
                                     <td data-label="@lang('Sl')" >{{$logs->firstItem()+$key}}</td>
