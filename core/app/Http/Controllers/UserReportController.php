@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BvLog;
+use App\Models\Deposit;
 use App\Models\Transaction;
+use App\Models\User;
 use App\Models\Withdrawal;
 use App\Models\WithdrawMethod;
 use Illuminate\Http\Request;
@@ -45,6 +48,14 @@ class UserReportController extends Controller
             $data['page_title'] = 'Meus Investimentos';
             $data['transactions'] = auth()->user()->transactions()->where('remark', 'purchased_plan')->latest()->paginate(getPaginate());
             $data['amount_invest'] = Transaction::where('remark', 'purchased_plan')->with('user')->sum('amount');
+
+            $data['totalDeposit']       = Deposit::where('user_id', auth()->id())->where('status', 1)->sum('amount');
+            $data['totalWithdraw']      = Withdrawal::where('user_id', auth()->id())->where('status', 1)->sum('amount');
+            $data['completeWithdraw']   = Withdrawal::where('user_id', auth()->id())->where('status', 1)->count();
+            $data['pendingWithdraw']    = Withdrawal::where('user_id', auth()->id())->where('status', 2)->count();
+            $data['rejectWithdraw']     = Withdrawal::where('user_id', auth()->id())->where('status', 3)->count();
+            $data['total_ref']          = User::where('ref_id', auth()->id())->count();
+            $data['totalBvCut']         = BvLog::where('user_id', auth()->id())->where('trx_type', '-')->sum('amount');
         }
         $data['search'] = $search;
 
@@ -63,6 +74,7 @@ class UserReportController extends Controller
         } else {
             $data['page_title'] = 'Binary Commissions';
             $data['transactions'] = auth()->user()->transactions()->where('remark', 'binary_commission')->latest()->paginate(getPaginate());
+
         }
         $data['search'] = $search;
 
@@ -80,6 +92,14 @@ class UserReportController extends Controller
         } else {
             $data['page_title'] = 'Comissões de Indicação';
             $data['transactions'] = auth()->user()->transactions()->where('remark', 'referral_commission')->latest()->paginate(getPaginate());
+
+            $data['totalDeposit']       = Deposit::where('user_id', auth()->id())->where('status', 1)->sum('amount');
+            $data['totalWithdraw']      = Withdrawal::where('user_id', auth()->id())->where('status', 1)->sum('amount');
+            $data['completeWithdraw']   = Withdrawal::where('user_id', auth()->id())->where('status', 1)->count();
+            $data['pendingWithdraw']    = Withdrawal::where('user_id', auth()->id())->where('status', 2)->count();
+            $data['rejectWithdraw']     = Withdrawal::where('user_id', auth()->id())->where('status', 3)->count();
+            $data['total_ref']          = User::where('ref_id', auth()->id())->count();
+            $data['totalBvCut']         = BvLog::where('user_id', auth()->id())->where('trx_type', '-')->sum('amount');
         }
         $data['search'] = $search;
         $data['empty_message'] = 'Sem dados Encontrados.';

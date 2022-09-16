@@ -96,7 +96,7 @@ class MlmController extends Controller
         $setting->matching_when = $when;
         $setting->save();
 
-        $notify[] = ['success', 'Regras de Bonus / Comissão atualizados.'];
+        $notify[] = ['success', 'Regras de Bonus atualizados.'];
         return back()->withNotify($notify);
 
     }

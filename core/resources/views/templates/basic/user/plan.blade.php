@@ -10,19 +10,19 @@
                             <h2 class="package-name mb-20 text-"><strong>@lang($data->name)</strong></h2>
                             <span class="price text--dark font-weight-bold d-block">{{$general->cur_sym}}{{getAmount($data->price)}}</span>
                             <hr>
-                            <ul class="package-features-list mt-30">
-                                <li><i class="fas fa-check bg--success"></i> <span>@lang('Bônus por Volume da Rede'): {{getAmount($data->bv)}}</span>   <span class="icon" data-toggle="modal" data-target="#bvInfoModal"><i
-                                            class="fas fa-question-circle"></i></span></li>
-                                <li><i class="fas fa-check bg--success"></i> <span> @lang('Comissão por Indicação'): {{$general->cur_sym}} {{getAmount($data->ref_com)}} </span>
-                                    <span class="icon" data-toggle="modal" data-target="#refComInfoModal"><i
-                                    class="fas fa-question-circle"></i></span>
-                                </li>
-                                <li>
-                                    <i class="fas @if(getAmount($data->tree_com) != 0) fa-check bg--success @else fa-times bg--danger @endif "></i>  <span>@lang('Comissão da Rede'): {{$general->cur_sym}} {{getAmount($data->tree_com)}} </span>
-                                     <span class="icon" data-toggle="modal" data-target="#treeComInfoModal"><i
-                                    class="fas fa-question-circle"></i></span>
-                                </li>
-                            </ul>
+{{--                            <ul class="package-features-list mt-30">--}}
+{{--                                <li><i class="fas fa-check bg--success"></i> <span>@lang('Bônus por Volume da Rede'): {{getAmount($data->bv)}}</span>   <span class="icon" data-toggle="modal" data-target="#bvInfoModal"><i--}}
+{{--                                            class="fas fa-question-circle"></i></span></li>--}}
+{{--                                <li><i class="fas fa-check bg--success"></i> <span> @lang('Comissão por Indicação'): {{$general->cur_sym}} {{getAmount($data->ref_com)}} </span>--}}
+{{--                                    <span class="icon" data-toggle="modal" data-target="#refComInfoModal"><i--}}
+{{--                                    class="fas fa-question-circle"></i></span>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <i class="fas @if(getAmount($data->tree_com) != 0) fa-check bg--success @else fa-times bg--danger @endif "></i>  <span>@lang('Comissão da Rede'): {{$general->cur_sym}} {{getAmount($data->tree_com)}} </span>--}}
+{{--                                     <span class="icon" data-toggle="modal" data-target="#treeComInfoModal"><i--}}
+{{--                                    class="fas fa-question-circle"></i></span>--}}
+{{--                                </li>--}}
+{{--                            </ul>--}}
                         </div>
                         @if(Auth::user()->plan_id != $data->id)
                             <a href="#confBuyModal{{$data->id}}" data-toggle="modal" class="btn w-100 btn-outline--primary  mt-20 py-2 box--shadow1">@lang('Assinar')</a>

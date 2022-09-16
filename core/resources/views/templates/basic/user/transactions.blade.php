@@ -4,6 +4,23 @@
     <div class="row">
 
         <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
+            <div class="dashboard-w1 bg--12 b-radius--10 box-shadow">
+                <div class="icon">
+                    <i class="las la-money-bill"></i>
+                </div>
+                <div class="details">
+                    <div class="numbers">
+                        <span class="currency-sign">{{$general->cur_text}}</span>
+                        <span class="amount">{{getAmount(auth()->user()->balance)}}</span>
+                    </div>
+                    <div class="desciption">
+                        <span class="text--small">@lang('Saldo')</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
             <div class="dashboard-w1 bg--cyan b-radius--10 box-shadow">
                 <div class="icon">
                     <i class="las la-money-bill-wave"></i>
@@ -36,6 +53,26 @@
                 </div>
             </div>
         </div>
+
+
+        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
+            <div class="dashboard-w1 bg--12 b-radius--10 box-shadow">
+                <div class="icon">
+                    <i class="las la-money-bill"></i>
+                </div>
+                <div class="details">
+                    <div class="numbers">
+                        <span class="currency-sign">{{$general->cur_text}}</span>
+                        <span class="amount">{{getAmount($completeWithdraw)}}</span>
+                    </div>
+                    <div class="desciption">
+                        <span class="text--small">@lang('Total Sacado')</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <div class="col-lg-12">
             <div class="card b-radius--10 ">
                 <div class="card-body p-0">
@@ -49,7 +86,7 @@
                                 <th scope="col">@lang('Valor')</th>
                                 <th scope="col">@lang('Taxa')</th>
 
-                                <th scope="col">@lang('Detalhe')</th>
+                                <th scope="col">@lang('Investimento')</th>
                             </tr>
                             </thead>
                             <tbody>

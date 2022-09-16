@@ -72,10 +72,10 @@ class ReportController extends Controller
         if ($request->userID)
         {
             $user = User::findOrFail($request->userID);
-            $page_title = $user->username . ' - Comissão por Indicação';
+            $page_title = $user->username . ' - Bônus por Indicação';
             $transactions = Transaction::where('user_id', $user->id)->where('remark', 'referral_commission')->with('user')->latest()->paginate(getPaginate());
         }else {
-            $page_title = 'Logs de Comissão por Indicação';
+            $page_title = 'Logs de Bônus por Indicação';
             $transactions = Transaction::where('remark', 'referral_commission')->with('user')->latest()->paginate(getPaginate());
         }
 
@@ -88,10 +88,10 @@ class ReportController extends Controller
         if ($request->userID)
         {
             $user = User::findOrFail($request->userID);
-            $page_title = $user->username . ' - Logs de Comissão Binária';
+            $page_title = $user->username . ' - Logs de Bônus';
             $transactions = Transaction::where('user_id', $user->id)->where('remark', 'binary_commission')->with('user')->latest()->paginate(getPaginate());
         }else {
-            $page_title = 'Logs de Comissão por Indicação';
+            $page_title = 'Logs de Bônus por Indicação';
             $transactions = Transaction::where('remark', 'binary_commission')->with('user')->latest()->paginate(getPaginate());
         }
 

@@ -8,7 +8,7 @@
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">@lang('Depósitos e Saques do Mês')</h5>
+                        <h5 class="card-title">@lang('Meu Negócio')</h5>
                         <div id="apex-bar-chart"></div>
                     </div>
                 </div>
@@ -23,10 +23,10 @@
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">@lang('Compre Agora')</h5>
+                        <h5 class="card-title">@lang('Invista Agora')</h5>
                         <a href="{{route('user.plan.index')}}" class="btn btn-warning btn-block ">
                             <i class="menu-icon las la-lightbulb"></i>
-                            <span class="menu-title">@lang('Compre Agora')</span>
+                            <span class="menu-title">@lang('Invista Agora')</span>
                         </a>
                     </div>
                 </div>
