@@ -3,24 +3,7 @@
 @section('panel')
     <div class="row">
 
-        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
-            <div class="dashboard-w1 bg--12 b-radius--10 box-shadow">
-                <div class="icon">
-                    <i class="las la-money-bill"></i>
-                </div>
-                <div class="details">
-                    <div class="numbers">
-                        <span class="currency-sign">{{$general->cur_text}}</span>
-                        <span class="amount">{{getAmount(auth()->user()->balance)}}</span>
-                    </div>
-                    <div class="desciption">
-                        <span class="text--small">@lang('Saldo')</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
+        <div class="col-xl-4 col-lg-4 col-sm-6 mb-30">
             <div class="dashboard-w1 bg--cyan b-radius--10 box-shadow">
                 <div class="icon">
                     <i class="las la-money-bill-wave"></i>
@@ -37,7 +20,27 @@
             </div>
         </div>
 
-        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
+
+        <div class="col-xl-4 col-lg-4 col-sm-6 mb-30">
+            <div class="dashboard-w1 bg--12 b-radius--10 box-shadow">
+                <div class="icon">
+                    <i class="las la-money-bill"></i>
+                </div>
+                <div class="details">
+                    <div class="numbers">
+                        <span class="currency-sign">{{$general->cur_text}}</span>
+                        <span class="amount">{{getAmount(auth()->user()->balance)}}</span>
+                    </div>
+                    <div class="desciption">
+                        <span class="text--small">@lang('Bônus Pessoais')</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-xl-4 col-lg-4 col-sm-6 mb-30">
             <div class="dashboard-w1 bg--12 b-radius--10 box-shadow">
                 <div class="icon">
                     <i class="las la-money-bill"></i>
@@ -48,14 +51,14 @@
                         <span class="amount">{{getAmount(auth()->user()->total_ref_com)}}</span>
                     </div>
                     <div class="desciption">
-                        <span class="text--small">@lang('Total de Bônus')</span>
+                        <span class="text--small">@lang('Bônus Indicados')</span>
                     </div>
                 </div>
             </div>
         </div>
 
 
-        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
+        <div class="col-xl-4 col-lg-4 col-sm-6 mb-30">
             <div class="dashboard-w1 bg--12 b-radius--10 box-shadow">
                 <div class="icon">
                     <i class="las la-money-bill"></i>
@@ -72,6 +75,23 @@
             </div>
         </div>
 
+        <div class="col-xl-4 col-lg-4 col-sm-6 mb-30">
+            <div class="dashboard-w1 bg--12 b-radius--10 box-shadow">
+                <div class="icon">
+                    <i class="las la-money-bill"></i>
+                </div>
+                <div class="details">
+                    <div class="numbers">
+                        <span class="currency-sign">{{$general->cur_text}}</span>
+                        <span class="amount">{{getAmount($completeWithdraw)}}</span>
+                    </div>
+                    <div class="desciption">
+                        <span class="text--small">@lang('Disponivel para Saque')</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <div class="col-lg-12">
             <div class="card b-radius--10 ">
@@ -80,7 +100,7 @@
                         <table class="table table--light style--two">
                             <thead>
                             <tr>
-                                <th scope="col">@lang('SL')</th>
+                                <th scope="col">@lang('Codigo')</th>
                                 <th scope="col">@lang('Data')</th>
 
                                 <th scope="col">@lang('Valor')</th>
@@ -97,8 +117,8 @@
                                     <td data-label="@lang('Data')">{{ showDateTime($trx->created_at) }}</td>
 
                                     <td data-label="@lang('Valor')" class="budget">
-                                        <strong @if($trx->trx_type == '+') class="text-success"
-                                                @else class="text-danger" @endif> {{($trx->trx_type == '+') ? '+':'-'}} {{getAmount($trx->amount)}} {{$general->cur_text}}</strong>
+                                        <strong @if($trx->trx_type == '+') class="text-danger"
+                                                @else class="text-success" @endif> {{($trx->trx_type == '+') ? '+':'-'}} {{getAmount($trx->amount)}} {{$general->cur_text}}</strong>
                                     </td>
                                     <td data-label="@lang('Taxa')"
                                         class="budget">{{ $general->cur_sym }} {{ getAmount($trx->charge) }} </td>
